@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testdata>
+   <hello name="测试数据">
+      <name>Webdriver</name>
+   </hello>
+</testdata>

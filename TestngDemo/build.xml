@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name= "TestngDemo" basedir= "." >
+    <property name= "lib.dir" value= "lib" /> 
+    <path id= "Test.classpath" >
+         <!-- adding the saxon jar to your classpath -->
+        <fileset dir= "${lib.dir}" includes= "*.jar" />
+    </path> 
+    <target name= "transform" >
+        <xslt in= "E:/Workspace/Java-Workspace/TestngDemo/test-output/testng-results.xml" style= "E:/Workspace/Java-Workspace/TestngDemo/test-output/testng-results.xsl" out= "E:/Workspace/Java-Workspace/TestngDemo/test-output/index1.html" >
+             <!-- you need to specify the directory here again --> 
+            <param name= "testNgXslt.outputDir" expression= "E:/Workspace/Java-Workspace/TestngTest/test-output/" /> 
+            <classpath refid= "Test.classpath" /> 
+        </xslt> 
+    </target> 
+</project> 
