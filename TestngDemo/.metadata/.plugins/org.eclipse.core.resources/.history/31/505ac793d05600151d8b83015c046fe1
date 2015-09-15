@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testdata>
-<login name="登录相关测试数据">
-<username>18311338905</username>
-<password>a000000</password>
-<checkpoint1>div.siteLgInner</checkpoint1>
-<value1>潜龙9527</value1>
-</login>
-</testdata>
