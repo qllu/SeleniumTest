@@ -12,7 +12,7 @@ import os
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("..")
-sys.path.append(os.getcwd()+"/src/")
+#sys.path.append(os.getcwd()+"/src/")
 sys.path.append(os.getcwd()+"/src/TestCases/TestCase_QT_Login.py")
 #引用测试用例文件
 from TestCases.TestCase_QT_Login import testcases_login
