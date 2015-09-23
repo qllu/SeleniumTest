@@ -32,7 +32,7 @@ class testsuit_all():
             # suite.addTest(testcases_sche('testsche'))
 
             now = time.strftime("%Y%m%d_%H%M%S_",time.localtime(time.time()))
-            filename = '../Report/' + now + 'result.html' 
+            #filename = '../Report/' + now + 'result.html' 
 			# filename = 'e:\\' + now + 'result.html'
 			#测试报告路径
 
