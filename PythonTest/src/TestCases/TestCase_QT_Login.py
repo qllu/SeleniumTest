@@ -1,0 +1,71 @@
+#coding=utf-8
+'''
+Created on 2015年8月12日
+
+@author: QLLU
+'''
+# from lib2to3.pgen2.driver import Driver
+import time
+import unittest
+# import xml.dom.minidom
+import HTMLTestRunner
+import sys,os
+sys.path.append("..")
+sys.path.append(os.getcwd()+"/src/")
+from CommonFunction.DataOperations import DataOperations
+from CommonFunction.QT_Operations import QT_Operations
+from CommonFunction.WebDriverHelp import WebDriverHelp
+
+
+#导入需要的公共函数类
+class testcases_login(unittest.TestCase):
+    '''
+        登录检测，更换用户登录
+    '''
+    def setUp(self):
+        WebDriverHelp("open","firefox","local").setup("grncn")#打开浏览器，并打开Grn403
+
+    def testlogin(self): 
+        
+        #读取测试数据     
+        dataoper=DataOperations('TestCase_QT_Login.xml')
+        
+        '''       
+        #设置起始节点为0，循环2次
+        num = 0
+        while num < 2:        
+            #登录用户
+            QT_Operations().login(dataoper.readxml('login', num, 'username'),dataoper.readxml('login', num, 'password'))  
+            #点击用户下拉菜单
+            WebDriverHelp().clickitem('byid', dataoper.readxml('login', num, 'item'))
+                   
+            checkpoint1 = WebDriverHelp().gettext('bycss',dataoper.readxml('login', num,'checkpoint'))
+            value1 = dataoper.readxml('login', num, 'value')        
+            self.assertEqual(checkpoint1,value1) 
+            #退出
+            QT_Operations().logout()
+            time.sleep(3)
+
+                        
+            num = num + 1  
+        '''
+        #登录用户
+        QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))  
+        #点击用户下拉菜单
+        WebDriverHelp().clickitem('byid', dataoper.readxml('login', 0, 'item'))
+               
+        checkpoint1 = WebDriverHelp().gettext('bycss',dataoper.readxml('login', 0,'checkpoint'))
+        value1 = dataoper.readxml('login', 0, 'value')        
+        self.assertEqual(checkpoint1,value1)         
+
+
+        #退出
+        QT_Operations().logout()
+        time.sleep(3) 
+
+        
+    def tearDown(self):
+        WebDriverHelp().teardown()#关闭浏览器
+       
+if __name__ == "__main__":   
+    unittest.main()
