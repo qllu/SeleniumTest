@@ -12,7 +12,7 @@ import os
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("..")
-# sys.path.append(os.getcwd()+"/src/")
+sys.path.append(os.getcwd()+"/src/")
 sys.path.append(os.getcwd()+"/src/TestCases/TestCase_QT_Login.py")
 #引用测试用例文件
 from TestCases.TestCase_QT_Login import testcases_login
@@ -32,8 +32,8 @@ class testsuit_all():
             # suite.addTest(testcases_sche('testsche'))
 
             now = time.strftime("%Y%m%d_%H%M%S_",time.localtime(time.time()))
-            # filename = '../Report/' + now + 'result.html' 
-			filename = 'e:\\' + now + 'result.html'
+            filename = '../Report/' + now + 'result.html' 
+			# filename = 'e:\\' + now + 'result.html'
 			#测试报告路径
 
             print filename
