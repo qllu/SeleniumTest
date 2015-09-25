@@ -59,6 +59,12 @@ class WebDriverHelp(object):
                     driver = webdriver.Remote(command_executor='http://10.20.5.56:4444/wd/hub',desired_capabilities=webdriver.DesiredCapabilities.FIREFOX)
                     driver.maximize_window() 
                     '''
+            elif(  atype == "htmlunit" ):
+                if(ctype == "local"):
+                    driver = webdriver.HtmlUnitDriver()
+#                     driver.maximize_window()
+                elif(ctype == "notlocal"): 
+                    print "不能执行HtmlUnit" 
                                   
         self.driver = driver
  

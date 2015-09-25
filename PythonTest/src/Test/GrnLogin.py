@@ -5,7 +5,8 @@ import unittest, time
 
 class Login(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        # self.driver = webdriver.Firefox()
+        self.driver = webdriver.Remote("http://localhost:4444/wd/hub", webdriver.DesiredCapabilities.HTMLUNITWITHJS)
         self.driver.implicitly_wait(30)
         self.base_url = "https://qatest01.cybozu.cn/"
         self.verificationErrors = []
