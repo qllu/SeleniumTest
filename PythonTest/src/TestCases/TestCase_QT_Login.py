@@ -28,8 +28,22 @@ class testcases_login(unittest.TestCase):
     def testlogin(self): 
         
         #读取测试数据     
-        dataoper=DataOperations('TestCase_QT_Login.xml')
-        
+        dataoper=DataOperations('TestCase_QT_Login.xml')        
+
+        #登录用户
+        QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))  
+        #点击用户下拉菜单
+        WebDriverHelp().clickitem('byid', dataoper.readxml('login', 0, 'item'))
+               
+        checkpoint1 = WebDriverHelp().gettext('bycss',dataoper.readxml('login', 0,'checkpoint'))
+        value1 = dataoper.readxml('login', 0, 'value')        
+        self.assertEqual(checkpoint1,value1)         
+
+
+        #退出
+        QT_Operations().logout()
+        time.sleep(3) 
+
         '''       
         #设置起始节点为0，循环2次
         num = 0
@@ -45,23 +59,9 @@ class testcases_login(unittest.TestCase):
             #退出
             QT_Operations().logout()
             time.sleep(3)
-
                         
             num = num + 1  
         '''
-        #登录用户
-        QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))  
-        #点击用户下拉菜单
-        WebDriverHelp().clickitem('byid', dataoper.readxml('login', 0, 'item'))
-               
-        checkpoint1 = WebDriverHelp().gettext('bycss',dataoper.readxml('login', 0,'checkpoint'))
-        value1 = dataoper.readxml('login', 0, 'value')        
-        self.assertEqual(checkpoint1,value1)         
-
-
-        #退出
-        QT_Operations().logout()
-        time.sleep(3) 
 
         
     def tearDown(self):
