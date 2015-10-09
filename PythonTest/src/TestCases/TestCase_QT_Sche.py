@@ -5,10 +5,9 @@ Created on 2015年8月12日
 @author: QLLU
 '''
 # from lib2to3.pgen2.driver import Driver
-import time
+import xml.dom.minidom
+# import time
 import unittest
-# import xml.dom.minidom
-import HTMLTestRunner
 import sys,os
 sys.path.append("..")
 sys.path.append(os.getcwd()+"/src/")
@@ -20,18 +19,18 @@ from CommonFunction.WebDriverHelp import WebDriverHelp
 #导入需要的公共函数类
 class testcases_sche(unittest.TestCase):
     '''
-        登录检测，更换用户登录
+    登录检测，更换用户登录
     '''
     def setUp(self):
-        WebDriverHelp("open","firefox","local").setup("grncn")#打开浏览器，并打开Grn403        
+        WebDriverHelp("open","firefox","local").setup("fcn")#打开浏览器，并打开forest
        
-    def testsche(self): 
+    def test_sche(self):
         
         #读取测试数据     
         dataoper=DataOperations('TestCase_QT_Sche.xml')         
 
         #登录用户
-        QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))  
+        QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))
 
         #点击日程登录菜单
         WebDriverHelp().clickitem('bycss', dataoper.readxml('sche', 0, 'sche_icon'))

@@ -23,15 +23,21 @@ class testcases_login(unittest.TestCase):
         登录检测，更换用户登录
     '''
     def setUp(self):
-        WebDriverHelp("open","firefox","local").setup("grncn")#打开浏览器，并打开Grn403
+        WebDriverHelp("open","firefox","local").setup("fcn")#打开浏览器，并打开forest
 
-    def testlogin(self): 
-        
+    def test_login(self):
+
+        grn_url = "https://qatest01.cybozu.cn/g/"
+
         #读取测试数据     
         dataoper=DataOperations('TestCase_QT_Login.xml')        
 
         #登录用户
-        QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))  
+        QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))
+
+        #进入Garoon
+        # WebDriverHelp().geturl("grn_url")
+
         #点击用户下拉菜单
         WebDriverHelp().clickitem('byid', dataoper.readxml('login', 0, 'item'))
                
