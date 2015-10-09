@@ -27,8 +27,8 @@ class testsuit_all():
             # suite.addTests(unittest.defaultTestLoader.loadTestsFromTestCase(testsuit_all)) #方法3
 
             suite = unittest.TestSuite() 
-            suite.addTest(testcases_login('testlogin')) 
-#             suite.addTest(testcases_sche('testsche'))
+            suite.addTest(testcases_login('test_login'))
+#             suite.addTest(testcases_sche('test_sche'))
 
             now = time.strftime("%Y%m%dT%H%M%S_",time.localtime(time.time()))
             filename = '../Report/' + now + 'result.html' #测试报告路径

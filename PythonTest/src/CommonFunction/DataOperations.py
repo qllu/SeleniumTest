@@ -12,12 +12,12 @@ global DOC,CONN
  
 class DataOperations(object):   
     '''
-        数据读取相关操作
+    数据读取相关操作
     '''
  
     def __init__(self,filename):
         '''
-                初始化xml文档
+        初始化xml文档
         '''
         global DOC,CONN        
         DOC = minidom.parse('../TestData/' + filename) #使用相对路径
@@ -26,7 +26,7 @@ class DataOperations(object):
           
     def readxml(self,ftagname,num,stagname):
         '''
-                从指定的文件中中读取指定节点的值
+        从指定的文件中中读取指定节点的值
         @param ftagname:起始节点的名称，如：project
         @param num:取与起始节点相同的第num个节点
         @param stagname: 起始节点下的二级节点
@@ -38,7 +38,7 @@ class DataOperations(object):
    
     def readxml_attribute(self,ftagname,num,stagname,attributeName):
         '''
-                从all_case.xml文件中读取节点的属性值
+        从all_case.xml文件中读取节点的属性值
         @param ftagname:起始节点的名称，如：project
         @param num:取与起始节点相同的第num个节点
         @param stagname: 起始节点下的二级节点

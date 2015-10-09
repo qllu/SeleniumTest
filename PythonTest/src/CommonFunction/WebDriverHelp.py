@@ -18,12 +18,12 @@ global G_WEBDRIVER, G_BROWSERTYTPE,driver
  
 class WebDriverHelp(object):
     '''
-        本类主要完成页面的基本操作，如打开指定的URL，对页面上在元素进行操作等
+    本类主要完成页面的基本操作，如打开指定的URL，对页面上在元素进行操作等
     '''
  
     def  __init__(self,btype="close",atype="firefox",ctype="local"):
         '''
-                根据用户定制，打开对应的浏览器
+        根据用户定制，打开对应的浏览器
         @param bType: 开关参数，如果为close则关闭浏览器
         @param aType:打开浏览器的类型，如chrome,firefox,ie等要测试的浏览器类型
         @param cType:打开本地或是远程浏览器： local,本地；notlocal：远程        '''
@@ -41,7 +41,7 @@ class WebDriverHelp(object):
             elif(  atype == "ie" ):
                 if(ctype == "local"): 
                     driver = webdriver.Ie()
-                    driver.maximize_window()
+                    # driver.maximize_window()
                 elif(ctype == "notlocal"):
                     print "不能打开IE"
                     driver = webdriver.Remote(command_executor='http://124.65.151.158:4444/wd/hub',desired_capabilities=webdriver.DesiredCapabilities.INTERNETEXPLORER)
@@ -50,7 +50,7 @@ class WebDriverHelp(object):
             elif(  atype == "firefox" ):
                 if(ctype == "local"):
                     driver = webdriver.Firefox()
-                    driver.maximize_window()
+                    # driver.maximize_window()
                 elif(ctype == "notlocal"):
                     print "不能打开firefox"
                     driver = webdriver.Remote(command_executor='http://10.20.5.56:4444/wd/hub',desired_capabilities=webdriver.DesiredCapabilities.FIREFOX)
@@ -67,15 +67,15 @@ class WebDriverHelp(object):
         '''
         try:
             grn403_url = "http://10.60.3.126/cgi-bin/cbgrn/grn.cgi"    
-            grndev_url = "http://qllu.cybozu-dev.cn" 
-            grncn_url = "https://qatest01.cybozu.cn"           
+            fdev_url = "http://qllu.cybozu-dev.cn"
+            fcn_url = "https://qatest01.cybozu.cn"
  
             if(logintype=="grn403"):
                 self.driver.get(grn403_url)
-            elif(logintype=="grndev"):
-                self.driver.get(grndev_url)
-            elif(logintype=="grncn"): 
-                self.driver.get(grncn_url)                   
+            elif(logintype=="fdev"):
+                self.driver.get(fdev_url)
+            elif(logintype=="fcn"):
+                self.driver.get(fcn_url)
             else:
                 print '路径错误！'
             self.driver.implicitly_wait(1)
@@ -84,13 +84,13 @@ class WebDriverHelp(object):
               
     def  teardown(self):
         '''
-                关闭浏览器
+        关闭浏览器
         '''       
         self.driver.quit()
                 
     def  geturl(self,url):
         '''
-                打开指定的网址
+        打开指定的网址
         @param url: 要打开的网址
         '''
         self.driver.get(url)    
@@ -98,7 +98,7 @@ class WebDriverHelp(object):
     
     def clickitem(self,findby,elmethod):
         '''
-                通过定制定位方法，在对应的项目上执行单击操作
+        通过定制定位方法，在对应的项目上执行单击操作
         @param findby: 定位方法，如：byid,byname,byclassname,byxpath等
         @param elmethod: 要定位元素的属性值 ，如：id,name,class name,xpath，text等
         '''
@@ -117,7 +117,7 @@ class WebDriverHelp(object):
             
     def clearvalue(self,findby,elmethod):
         '''
-                通过定制定位方法，在输入框中输入值
+        通过定制定位方法，在输入框中输入值
         @param findby: 定位方法，如：byid,byname,byclassname,byxpath等
         @param elmethod: 要定位元素的属性值 ，如：id,name,class name,xpath等
         @param value: 要给文本框输入的值
@@ -133,7 +133,7 @@ class WebDriverHelp(object):
       
     def inputvalue(self,findby,elmethod,value):
         '''
-                通过定制定位方法，在输入框中输入值
+        通过定制定位方法，在输入框中输入值
         @param findby: 定位方法，如：byid,byname,byclassname,byxpath等
         @param elmethod: 要定位元素的属性值 ，如：id,name,class name,xpath等
         @param value: 要给文本框输入的值
@@ -149,7 +149,7 @@ class WebDriverHelp(object):
 
     def  selectvalue(self,findby,select,selectvalue):
         '''
-                通过定制定位方法和要选择项的文本，选择指定的项目
+        通过定制定位方法和要选择项的文本，选择指定的项目
         @param findby:定位方法，如：byid,byname,byclassname等
         @param select: 要执行选择操作的下拉框句柄
         @param selectvalue: 下拉框中要选择项的文本     
@@ -164,7 +164,7 @@ class WebDriverHelp(object):
 
     def gettext(self,findby,elmethod):
         '''
-                通过定制定位方法，获取指定元素的文本
+        通过定制定位方法，获取指定元素的文本
         @param findby: 定位方法，如：byid,byname,byxpath等
         @param elmethod: 要定位元素的属性值 ，如：id,name,xpath等
         @return: 返回获取到的元素文本
@@ -180,6 +180,7 @@ class WebDriverHelp(object):
         elif (findby=='bycss'):
             return self.driver.find_element_by_css_selector(elmethod).text                 
         
-           
+
+
             
             

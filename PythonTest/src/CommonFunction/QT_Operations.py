@@ -18,13 +18,12 @@ class QT_Operations(object):
     '''
     def login(self,userName,passwd):
         '''
-                从首页直接登录
+        从首页直接登录
         @param userName: 用户名
         @param passwd:密码
-        @param type1:指示登录方式，1为从主页登录，2，从登录页登录        '''        
-        
-        
-        
+        @param type1:指示登录方式，1为从主页登录，2，从登录页登录
+        '''
+
         WebDriverHelp().clickitem("byname", "username")               
         time.sleep(3)
         WebDriverHelp().clearvalue('byname','username')
@@ -35,12 +34,12 @@ class QT_Operations(object):
         time.sleep(1)
         WebDriverHelp().clickitem("byclass", "login-button")
         time.sleep(2)
-        WebDriverHelp().geturl("https://qatest01.cybozu.cn/g/")
-        time.sleep(2)
+        # WebDriverHelp().geturl("https://qatest01.cybozu.cn")
+        # time.sleep(2)
        
     def logout(self):
         '''
-                退出登录
+        退出登录
         '''
         WebDriverHelp().geturl("https://qatest01.cybozu.cn/logout")
         
