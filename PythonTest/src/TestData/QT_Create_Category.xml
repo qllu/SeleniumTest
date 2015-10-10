@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestData>
+	<login>
+		<username>Administrator</username>
+		<password>qatest01</password>	
+	</login>
+	
+	<space name="登录测试数据">
+		<space_link>space</space_link>
+		<cate_set>space/system/category_list</cate_set>
+		<cate_set2>.//*[@id='space/system/category_list']</cate_set2>
+		<add_link>添加</add_link>
+		<cate_name>name-label-line-value-def</cate_name>
+		<name>test01</name>
+		<save>input.margin</save>
+		<cate_detail>详情</cate_detail>
+		<check>//div[@id='body']/div[2]/table/tbody/tr[2]/td/span</check>
+		<value>test01</value>
+	</space>
+
+</TestData>	

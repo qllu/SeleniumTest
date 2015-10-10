@@ -12,10 +12,12 @@ import os
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("..")
+sys.path.append(os.getcwd()+"src/")
 sys.path.append(os.getcwd()+"/PythonTest/src/")
+
 #引用测试用例文件
-from TestCases.TestCase_QT_Login import testcases_login
-from TestCases.TestCase_QT_Sche import testcases_sche
+from TestCases.QT_Login import testcases_login
+from TestCases.QT_Sche import testcases_sche
 
 class testsuit_all():
     
@@ -28,7 +30,7 @@ class testsuit_all():
 
             suite = unittest.TestSuite() 
             suite.addTest(testcases_login('test_login'))
-#             suite.addTest(testcases_sche('test_sche'))
+            suite.addTest(testcases_sche('test_sche'))
 
             now = time.strftime("%Y%m%dT%H%M%S_",time.localtime(time.time()))
             filename = '../Report/' + now + 'result.html' #测试报告路径

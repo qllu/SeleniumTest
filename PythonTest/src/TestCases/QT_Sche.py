@@ -6,8 +6,7 @@ Created on 2015年8月12日
 '''
 # from lib2to3.pgen2.driver import Driver
 import xml.dom.minidom
-# import time
-import unittest
+import time,unittest
 import sys,os
 sys.path.append("..")
 sys.path.append(os.getcwd()+"/src/")
@@ -27,10 +26,15 @@ class testcases_sche(unittest.TestCase):
     def test_sche(self):
         
         #读取测试数据     
-        dataoper=DataOperations('TestCase_QT_Sche.xml')         
+        dataoper=DataOperations('QT_Sche.xml')
 
         #登录用户
         QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))
+
+        #进入Garoon
+        grn_url = "https://qatest01.cybozu.cn/g/"
+        WebDriverHelp().geturl(grn_url)
+        time.sleep(2)
 
         #点击日程登录菜单
         WebDriverHelp().clickitem('bycss', dataoper.readxml('sche', 0, 'sche_icon'))

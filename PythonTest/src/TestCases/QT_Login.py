@@ -5,10 +5,8 @@ Created on 2015年8月12日
 @author: QLLU
 '''
 # from lib2to3.pgen2.driver import Driver
-import time
-import unittest
 # import xml.dom.minidom
-import HTMLTestRunner
+import time,unittest
 import sys,os
 sys.path.append("..")
 sys.path.append(os.getcwd()+"/src/")
@@ -27,16 +25,15 @@ class testcases_login(unittest.TestCase):
 
     def test_login(self):
 
-        grn_url = "https://qatest01.cybozu.cn/g/"
-
         #读取测试数据     
-        dataoper=DataOperations('TestCase_QT_Login.xml')        
+        dataoper=DataOperations('QT_Login.xml')
 
         #登录用户
         QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))
 
         #进入Garoon
-        # WebDriverHelp().geturl("grn_url")
+        grn_url = "https://qatest01.cybozu.cn/g/"
+        WebDriverHelp().geturl(grn_url)
 
         #点击用户下拉菜单
         WebDriverHelp().clickitem('byid', dataoper.readxml('login', 0, 'item'))
