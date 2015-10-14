@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestData>
+	<login>
+		<username>Administrator</username>
+		<password>qatest01</password>	
+	</login>
+	
+	<space name="创建公开的空间">
+		<space_icon>div.icon-appMenu-space.appmenu-item-icon</space_icon>
+		<creat_link>创建空间</creat_link>
+		<space_title>name-label-line-value-def</space_title>
+		<title>Space03</title>
+		<e_keyword>keyword_CGID</e_keyword>
+		<keyword>u2</keyword>
+		<search>//input[@value='用户搜索']</search>
+		<add_user>btn_add_CID[]</add_user>
+
+		<public>isPublic1</public>
+		<save>buttonSubmit</save>
+		<droplist desc="byid">space-operation</droplist>
+		<detail desc="bylink">空间的详情</detail>
+		<check>table.view_table.margin_top > tbody > tr > td</check>
+		<check2></check2>
+		<value>Space03</value>
+		<value2></value2>
+	</space>
+
+</TestData>	

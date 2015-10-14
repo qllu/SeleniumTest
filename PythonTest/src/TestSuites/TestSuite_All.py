@@ -6,9 +6,7 @@ Created on 2015年9月2日
 '''
 
 import HTMLTestRunner
-import unittest
-import sys,time
-import os
+import unittest,os,sys,time
 reload(sys)
 sys.setdefaultencoding('utf-8')
 sys.path.append("..")
@@ -17,7 +15,8 @@ sys.path.append(os.getcwd()+"/PythonTest/src/")
 
 #引用测试用例文件
 from TestCases.QT_Login import testcases_login
-from TestCases.QT_Sche import testcases_sche
+from TestCases.QT_Add_Sche import testcases_add_sche
+from TestCases.QT_Create_Space_Category import testcases_create_space_category
 
 class testsuit_all():
     
@@ -30,7 +29,8 @@ class testsuit_all():
 
             suite = unittest.TestSuite() 
             suite.addTest(testcases_login('test_login'))
-            suite.addTest(testcases_sche('test_sche'))
+            suite.addTest(testcases_sche('test_add_sche'))
+            suite.addTest(testcases_create_space_category('test_create_space_category'))
 
             now = time.strftime("%Y%m%dT%H%M%S_",time.localtime(time.time()))
             filename = '../Report/' + now + 'result.html' #测试报告路径

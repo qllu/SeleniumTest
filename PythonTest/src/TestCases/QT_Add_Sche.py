@@ -16,14 +16,14 @@ from CommonFunction.WebDriverHelp import WebDriverHelp
 
 
 #导入需要的公共函数类
-class testcases_sche(unittest.TestCase):
+class testcases_add_sche(unittest.TestCase):
     '''
     登录检测，更换用户登录
     '''
     def setUp(self):
         WebDriverHelp("open","firefox","local").setup("fcn")#打开浏览器，并打开forest
        
-    def test_sche(self):
+    def test_add_sche(self):
         
         #读取测试数据     
         dataoper=DataOperations('QT_Add_Sche.xml')
