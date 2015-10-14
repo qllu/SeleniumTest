@@ -34,8 +34,8 @@ class WebDriverHelp(object):
                     driver = webdriver.Chrome()
                     # driver.maximize_window()
                 elif(ctype == "notlocal"): 
-                    print "不能打开chrome"
-                    driver = webdriver.Remote(command_executor='http://124.65.151.158:4444/wd/hub', desired_capabilities=webdriver.DesiredCapabilities.CHROME)
+                    print "打开远程的chrome"
+                    driver = webdriver.Remote(command_executor='http://10.60.1.186:4444/wd/hub', desired_capabilities=webdriver.DesiredCapabilities.CHROME)
                     # driver.maximize_window()
 
             elif(  atype == "ie" ):
@@ -43,8 +43,8 @@ class WebDriverHelp(object):
                     driver = webdriver.Ie()
                     # driver.maximize_window()
                 elif(ctype == "notlocal"):
-                    print "不能打开IE"
-                    driver = webdriver.Remote(command_executor='http://124.65.151.158:4444/wd/hub',desired_capabilities=webdriver.DesiredCapabilities.INTERNETEXPLORER)
+                    print "打开远程的IE"
+                    driver = webdriver.Remote(command_executor='http://10.60.1.186:4444/wd/hub',desired_capabilities=webdriver.DesiredCapabilities.INTERNETEXPLORER)
                     # driver.maximize_window()
 
             elif(  atype == "firefox" ):
@@ -52,8 +52,8 @@ class WebDriverHelp(object):
                     driver = webdriver.Firefox()
                     # driver.maximize_window()
                 elif(ctype == "notlocal"):
-                    print "不能打开firefox"
-                    driver = webdriver.Remote(command_executor='http://10.20.5.56:4444/wd/hub',desired_capabilities=webdriver.DesiredCapabilities.FIREFOX)
+                    print "打开远程的Firefox"
+                    driver = webdriver.Remote(command_executor='http://10.60.1.186:4444/wd/hub',desired_capabilities=webdriver.DesiredCapabilities.FIREFOX)
                     # driver.maximize_window()
 
                                   
@@ -86,7 +86,7 @@ class WebDriverHelp(object):
         '''
         关闭浏览器
         '''       
-        self.driver.quit()
+        self.driver.close()
                 
     def  geturl(self,url):
         '''

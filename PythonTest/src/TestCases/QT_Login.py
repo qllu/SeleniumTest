@@ -21,7 +21,7 @@ class testcases_login(unittest.TestCase):
         登录检测，更换用户登录
     '''
     def setUp(self):
-        WebDriverHelp("open","firefox","local").setup("fcn")#打开浏览器，并打开forest
+        WebDriverHelp("open","firefox","notlocal").setup("fcn")#打开浏览器，并打开forest
 
     def test_login(self):
 

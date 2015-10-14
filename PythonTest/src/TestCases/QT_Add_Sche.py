@@ -26,7 +26,7 @@ class testcases_sche(unittest.TestCase):
     def test_sche(self):
         
         #读取测试数据     
-        dataoper=DataOperations('QT_Sche.xml')
+        dataoper=DataOperations('QT_Add_Sche.xml')
 
         #登录用户
         QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))
@@ -43,7 +43,7 @@ class testcases_sche(unittest.TestCase):
         WebDriverHelp().clickitem('bylink', dataoper.readxml('sche', 0, u'add_link'))
         time.sleep(2) 
         #选择开始时间
-        WebDriverHelp().clickitem('bylid', dataoper.readxml('sche', 0, u'start_hour'))        
+        WebDriverHelp().clickitem('byid', dataoper.readxml('sche', 0, u'start_hour'))
         WebDriverHelp().selectvalue('byid', dataoper.readxml('sche', 0, 'start_hour'), dataoper.readxml('sche', 0, u'select_start_hour'))
         time.sleep(1)
         #选择结束时间
