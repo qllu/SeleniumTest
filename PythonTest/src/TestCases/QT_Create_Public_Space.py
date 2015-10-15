@@ -1,7 +1,8 @@
 #coding=utf-8
 '''
-Created on 2015年10月9日
-
+Created on 2015年10月14日
+1.スペースのメンバーが作成したスペースを閲覧できること
+2.スペースの参加者以外も作成されたスペースを閲覧できること
 @author: QLLU
 '''
 #导入需要的公共函数类
@@ -20,6 +21,8 @@ class testcases_create_public_space(unittest.TestCase):
         WebDriverHelp("open","firefox","local").setup("fcn")#打开浏览器，并打开forest
 
     def test_create_public_space(self):
+
+        driver =
 
         #读取测试数据
         dataoper = DataOperations('QT_Create_Public_Space.xml')

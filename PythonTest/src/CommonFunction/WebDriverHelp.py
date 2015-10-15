@@ -61,7 +61,7 @@ class WebDriverHelp(object):
  
     def  setup(self,logintype):
         '''
-                定制测试URL，可分为单机版、云版
+        定制测试URL，可分为单机版、云版
         @param loginplace: 指定测试的URL： onpre:单机版测试地址，cloud:云版测试地址
         ysh:原始会测试地址 zhengshiysh:正式原始会测试地址
         '''
