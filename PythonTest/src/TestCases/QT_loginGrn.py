@@ -16,17 +16,18 @@ from CommonFunction.WebDriverHelp import WebDriverHelp
 
 
 #导入需要的公共函数类
-class testcases_login(unittest.TestCase):
+class testcases_loginGrn(unittest.TestCase):
     '''
-        登录检测，更换用户登录
+    登录检测，更换用户登录
     '''
     def setUp(self):
-        WebDriverHelp("open","firefox","notlocal").setup("fcn")#打开浏览器，并打开forest
+        WebDriverHelp("open","firefox","local").setup("fcn")#打开浏览器，并打开forest
+        # driver = webdriver.Firefox()
 
-    def test_login(self):
+    def test_loginGrn(self):
 
         #读取测试数据     
-        dataoper=DataOperations('QT_Login.xml')
+        dataoper=DataOperations('QT_loginGrn.xml')
 
         #登录用户
         QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))
@@ -34,6 +35,7 @@ class testcases_login(unittest.TestCase):
         #进入Garoon
         grn_url = "https://qatest01.cybozu.cn/g/"
         WebDriverHelp().geturl(grn_url)
+        # self.driver.geturl(grn_url)
 
         #点击用户下拉菜单
         WebDriverHelp().clickitem('byid', dataoper.readxml('login', 0, 'item'))
@@ -69,6 +71,6 @@ class testcases_login(unittest.TestCase):
         
     def tearDown(self):
         WebDriverHelp().teardown()#关闭浏览器
-       
+        # self.driver.close()
 if __name__ == "__main__":   
     unittest.main()

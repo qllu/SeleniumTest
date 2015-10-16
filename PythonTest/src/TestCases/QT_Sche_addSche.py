@@ -16,17 +16,17 @@ from CommonFunction.WebDriverHelp import WebDriverHelp
 
 
 #导入需要的公共函数类
-class testcases_add_sche(unittest.TestCase):
+class testcases_addSche(unittest.TestCase):
     '''
     登录检测，更换用户登录
     '''
     def setUp(self):
         WebDriverHelp("open","firefox","local").setup("fcn")#打开浏览器，并打开forest
        
-    def test_add_sche(self):
+    def test_addSche(self):
         
         #读取测试数据     
-        dataoper=DataOperations('QT_Add_Sche.xml')
+        dataoper=DataOperations('QT_Sche_addSche.xml')
 
         #登录用户
         QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))
@@ -36,18 +36,18 @@ class testcases_add_sche(unittest.TestCase):
         WebDriverHelp().geturl(grn_url)
         time.sleep(2)
 
-        #点击日程登录菜单
+        #选择日程
         WebDriverHelp().clickitem('bycss', dataoper.readxml('sche', 0, 'sche_icon'))
         time.sleep(2) 
-        #点击登录链接
+        #点击日程登录
         WebDriverHelp().clickitem('bylink', dataoper.readxml('sche', 0, u'add_link'))
         time.sleep(2) 
         #选择开始时间
-        WebDriverHelp().clickitem('byid', dataoper.readxml('sche', 0, u'start_hour'))
+        WebDriverHelp().clickitem('bylid', dataoper.readxml('sche', 0, 'start_hour'))
         WebDriverHelp().selectvalue('byid', dataoper.readxml('sche', 0, 'start_hour'), dataoper.readxml('sche', 0, u'select_start_hour'))
         time.sleep(1)
         #选择结束时间
-        WebDriverHelp().clickitem('bylid', dataoper.readxml('sche', 0, u'end_hour')) 
+        WebDriverHelp().clickitem('bylid', dataoper.readxml('sche', 0, 'end_hour'))
         WebDriverHelp().selectvalue('byid', dataoper.readxml('sche', 0, 'end_hour'), dataoper.readxml('sche', 0, u'select_end_hour'))
         time.sleep(1) 
         #输入标题

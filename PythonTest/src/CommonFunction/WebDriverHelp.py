@@ -87,14 +87,34 @@ class WebDriverHelp(object):
         关闭浏览器
         '''       
         self.driver.close()
+
+    def currenturl(self):
+        self.driver.current_url
                 
-    def  geturl(self,url):
+    def geturl(self,url):
         '''
         打开指定的网址
         @param url: 要打开的网址
         '''
-        self.driver.get(url)    
-        
+        self.driver.get(url)
+
+    def refresh(self):
+        '''
+        页面刷新
+        '''
+        self.refresh()
+
+    def switchtowin(self):
+        '''
+        切换到新页面
+        '''
+        driver.switch_to_window(self.driver.window_handles[-1])
+
+    def switchtoframe(self,frame):
+        '''
+        切换到iframe
+        '''
+        driver.switch_to_frame(frame)
     
     def clickitem(self,findby,elmethod):
         '''
@@ -178,7 +198,9 @@ class WebDriverHelp(object):
         elif (findby=='byclass'):
             return self.driver.find_element_by_class_name(elmethod).text
         elif (findby=='bycss'):
-            return self.driver.find_element_by_css_selector(elmethod).text                 
+            return self.driver.find_element_by_css_selector(elmethod).text
+
+
         
 
 

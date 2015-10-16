@@ -14,9 +14,10 @@ sys.path.append(os.getcwd()+"src/")
 sys.path.append(os.getcwd()+"/PythonTest/src/")
 
 #引用测试用例文件
-from TestCases.QT_Login import testcases_login
-from TestCases.QT_Add_Sche import testcases_add_sche
-from TestCases.QT_Create_Space_Category import testcases_create_space_category
+from TestCases.QT_loginGrn import testcases_loginGrn
+from TestCases.QT_Sche_addSche import testcases_addSche
+from TestCases.QT_Space_createSpaceCategory import testcases_createSpaceCategory
+from TestCases.QT_createPublicSpace import testcases_createPublicSpace
 
 class testsuit_all():
     
@@ -28,9 +29,10 @@ class testsuit_all():
             # suite.addTests(unittest.defaultTestLoader.loadTestsFromTestCase(testsuit_all)) #方法3
 
             suite = unittest.TestSuite() 
-            suite.addTest(testcases_login('test_login'))
-            suite.addTest(testcases_sche('test_add_sche'))
-            suite.addTest(testcases_create_space_category('test_create_space_category'))
+            suite.addTest(testcases_loginGrn('test_loginGrn'))
+            suite.addTest(testcases_addSche('test_addSche'))
+            # suite.addTest(testcases_createSpaceCategory('test_createSpaceCategory'))
+            suite.addTest(testcases_createPublicSpace('test_createPublicSpace'))
 
             now = time.strftime("%Y%m%dT%H%M%S_",time.localtime(time.time()))
             filename = '../Report/' + now + 'result.html' #测试报告路径

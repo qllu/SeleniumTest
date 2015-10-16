@@ -16,7 +16,7 @@ class ReadXml(unittest.TestCase):
        
     def test(self):           
         #读取测试数据     
-        dataoper=ParseXml('QT_Login.xml')
+        dataoper=ParseXml('QT_loginGrn.xml')
               
         readname = dataoper.readxml('login', 1, 'username')                
         readpwd = dataoper.readxml('login', 1, 'password')   

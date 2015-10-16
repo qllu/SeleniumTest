@@ -13,19 +13,19 @@ from CommonFunction.DataOperations import DataOperations
 from CommonFunction.QT_Operations import QT_Operations
 from CommonFunction.WebDriverHelp import WebDriverHelp
 
-class testcases_create_public_space(unittest.TestCase):
+class testcases_createPublicSpace(unittest.TestCase):
     '''
     新增space目录
     '''
+    global garoon_url,current_url
+
     def setUp(self):
         WebDriverHelp("open","firefox","local").setup("fcn")#打开浏览器，并打开forest
 
-    def test_create_public_space(self):
-
-        driver =
+    def test_createPublicSpace(self):
 
         #读取测试数据
-        dataoper = DataOperations('QT_Create_Public_Space.xml')
+        dataoper = DataOperations('QT_Space_createPublicSpace.xml')
 
         #登录用户
         QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))
@@ -35,6 +35,9 @@ class testcases_create_public_space(unittest.TestCase):
         garoon_url = "https://qatest01.cybozu.cn/g/"
         WebDriverHelp().geturl(garoon_url)
         time.sleep(2)
+
+        # current_url = WebDriverHelp().currenturl()
+        # print "current url:", current_url
 
         #点击进入space
         WebDriverHelp().clickitem('bycss', dataoper.readxml('space', 0, 'space_icon'))
@@ -59,6 +62,7 @@ class testcases_create_public_space(unittest.TestCase):
         #保存
         WebDriverHelp().clickitem('byid', dataoper.readxml('space', 0, 'save'))
         time.sleep(2)
+        current_url = WebDriverHelp().currenturl()
 
         #进入详细页面
         WebDriverHelp().clickitem('byid', dataoper.readxml('space', 0, 'droplist'))
@@ -67,18 +71,29 @@ class testcases_create_public_space(unittest.TestCase):
         time.sleep(2)
 
         #验证
-        check = WebDriverHelp().gettext('bycss', dataoper.readxml('space', 0,'check'))
+        check = WebDriverHelp().gettext('byxpath', dataoper.readxml('space', 0,'check'))
+        check2 = WebDriverHelp().gettext('byxpath', dataoper.readxml('space', 0,'check2'))
         # print "check:" + check
         value = dataoper.readxml('space', 0, 'value')
-        # value = dataoper.readxml('space', 0, 'value2')
+        value2 = dataoper.readxml('space', 0, 'value2')
         # print "value:" + value
         self.assertEqual(check,value)
-        # self.assertEqual(check2,value2)
+        self.assertEqual(check2,value2)
 
         #退出
         QT_Operations().logout()
         time.sleep(3)
 
+        return current_url
+
+    def test_confirmPublic(self):
+        '''
+        # 登录space其他用户
+        QT_Operations().login(dataoper.readxml('login', 1, 'username'), dataoper.readxml('login', 1, 'password'))
+        time.sleep(3)
+        WebDriverHelp().geturl(current_url)
+        '''
+        pass
 
     def tearDown(self):
         WebDriverHelp().teardown()#关闭浏览器

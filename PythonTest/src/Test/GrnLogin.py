@@ -5,8 +5,8 @@ import unittest, time
 
 class Login(unittest.TestCase):
     def setUp(self):
-        # self.driver = webdriver.Firefox()
-        self.driver = webdriver.Remote("http://localhost:4444/wd/hub", webdriver.DesiredCapabilities.HTMLUNITWITHJS)
+        self.driver = webdriver.Firefox()
+        # self.driver = webdriver.Remote("http://localhost:4444/wd/hub", webdriver.DesiredCapabilities.HTMLUNITWITHJS)
         # self.driver = webdriver.Remote(command_executor='http://localhost:4444/wd/hub',desired_capabilities=webdriver.DesiredCapabilities.FIREFOX)
         # self.driver = webdriver.Remote(desired_capabilities=webdriver.DesiredCapabilities.HTMLUNIT)
 
@@ -28,7 +28,12 @@ class Login(unittest.TestCase):
         driver.find_element_by_class_name("login-button").click()
         time.sleep(3)
         driver.get('https://qatest01.cybozu.cn/g/')
+        # time.sleep(3)
+        # print "页面刷新"
+        # driver.refresh()
         time.sleep(3)
+        url = driver.current_url
+        print 'url:', url
         driver.find_element_by_css_selector('span').click()
         time.sleep(1)
 
