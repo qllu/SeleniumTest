@@ -13,7 +13,7 @@ from CommonFunction.QT_Operations import QT_Operations
 from CommonFunction.WebDriverHelp import WebDriverHelp
 
 
-class testcases_createSpaceCategory(unittest.TestCase):
+class CreateSpaceCategory(unittest.TestCase):
     '''
     新增space目录
     '''
@@ -21,14 +21,15 @@ class testcases_createSpaceCategory(unittest.TestCase):
     def setUp(self):
         WebDriverHelp("open", "firefox", "local").setup("fcn")  # 打开浏览器，并打开forest
 
-    def test_createSpaceCategory(self):
+    def test_create_space_category(self):
         global dataoper, detail_url
 
         # 读取测试数据
-        dataoper = DataOperations('QT_Space_createSpaceCategory.xml')
+        dataoper = DataOperations('QT_Space_create_space_category.xml')
 
         # 登录用户
-        QT_Operations().login(dataoper.readxml('login', 0, 'username'), dataoper.readxml('login', 0, 'password'))
+        QT_Operations().login(dataoper.readxml('login', 0, 'username'),
+                              dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
 
         # 点击进入garoon各应用程序管理

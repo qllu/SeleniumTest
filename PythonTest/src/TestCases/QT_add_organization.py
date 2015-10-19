@@ -15,21 +15,19 @@ from CommonFunction.DataOperations import DataOperations
 from CommonFunction.QT_Operations import QT_Operations
 from CommonFunction.WebDriverHelp import WebDriverHelp
 
-
-
-class testcases_addOrganization(unittest.TestCase):
+class AddOrganization(unittest.TestCase):
     '''
     新增组织
     '''
     def setUp(self):
         WebDriverHelp("open","firefox","local").setup("fcn")#打开浏览器，并打开forest
 
-    def test_addOrganization(self):
+    def test_add_organization(self):
 
 
         
         #读取测试数据     
-        dataoper = DataOperations('QT_addOrganization.xml')
+        dataoper = DataOperations('QT_add_organization.xml')
 
         #登录用户
         QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))

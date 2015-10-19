@@ -1,7 +1,6 @@
 #coding=utf-8
 '''
 Created on 2015年9月2日
-
 @author: QLLU
 '''
 
@@ -14,14 +13,14 @@ sys.path.append(os.getcwd()+"src/")
 sys.path.append(os.getcwd()+"/PythonTest/src/")
 
 #引用测试用例文件
-from TestCases.QT_loginGrn import testcases_loginGrn
-from TestCases.QT_Sche_addSche import testcases_addSche
-from TestCases.QT_Space_createSpaceCategory import testcases_createSpaceCategory
-from TestCases.QT_Space_createPublicSpace import testcases_ceatePublicSpace
+from TestCases.QT_login_grn import LoginGrn
+from TestCases.QT_Sche_add_sche import AddSche
+from TestCases.QT_Space_create_space_category import CreateSpaceCategory
+from TestCases.QT_Space_create_public_space import CreatePublicSpace
 
 
-class testsuit_all():
-    
+class TestSuite_1():
+
     def test(self):
         if __name__ == "__main__":
    
@@ -30,10 +29,10 @@ class testsuit_all():
             # suite.addTests(unittest.defaultTestLoader.loadTestsFromTestCase(testsuit_all)) #方法3
 
             suite = unittest.TestSuite() 
-            suite.addTest(testcases_loginGrn('test_loginGrn'))
-            suite.addTest(testcases_addSche('test_addSche'))
-            suite.addTest(testcases_createSpaceCategory('test_createSpaceCategory'))
-            suite.addTest(testcases_ceatePublicSpace('test_createPublicSpace'))
+            suite.addTest(LoginGrn('test_login_grn'))
+            suite.addTest(AddSche('test_add_sche'))
+            suite.addTest(CreateSpaceCategory('test_create_space_category'))
+            suite.addTest(CreatePublicSpace('test_create_public_space'))
 
             now = time.strftime("%Y%m%dT%H%M%S_",time.localtime(time.time()))
             filename = '../Report/' + now + 'result.html' #测试报告路径
@@ -50,5 +49,5 @@ class testsuit_all():
             # runner = unittest.TextTestRunner()
             # runner.run(suite)
 
-if __name__ == "__main__":   
-    testsuit_all().test()
+if __name__ == "__main__":
+    TestSuite_1().test()

@@ -14,7 +14,7 @@ from CommonFunction.DataOperations import DataOperations
 from CommonFunction.QT_Operations import QT_Operations
 from CommonFunction.WebDriverHelp import WebDriverHelp
 
-class testcases_ceatePublicSpace(unittest.TestCase):
+class CreatePublicSpace(unittest.TestCase):
     '''
     新增space目录
     '''
@@ -22,10 +22,10 @@ class testcases_ceatePublicSpace(unittest.TestCase):
     def setUp(self):
         WebDriverHelp("open", "firefox", "local").setup("fcn")  # 打开浏览器，并打开forest
 
-    def test1_createPublicSpace(self):
+    def test_create_public_space(self):
         global dataoper, detail_url
         # 读取测试数据并登录
-        dataoper = DataOperations('QT_Space_createPublicSpace.xml')
+        dataoper = DataOperations('QT_Space_create_public_space.xml')
         QT_Operations().login(dataoper.readxml('login', 0, 'username'), dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
 
@@ -69,7 +69,7 @@ class testcases_ceatePublicSpace(unittest.TestCase):
         time.sleep(1)
         detail_url = WebDriverHelp().currenturl()
 
-        # 验证
+        # 验证：1.确认space名称；2.确认公开方式
         check = WebDriverHelp().gettext('byxpath', dataoper.readxml('space', 0, 'check'))
         check2 = WebDriverHelp().gettext('byxpath', dataoper.readxml('space', 0, 'check2'))
         value = dataoper.readxml('space', 0, 'value')
@@ -84,7 +84,7 @@ class testcases_ceatePublicSpace(unittest.TestCase):
         # 使用其他用户确认
         QT_Operations().login(dataoper.readxml('confirm', 0, 'username'),
                               dataoper.readxml('confirm', 0, 'password'))
-        print "open current_url..."
+        print "open current_url by other user..."
         WebDriverHelp().geturl(current_url)
         time.sleep(2)
         # 确认是否存在元素
@@ -92,8 +92,7 @@ class testcases_ceatePublicSpace(unittest.TestCase):
             WebDriverHelp().isElementPresent('byclass', dataoper.readxml('confirm', 0, 'element'))
         except:
             print "页面元素不存在"
-        else:
-            print "存在页面元素"
+
         QT_Operations().logout()
 
     def tearDown(self):
