@@ -7,7 +7,6 @@ Created on 2015年10月19日
 '''
 # 导入需要的公共函数类
 import time, unittest, sys, os
-
 sys.path.append("..")
 sys.path.append(os.getcwd() + "/src/")
 from CommonFunction.DataOperations import DataOperations
@@ -71,9 +70,9 @@ class CreatePrivateSpace(unittest.TestCase):
 
         # 验证：1.确认space名称；2.确认公开方式
         check = WebDriverHelp().gettext('bycss', dataoper.readxml('space', 0, 'check'))
-        check2 = WebDriverHelp().gettext('byxpath', dataoper.readxml('space', 0, u'check2'))
+        check2 = WebDriverHelp().gettext('byxpath', dataoper.readxml('space', 0, 'check2'))
         value = dataoper.readxml('space', 0, 'value')
-        value2 = dataoper.readxml('space', 0, u'value2')
+        value2 = dataoper.readxml('space', 0, 'value2')
         try:
             self.assertEqual(check, value)
             self.assertEqual(check2, value2)
@@ -85,8 +84,8 @@ class CreatePrivateSpace(unittest.TestCase):
         time.sleep(1)
 
         # 使用space成员确认
-        QT_Operations().login(dataoper.readxml('confirm2', 0, 'username'),
-                              dataoper.readxml('confirm2', 0, 'password'))
+        QT_Operations().login(dataoper.readxml('confirm', 1, 'username'),
+                              dataoper.readxml('confirm', 1, 'password'))
         WebDriverHelp().geturl(current_url)
         time.sleep(2)
 
