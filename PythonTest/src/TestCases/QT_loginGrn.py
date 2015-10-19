@@ -42,7 +42,7 @@ class testcases_loginGrn(unittest.TestCase):
                
         checkpoint1 = WebDriverHelp().gettext('bycss',dataoper.readxml('login', 0,'checkpoint'))
         value1 = dataoper.readxml('login', 0, 'value')        
-        self.assertEqual(checkpoint1,value1)         
+        self.assertEqual(checkpoint1,value1)
 
 
         #退出
@@ -67,7 +67,6 @@ class testcases_loginGrn(unittest.TestCase):
                         
             num = num + 1  
         '''
-
         
     def tearDown(self):
         WebDriverHelp().teardown()#关闭浏览器

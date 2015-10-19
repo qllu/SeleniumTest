@@ -12,13 +12,12 @@
 		<end_hour>end_hour</end_hour>
 		<select_start_hour>13点</select_start_hour>
 		<select_end_hour>14点</select_end_hour>
-		<select_CID>select_CID[]</sselect_CID>
+		<select_CID>select_CID[]</select_CID>
 		<adduser>span.aButtonText-grn</adduser>
 
 		<title>title</title>
 		<title_name>lye_test</title_name>
-		<save>#schedule_submit_button > span</save>	
-		<2></2>	
+		<save>#schedule_submit_button > span</save>
 	</sche>
-</TestData>	
+</TestData>
 	

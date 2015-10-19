@@ -7,9 +7,9 @@
 	
 	<space name="创建公开的空间">
 		<space_icon desc="bycss">div.icon-appMenu-space.appmenu-item-icon</space_icon>
-		<creat_link>创建空间</creat_link>
-		<space_title>name-label-line-value-def</space_title>
-		<title>Space03</title>
+		<creat_link desc="bylink">创建空间</creat_link>
+		<space_title desc="byid">name-label-line-value-def</space_title>
+		<title>Space04</title>
 		<e_keyword>keyword_CGID</e_keyword>
 		<keyword>u2</keyword>
 		<search>//input[@value='用户搜索']</search>
@@ -22,25 +22,18 @@
 
 		<check desc="byxpath">.//*[@id='body']/div[3]/table[1]/tbody/tr[1]/td</check>
 		<check2 desc="byxpath">//div[@id='body']/div[3]/table/tbody/tr[6]/td</check2>
-		<value>Space03</value>
+		<value>Space04</value>
 		<value2>公开</value2>
+
+		<delete_link desc="byxpath">space/delete</delete_link>
+		<delete_yes desc="byxpath">.//*[@id='body']/div[3]/form/input[3]</delete_yes>
+
 	</space>
 
-	<login2>
+	<confirm name="确认是否公开">
 		<username>u3</username>
 		<password>cybozu1</password>
-	</login2>
-
-	<confirm name="确认是否公开">
-		<space_icon desc="bycss">div.icon-appMenu-space.appmenu-item-icon</space_icon>
-		<public>isPublic1</public>
-		<save>buttonSubmit</save>
-		<droplist desc="byid">space-operation</droplist>
-		<detail desc="bylink">空间的详情</detail>
-		<check desc="byxpath">.//*[@id='body']/div[3]/table[1]/tbody/tr[1]/td</check>
-		<check2 desc="byxpath">//div[@id='body']/div[3]/table/tbody/tr[6]/td</check2>
-		<value>Space03</value>
-		<value2>公开</value2>
+		<element desc="byclass">application_menu</element>
 	</confirm>
 
 </TestData>	
