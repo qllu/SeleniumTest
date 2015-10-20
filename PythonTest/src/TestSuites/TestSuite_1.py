@@ -14,7 +14,6 @@ sys.path.append(os.getcwd()+"/PythonTest/src/")
 
 #引用测试用例文件
 # from TestCases import QT_login_grn
-# from TestCases.QT_Sche_add_sche import AddSche
 from TestCases.QT_login_grn import LoginGrn
 from TestCases.QT_Space_create_space_category import CreateSpaceCategory
 from TestCases.QT_Space_create_public_space import CreatePublicSpace
@@ -32,7 +31,6 @@ class TestSuite_1():
             # suite.addTests(unittest.defaultTestLoader.loadTestsFromTestCase(TestSuite_1))
 
             suite.addTest(LoginGrn('test_login_grn'))
-            # suite.addTest(AddSche('test_add_sche'))
             suite.addTest(CreateSpaceCategory('test_create_space_category'))
             suite.addTest(CreatePublicSpace('test1_create_public_space'))
             suite.addTest(CreatePrivateSpace('test1_create_private_space'))
