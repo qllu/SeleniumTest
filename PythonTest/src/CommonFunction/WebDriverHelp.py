@@ -65,13 +65,10 @@ class WebDriverHelp(object):
         @param logintype: 指定测试的URL： onpre:单机版测试地址，cloud:云版测试地址
         """
         try:
-            grn403_url = "http://10.60.3.126/cgi-bin/cbgrn/grn.cgi"    
             fdev_url = "http://qllu.cybozu-dev.cn"
             fcn_url = "https://qatest01.cybozu.cn"
- 
-            if(logintype == "grn403"):
-                self.driver.get(grn403_url)
-            elif(logintype == "fdev"):
+
+            if(logintype == "fdev"):
                 self.driver.get(fdev_url)
             elif(logintype == "fcn"):
                 self.driver.get(fcn_url)
@@ -118,9 +115,6 @@ class WebDriverHelp(object):
             self.driver.find_element_by_class_name(elmethod).is_displayed()
         elif(findby == 'bycss'):
             self.driver.find_element_by_css_selector(elmethod).is_displayed()
-
-
-
 
 
     """

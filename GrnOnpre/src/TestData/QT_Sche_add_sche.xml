@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestData>
+	<login>
+		<username>Administrator</username>
+		<password>qatest01</password>	
+	</login>
+	
+	<sche name="登录测试数据">
+		<sche_icon desc="bycss">div.icon-appMenu-schedule.appmenu-item-icon</sche_icon>
+		<add_link desc="bylink">登记预定</add_link>
+		<start_hour desc="byid">start_hour</start_hour>
+		<select_start_hour desc="byid">12点</select_start_hour>
+		<end_hour desc="byid">end_hour</end_hour>
+		<select_end_hour desc="byid">13点</select_end_hour>
+		<title>title</title>
+		<title_name>sche2</title_name>
+		<save>#schedule_submit_button > span</save>		
+	</sche>
+
+</TestData>	

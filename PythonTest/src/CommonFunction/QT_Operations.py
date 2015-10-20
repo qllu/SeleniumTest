@@ -42,5 +42,5 @@ class QT_Operations(object):
         退出登录
         '''
         WebDriverHelp().geturl("https://qatest01.cybozu.cn/logout")
-        
+
         

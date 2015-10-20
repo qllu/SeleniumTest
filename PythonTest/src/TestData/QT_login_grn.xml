@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestData>
 	<login name="登录测试数据">
-		<username>Administrator</username>
-		<password>qatest01</password>
+		<username>u1</username>
+		<password>cybozu1</password>
 		<item disc="点击用户下拉菜单">cloudHeader-userName-grn</item>		
 		<checkpoint disc="确认登录名">div > a</checkpoint>
-		<value>Administrator</value>
+		<value>u1</value>
 	</login>
 	
 	<login name="登录测试数据">

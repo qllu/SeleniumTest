@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/GrnOnpre/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/PythonTest/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/GrnOnpre" />
+      <excludeFolder url="file://$MODULE_DIR$/PythonDemo" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="PythonTest" />
+  </component>
+</module>

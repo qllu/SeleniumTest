@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>Result</h1>
-<p class='attribute'><strong>Start Time:</strong> 2015-10-19 14:36:04</p>
-<p class='attribute'><strong>Duration:</strong> 0:02:23.118000</p>
-<p class='attribute'><strong>Status:</strong> Pass 3 Error 1</p>
+<p class='attribute'><strong>Start Time:</strong> 2015-10-20 20:23:37</p>
+<p class='attribute'><strong>Duration:</strong> 0:02:59.947000</p>
+<p class='attribute'><strong>Status:</strong> Pass 4</p>
 
 <p class='description'>Test_Result：</p>
 </div>
@@ -236,7 +236,7 @@ function showOutput(id, name) {
 </tr>
 
 <tr class='passClass'>
-    <td>TestCases.QT_Sche_add_sche.AddSche</td>
+    <td>TestCases.QT_Space_create_space_category.CreateSpaceCategory</td>
     <td>1</td>
     <td>1</td>
     <td>0</td>
@@ -245,12 +245,33 @@ function showOutput(id, name) {
 </tr>
 
 <tr id='pt2.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_add_sche</div></td>
-    <td colspan='5' align='center'>pass</td>
+    <td class='none'><div class='testcase'>test_create_space_category</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: u'' != u'this is a test'
++ this is a test
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr class='passClass'>
-    <td>TestCases.QT_Space_create_space_category.CreateSpaceCategory</td>
+    <td>TestCases.QT_Space_create_public_space.CreatePublicSpace</td>
     <td>1</td>
     <td>1</td>
     <td>0</td>
@@ -259,7 +280,7 @@ function showOutput(id, name) {
 </tr>
 
 <tr id='pt3.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_create_space_category</div></td>
+    <td class='none'><div class='testcase'>test1_create_public_space</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -275,6 +296,7 @@ function showOutput(id, name) {
         
 pt3.1: u'' != u'this is a test'
 + this is a test
+能正常添加公开space
 
 
         </pre>
@@ -284,38 +306,34 @@ pt3.1: u'' != u'this is a test'
     </td>
 </tr>
 
-<tr class='errorClass'>
-    <td>TestCases.QT_Space_create_public_space.CreatePublicSpace</td>
+<tr class='passClass'>
+    <td>TestCases.QT_Space_create_private_space.CreatePrivateSpace</td>
+    <td>1</td>
     <td>1</td>
     <td>0</td>
     <td>0</td>
-    <td>1</td>
     <td><a href="javascript:showClassDetail('c4',1)">Detail</a></td>
 </tr>
 
-<tr id='ft4.1' class='none'>
-    <td class='errorCase'><div class='testcase'>test_create_public_space</div></td>
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test1_create_private_space</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.1')" >
-        error</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        pass</a>
 
-    <div id='div_ft4.1' class="popup_window">
+    <div id='div_pt4.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft4.1: u'' != u'this is a test'
+pt4.1: u'' != u'this is a test'
 + this is a test
-Traceback (most recent call last):
-  File "..\TestCases\QT_Space_create_public_space.py", line 38, in test_create_public_space
-    WebDriverHelp().clickitem('bycss', dataoper.readxml('space', 0, 'space_icon'))
-  File "..\CommonFunction\DataOperations.py", line 37, in readxml
-    return message.getElementsByTagName(stagname)[0].childNodes[0].nodeValue
-IndexError: list index out of range
+能正常添加公开space
+非公开space能正常添加
 
 
         </pre>
@@ -328,9 +346,9 @@ IndexError: list index out of range
 <tr id='total_row'>
     <td>Total</td>
     <td>4</td>
-    <td>3</td>
+    <td>4</td>
     <td>0</td>
-    <td>1</td>
+    <td>0</td>
     <td>&nbsp;</td>
 </tr>
 </table>

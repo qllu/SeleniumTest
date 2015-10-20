@@ -10,7 +10,7 @@ import time,unittest
 import sys,os
 sys.path.append("..")
 sys.path.append(os.getcwd()+"/src/")
-from CommonFunction.DataOperations import DataOperations
+from CommonFunction.DataReader import DataReader
 from CommonFunction.QT_Operations import QT_Operations
 from CommonFunction.WebDriverHelp import WebDriverHelp
 
@@ -26,7 +26,7 @@ class LoginGrn(unittest.TestCase):
     def test_login_grn(self):
 
         # 读取测试数据
-        dataoper=DataOperations('QT_login_grn.xml')
+        dataoper = DataReader('QT_login_grn.xml')
 
         # 登录用户
         QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))
