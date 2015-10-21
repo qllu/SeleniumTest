@@ -2,7 +2,7 @@
 '''
 Created on 2015年9月2日
 @author: QLLU
-用来执行TestCases目录中所有包含以QT开头的测试用例
+用来执行TestCases目录中所有以QT开头的测试用例
 
 '''
 
