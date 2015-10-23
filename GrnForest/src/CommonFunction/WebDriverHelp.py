@@ -65,7 +65,7 @@ class WebDriverHelp(object):
         @param logintype: 指定测试的URL： onpre:单机版测试地址，cloud:云版测试地址
         """
         try:
-            fdev_url = "http://qllu.cybozu-dev.cn"
+            fdev_url = "http://jljin.cybozu-dev.com"
             fcn_url = "https://qatest01.cybozu.cn"
 
             if(logintype == "fdev"):

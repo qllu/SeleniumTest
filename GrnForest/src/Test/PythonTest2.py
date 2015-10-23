@@ -1,19 +1,17 @@
 #!/usr/bin/env python
 #encoding: utf-8
 
-import unittest
+import time, unittest, sys, os
+sys.path.append("..")
+sys.path.append(os.getcwd() + "/src/")
+from CommonFunction.DataReader import DataReader
+from CommonFunction.QT_Operations import QT_Operations
+from CommonFunction.WebDriverHelp import WebDriverHelp
 
 class mytest(unittest.TestCase):
+    def setUp(self):
+        WebDriverHelp("open", "firefox", "local").setup("fdev")
 
-    #具体的测试用例，一定要以test开头
-    def test1(self):
-        global  var
-        var = 1
-        print "var1:", var
+    def test(self):
+        pass
 
-    def test2(self):
-        print "var2:", var
-
-
-if __name__ =='__main__':
-    unittest.main()

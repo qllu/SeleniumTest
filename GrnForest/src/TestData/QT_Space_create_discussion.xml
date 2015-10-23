@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestData>
+	<login>
+		<username>u1</username>
+		<password>cybozu1</password>
+	</login>
+	
+	<space name="创建公开的空间">
+		<space_icon desc="bycss">div.icon-appMenu-space.appmenu-item-icon</space_icon>
+		<creat_link desc="bylink">创建空间</creat_link>
+		<space_title desc="byid">name-label-line-value-def</space_title>
+		<title>Space04</title>
+		<e_keyword>keyword_CGID</e_keyword>
+		<keyword>u2</keyword>
+		<search>//input[@value='用户搜索']</search>
+		<add_user>btn_add_CID[]</add_user>
+
+		<add_disc desc="bycss">span.icon-addButton-grn</add_disc>
+		<disc_title desc="byid">dis01</disc_title>
+		<title>dis01</title>
+		<disc_content desc="byid">thread_data_editor_id</disc_content>
+		<content>this is a discussion</content>
+		<file_upload desc="byid">file_upload_</file_upload>
+		<file>E:\\Testfiles\\cybozu.gif</file>
+		<disc_save desc="byid">buttonSubmit</disc_save>
+
+
+		<public desc="byid">isPublic1</public>
+		<save desc="byid">buttonSubmit</save>
+		<droplist desc="byid">space-operation</droplist>
+		<detail desc="bylink">空间的详情</detail>
+
+	</space>
+
+	<confirm name="确认能否正常访问">
+		<username>u3</username>
+		<password>cybozu1</password>
+		<element desc="byclass">application_menu</element>
+	</confirm>
+
+	<confirm name="成员确认能否正常访问">
+		<username>u2</username>
+		<password>cybozu1</password>
+		<element desc="byclass">application_menu</element>
+	</confirm>
+
+</TestData>	
