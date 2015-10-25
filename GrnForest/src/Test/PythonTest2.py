@@ -2,16 +2,19 @@
 #encoding: utf-8
 
 import time, unittest, sys, os
-sys.path.append("..")
-sys.path.append(os.getcwd() + "/src/")
-from CommonFunction.DataReader import DataReader
-from CommonFunction.QT_Operations import QT_Operations
-from CommonFunction.WebDriverHelp import WebDriverHelp
+# sys.path.append("..")
+# sys.path.append(os.getcwd() + "/src/")
 
-class mytest(unittest.TestCase):
-    def setUp(self):
-        WebDriverHelp("open", "firefox", "local").setup("fdev")
+# path1 = os.getcwd()
+# path2 = os.path.abspath('test.txt')
+# path3 = '../Attachement/test.txt'
+path2 = os.path.abspath('../Attachement/test.txt')
+print path2
+# fp = open(path, 'r')
+# for line in fp:
+#     print line
+# fp.close()
 
-    def test(self):
-        pass
+
+
 

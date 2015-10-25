@@ -93,6 +93,8 @@ class CreateSpaceCategory(unittest.TestCase):
             WebDriverHelp().clickitem('byxpath', dataoper.readxml('space', 0, 'delete'))
         except Exception as msg:
             print msg
+        else:
+            print "space类别已清除"
         finally:
             WebDriverHelp().teardown()  # 关闭浏览器
 

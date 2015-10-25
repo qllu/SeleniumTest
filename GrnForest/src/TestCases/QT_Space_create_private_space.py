@@ -6,17 +6,23 @@ Created on 2015年10月19日
 @author: QLLU
 '''
 # 导入需要的公共函数类
-import time, unittest, sys, os
+import time
+import unittest
+import sys
+import os
+
 sys.path.append("..")
 sys.path.append(os.getcwd() + "/src/")
 from CommonFunction.DataReader import DataReader
 from CommonFunction.QT_Operations import QT_Operations
 from CommonFunction.WebDriverHelp import WebDriverHelp
 
+
 class CreatePrivateSpace(unittest.TestCase):
     '''
     新增space目录
     '''
+
     @classmethod
     def setUpClass(self):
         WebDriverHelp("open", "firefox", "local").setup("fcn")  # 打开浏览器，并打开forest
@@ -88,11 +94,10 @@ class CreatePrivateSpace(unittest.TestCase):
         # 确认是否能正常访问
         try:
             WebDriverHelp().isElementPresent('byclass', dataoper.readxml('confirm', 1, 'element'))
-        except Exception:
-            print "页面元素不存在"
+        except Exception as msg:
+            print msg
         else:
             print "space成员确认可以访问"
-
 
     def test3_other_confirm(self):
         # 使用其他用户确认
@@ -105,15 +110,14 @@ class CreatePrivateSpace(unittest.TestCase):
         # 确认是否显示错误页面
         try:
             WebDriverHelp().isElementPresent('byclass', dataoper.readxml('confirm', 0, 'element'))
-        except Exception:
-            print "找不到报错页面"
+        except Exception as msg:
+            print msg
         else:
             print "space以外的成员不能访问"
 
     def tearDown(self):
         # 退出
         QT_Operations().logout()
-
 
     @classmethod
     def tearDownClass(self):
@@ -130,7 +134,7 @@ class CreatePrivateSpace(unittest.TestCase):
         except Exception as msg:
             print msg
         else:
-            print "数据已清除"
+            print "space数据已清除"
         finally:
             WebDriverHelp().teardown()  # 关闭浏览器
 

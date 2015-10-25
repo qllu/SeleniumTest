@@ -51,6 +51,6 @@ class TestSuite_3():
             # runner.run(suite)
 
 if __name__ == "__main__":
-    TestSuite_1().test()
+    TestSuite_3().test()
 
 

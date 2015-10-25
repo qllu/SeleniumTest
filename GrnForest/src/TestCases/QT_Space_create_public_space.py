@@ -14,6 +14,7 @@ from CommonFunction.DataReader import DataReader
 from CommonFunction.QT_Operations import QT_Operations
 from CommonFunction.WebDriverHelp import WebDriverHelp
 
+
 class CreatePublicSpace(unittest.TestCase):
     '''
     新增space目录
@@ -87,8 +88,8 @@ class CreatePublicSpace(unittest.TestCase):
         # 确认是否存在元素
         try:
             WebDriverHelp().isElementPresent('byclass', dataoper.readxml('confirm', 1, 'element'))
-        except:
-            print "space访问出错，页面元素不存在"
+        except Exception as msg:
+            print msg
         else:
             print "space成员可以访问space"
 
@@ -102,10 +103,25 @@ class CreatePublicSpace(unittest.TestCase):
         # 确认是否存在元素
         try:
             WebDriverHelp().isElementPresent('byclass', dataoper.readxml('confirm', 0, 'element'))
-        except:
-            print "space访问出错，页面元素不存在"
+        except Exception as msg:
+            print msg
         else:
             print "其他用户确认可以访问公开space"
+
+    def test4_delete_space(self):
+        QT_Operations().login(dataoper.readxml('login', 0, 'username'), dataoper.readxml('login', 0, 'password'))
+        time.sleep(2)
+        WebDriverHelp().geturl(detail_url)
+        time.sleep(2)
+        WebDriverHelp().clickitem('byid', dataoper.readxml('space', 0, 'delete_link'))
+        time.sleep(2)
+        try:
+            WebDriverHelp().clickitem('byxpath', dataoper.readxml('space', 0, 'delete_yes'))
+            time.sleep(2)
+        except Exception as msg:
+            print msg
+        else:
+            print "space已删除"
 
     def tearDown(self):
         # 退出
@@ -113,22 +129,8 @@ class CreatePublicSpace(unittest.TestCase):
 
     @classmethod
     def tearDownClass(self):
-        # 清空数据
-        try:
-            QT_Operations().login(dataoper.readxml('login', 0, 'username'), dataoper.readxml('login', 0, 'password'))
-            time.sleep(2)
-            WebDriverHelp().geturl(detail_url)
-            time.sleep(2)
-            WebDriverHelp().clickitem('byid', dataoper.readxml('space', 0, 'delete_link'))
-            time.sleep(2)
-            WebDriverHelp().clickitem('byxpath', dataoper.readxml('space', 0, 'delete_yes'))
-            time.sleep(2)
-        except Exception as msg:
-            print msg
-        else:
-            print "数据已清除"
-        finally:
-            WebDriverHelp().teardown()  # 关闭浏览器
+        # 关闭浏览器
+        WebDriverHelp().teardown()
 
 
 if __name__ == "__main__":
