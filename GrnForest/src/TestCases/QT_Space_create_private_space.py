@@ -14,8 +14,8 @@ import os
 sys.path.append("..")
 sys.path.append(os.getcwd() + "/src/")
 from CommonFunction.DataReader import DataReader
-from CommonFunction.QT_Operations import QT_Operations
-from CommonFunction.WebDriverHelp import WebDriverHelp
+from CommonFunction.Operations import Operations
+from CommonFunction.WebDriver import WebDriver
 
 
 class CreatePrivateSpace(unittest.TestCase):
@@ -25,55 +25,55 @@ class CreatePrivateSpace(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        WebDriverHelp("open", "firefox", "local").setup("fcn")  # 打开浏览器，并打开forest
+        WebDriver("open", "firefox", "local").setup("fcn")  # 打开浏览器，并打开forest
 
     def test1_create_private_space(self):
         global dataoper, detail_url, current_url
         # 读取测试数据并登录
         dataoper = DataReader('QT_Space_create_private_space.xml')
-        QT_Operations().login(dataoper.readxml('login', 0, 'username'), dataoper.readxml('login', 0, 'password'))
+        Operations().login(dataoper.readxml('login', 0, 'username'), dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
         # 点击进入Garoon
         garoon_url = "https://qatest01.cybozu.cn/g/"
-        WebDriverHelp().geturl(garoon_url)
+        WebDriver().geturl(garoon_url)
         time.sleep(1)
         # 点击进入space
-        WebDriverHelp().clickitem('bycss', dataoper.readxml('space', 0, 'space_icon'))
+        WebDriver().clickitem('bycss', dataoper.readxml('space', 0, 'space_icon'))
         time.sleep(2)
         # 创建space
-        WebDriverHelp().clickitem('bylink', dataoper.readxml('space', 0, 'creat_link'))
+        WebDriver().clickitem('bylink', dataoper.readxml('space', 0, 'creat_link'))
         time.sleep(1)
         # 输入title
-        WebDriverHelp().inputvalue('byid', dataoper.readxml('space', 0, 'space_title'),
+        WebDriver().inputvalue('byid', dataoper.readxml('space', 0, 'space_title'),
                                    dataoper.readxml('space', 0, 'title'))
         time.sleep(1)
         # 搜索添加用户
-        WebDriverHelp().inputvalue('byname', dataoper.readxml('space', 0, 'e_keyword'),
+        WebDriver().inputvalue('byname', dataoper.readxml('space', 0, 'e_keyword'),
                                    dataoper.readxml('space', 0, 'keyword'))
         time.sleep(1)
-        WebDriverHelp().clickitem('byxpath', dataoper.readxml('space', 0, 'search'))
+        WebDriver().clickitem('byxpath', dataoper.readxml('space', 0, 'search'))
         time.sleep(1)
-        WebDriverHelp().clickitem('byid', dataoper.readxml('space', 0, 'add_user'))
+        WebDriver().clickitem('byid', dataoper.readxml('space', 0, 'add_user'))
         time.sleep(1)
         # 选择公开方式
-        WebDriverHelp().clickitem('byid', dataoper.readxml('space', 0, 'private'))
+        WebDriver().clickitem('byid', dataoper.readxml('space', 0, 'private'))
 
         # 保存
-        WebDriverHelp().clickitem('byid', dataoper.readxml('space', 0, 'save'))
+        WebDriver().clickitem('byid', dataoper.readxml('space', 0, 'save'))
         time.sleep(1)
-        current_url = WebDriverHelp().currenturl()
+        current_url = WebDriver().currenturl()
         # print "current_url:", current_url
 
         # 进入详细页面,并获取url
-        WebDriverHelp().clickitem('byid', dataoper.readxml('space', 0, 'droplist'))
+        WebDriver().clickitem('byid', dataoper.readxml('space', 0, 'droplist'))
         time.sleep(1)
-        WebDriverHelp().clickitem('bylink', dataoper.readxml('space', 0, 'detail'))
+        WebDriver().clickitem('bylink', dataoper.readxml('space', 0, 'detail'))
         time.sleep(1)
-        detail_url = WebDriverHelp().currenturl()
+        detail_url = WebDriver().currenturl()
 
         # 验证：1.确认space名称；2.确认公开方式
-        check = WebDriverHelp().gettext('bycss', dataoper.readxml('space', 0, 'check'))
-        check2 = WebDriverHelp().gettext('byxpath', dataoper.readxml('space', 0, 'check2'))
+        check = WebDriver().gettext('bycss', dataoper.readxml('space', 0, 'check'))
+        check2 = WebDriver().gettext('byxpath', dataoper.readxml('space', 0, 'check2'))
         value = dataoper.readxml('space', 0, 'value')
         value2 = dataoper.readxml('space', 0, 'value2')
         try:
@@ -86,14 +86,14 @@ class CreatePrivateSpace(unittest.TestCase):
 
     def test2_member_confirm(self):
         # 使用space成员确认
-        QT_Operations().login(dataoper.readxml('confirm', 1, 'username'),
+        Operations().login(dataoper.readxml('confirm', 1, 'username'),
                               dataoper.readxml('confirm', 1, 'password'))
-        WebDriverHelp().geturl(current_url)
+        WebDriver().geturl(current_url)
         time.sleep(2)
 
         # 确认是否能正常访问
         try:
-            WebDriverHelp().isElementPresent('byclass', dataoper.readxml('confirm', 1, 'element'))
+            WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 1, 'element'))
         except Exception as msg:
             print msg
         else:
@@ -101,15 +101,15 @@ class CreatePrivateSpace(unittest.TestCase):
 
     def test3_other_confirm(self):
         # 使用其他用户确认
-        QT_Operations().login(dataoper.readxml('confirm', 0, 'username'),
+        Operations().login(dataoper.readxml('confirm', 0, 'username'),
                               dataoper.readxml('confirm', 0, 'password'))
         time.sleep(1)
         # print "open current_url by other user..."
-        WebDriverHelp().geturl(current_url)
+        WebDriver().geturl(current_url)
         time.sleep(2)
         # 确认是否显示错误页面
         try:
-            WebDriverHelp().isElementPresent('byclass', dataoper.readxml('confirm', 0, 'element'))
+            WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 0, 'element'))
         except Exception as msg:
             print msg
         else:
@@ -117,26 +117,26 @@ class CreatePrivateSpace(unittest.TestCase):
 
     def tearDown(self):
         # 退出
-        QT_Operations().logout()
+        Operations().logout()
 
     @classmethod
     def tearDownClass(self):
         # 清空数据
         try:
-            QT_Operations().login(dataoper.readxml('login', 0, 'username'), dataoper.readxml('login', 0, 'password'))
+            Operations().login(dataoper.readxml('login', 0, 'username'), dataoper.readxml('login', 0, 'password'))
             time.sleep(2)
-            WebDriverHelp().geturl(detail_url)
+            WebDriver().geturl(detail_url)
             time.sleep(2)
-            WebDriverHelp().clickitem('byid', dataoper.readxml('space', 0, 'delete_link'))
+            WebDriver().clickitem('byid', dataoper.readxml('space', 0, 'delete_link'))
             time.sleep(2)
-            WebDriverHelp().clickitem('byxpath', dataoper.readxml('space', 0, 'delete_yes'))
+            WebDriver().clickitem('byxpath', dataoper.readxml('space', 0, 'delete_yes'))
             time.sleep(2)
         except Exception as msg:
             print msg
         else:
             print "space数据已清除"
         finally:
-            WebDriverHelp().teardown()  # 关闭浏览器
+            WebDriver().teardown()  # 关闭浏览器
 
 
 if __name__ == "__main__":

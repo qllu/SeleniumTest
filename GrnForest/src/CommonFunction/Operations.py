@@ -10,9 +10,9 @@ import time
 #import win32api
 #import win32con
  
-from WebDriverHelp import WebDriverHelp
- 
-class QT_Operations(object):
+from WebDriver import WebDriver
+
+class Operations(object):
     '''
     Grn相关操作
     '''
@@ -24,23 +24,23 @@ class QT_Operations(object):
         @param type1:指示登录方式，1为从主页登录，2，从登录页登录
         '''
 
-        WebDriverHelp().clickitem("byname", "username")               
+        WebDriver().clickitem("byname", "username")
         time.sleep(3)
-        WebDriverHelp().clearvalue('byname','username')
-        WebDriverHelp().inputvalue('byname','username',userName)
+        WebDriver().clearvalue('byname','username')
+        WebDriver().inputvalue('byname','username',userName)
         time.sleep(1)
-        WebDriverHelp().clearvalue('byname','password')
-        WebDriverHelp().inputvalue('byname','password',passwd)
+        WebDriver().clearvalue('byname','password')
+        WebDriver().inputvalue('byname','password',passwd)
         time.sleep(1)
-        WebDriverHelp().clickitem("byclass", "login-button")
+        WebDriver().clickitem("byclass", "login-button")
         time.sleep(2)
-        # WebDriverHelp().geturl("https://qatest01.cybozu.cn")
+        # WebDriverFunction().geturl("https://qatest01.cybozu.cn")
         # time.sleep(2)
-       
+
     def logout(self):
         '''
         退出登录
         '''
-        WebDriverHelp().geturl("https://qatest01.cybozu.cn/logout")
+        WebDriver().geturl("https://qatest01.cybozu.cn/logout")
 
         

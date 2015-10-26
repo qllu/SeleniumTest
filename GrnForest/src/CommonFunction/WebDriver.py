@@ -13,7 +13,7 @@ from selenium.common.exceptions import NoSuchElementException
 # from selenium.webdriver.common.keys import Keys
 global G_WEBDRIVER, G_BROWSERTYTPE,driver
  
-class WebDriverHelp(object):
+class WebDriver(object):
     '''
     本类主要完成页面的基本操作，如打开指定的URL，对页面上在元素进行操作等
     '''
@@ -101,7 +101,7 @@ class WebDriverHelp(object):
         '''
         self.driver.refresh()
 
-    def isElementPresent(self, findby, elmethod):
+    def is_element_present(self, findby, elmethod):
         # 判断页面元素是否存在
         if(findby == 'byid'):
             self.driver.find_element_by_id(elmethod).is_displayed()
@@ -207,7 +207,9 @@ class WebDriverHelp(object):
             return self.driver.find_element_by_name(elmethod).text
         elif(findby == 'byxpath'):
             return self.driver.find_element_by_xpath(elmethod).text
-        elif (findby=='byclass'):
+        elif(findby=='byclass'):
             return self.driver.find_element_by_class_name(elmethod).text
-        elif (findby=='bycss'):
+        elif(findby=='bycss'):
             return self.driver.find_element_by_css_selector(elmethod).text
+        elif(findby== 'bylink'):
+            return self.driver.find_element_by_link_text(elmethod).text

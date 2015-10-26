@@ -9,7 +9,7 @@
 		<space_icon desc="bycss">div.icon-appMenu-space.appmenu-item-icon</space_icon>
 		<creat_link desc="bylink">创建空间</creat_link>
 		<space_title desc="byid">name-label-line-value-def</space_title>
-		<title>Space05</title>
+		<title>Space_todo_test</title>
 		<e_keyword>keyword_CGID</e_keyword>
 		<keyword>u2</keyword>
 		<search>//input[@value='用户搜索']</search>
@@ -38,9 +38,9 @@
 		<todo_link desc="byxpath">.//*[@id='all_todo']/ul/li[1]/a</todo_link>
 		<make_complete desc="bycss">input[type="submit"]</make_complete>
 		<shar_todo_link desc="byxpath">.//*[@id='body']/div[2]/span[7]/a</shar_todo_link>
-		<complete desc="byclass">space-todoLeft-status-Complete-grn </complete>
-		<todo_check_link desc="byid">todo_1</todo_check_link>
-
+		<complete_link desc="byxpath">//div[2]/div[2]/span/a</complete_link>
+		<todo_check desc="bylink">todo02</todo_check>
+		<value>todo02</value>
 
 	</todo>
 

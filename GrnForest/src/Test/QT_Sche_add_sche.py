@@ -11,8 +11,8 @@ import sys,os
 sys.path.append("..")
 sys.path.append(os.getcwd()+"/src/")
 from CommonFunction.DataReader import DataReader
-from CommonFunction.QT_Operations import QT_Operations
-from CommonFunction.WebDriverHelp import WebDriverHelp
+from CommonFunction.Operations import QT_Operations
+from CommonFunction.WebDriver import WebDriverHelp
 
 
 #导入需要的公共函数类
