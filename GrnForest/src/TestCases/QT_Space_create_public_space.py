@@ -31,7 +31,7 @@ class CreatePublicSpace(unittest.TestCase):
                               dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
         # 点击进入Garoon
-        garoon_url = "https://qatest01.cybozu.cn/g/"
+        garoon_url = WebDriver().testurl("qatest01") + "/g/"
         WebDriver().geturl(garoon_url)
         time.sleep(1)
         # 点击进入space
@@ -70,13 +70,9 @@ class CreatePublicSpace(unittest.TestCase):
         check2 = WebDriver().gettext('byxpath', dataoper.readxml('space', 0, u'check2'))
         value = dataoper.readxml('space', 0, 'value')
         value2 = dataoper.readxml('space', 0, u'value2')
-        try:
-            self.assertEqual(value, check)
-            self.assertEqual(value2, check2)
-        except AssertionError as msg:
-            print msg
-        else:
-            print "能正常添加公开space"
+
+        self.assertEqual(value, check), "space名称不匹配，验证失败"
+        self.assertEqual(value2, check2), "space公开方式不匹配，验证失败"
 
     def test2_member_confirm(self):
         # 成员用户确认

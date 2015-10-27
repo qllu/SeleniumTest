@@ -33,7 +33,8 @@ class CreateSpaceCategory(unittest.TestCase):
         time.sleep(2)
 
         # 点击进入garoon各应用程序管理
-        system_url = "https://qatest01.cybozu.cn/g/system/application_list.csp?app_id="
+        # system_url = "https://qatest01.cybozu.cn/g/system/application_list.csp?app_id="
+        system_url = WebDriver().testurl("qatest01") + "/g/system/application_list.csp?app_id="
         WebDriver().geturl(system_url)
         time.sleep(2)
 
@@ -68,20 +69,15 @@ class CreateSpaceCategory(unittest.TestCase):
         time.sleep(2)
         detail_url = WebDriver().currenturl()
 
-        # 验证
+        # 验证，1.类别名称，2.类别说明
         check = WebDriver().gettext('byxpath', dataoper.readxml('space', 0, 'check'))
         check2 = WebDriver().gettext('byxpath', dataoper.readxml('space', 0, 'check2'))
         # print "check:", check
         value = dataoper.readxml('space', 0, 'value')
         value2 = dataoper.readxml('space', 0, 'value2')
         # print "value:", value
-        # self.assertEqual(check,value)
-        # self.assertEqual(check2,value2)
-        try:
-            self.assertEqual(value, check)
-            self.assertEqual(value2, check2)
-        except AssertionError, msg:
-            print msg
+        self.assertEqual(check,value), "类别名称不匹配，验证失败"
+        self.assertEqual(check2,value2), "类别说明不匹配，验证失败"
 
     def tearDown(self):
         # 清空数据

@@ -31,10 +31,11 @@ class CreatePrivateSpace(unittest.TestCase):
         global dataoper, detail_url, current_url
         # 读取测试数据并登录
         dataoper = DataReader('QT_Space_create_private_space.xml')
-        Operations().login(dataoper.readxml('login', 0, 'username'), dataoper.readxml('login', 0, 'password'))
+        Operations().login(dataoper.readxml('login', 0, 'username'),
+                           dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
         # 点击进入Garoon
-        garoon_url = "https://qatest01.cybozu.cn/g/"
+        garoon_url = WebDriver().testurl("qatest01") + "/g/"
         WebDriver().geturl(garoon_url)
         time.sleep(1)
         # 点击进入space
@@ -76,13 +77,8 @@ class CreatePrivateSpace(unittest.TestCase):
         check2 = WebDriver().gettext('byxpath', dataoper.readxml('space', 0, 'check2'))
         value = dataoper.readxml('space', 0, 'value')
         value2 = dataoper.readxml('space', 0, 'value2')
-        try:
-            self.assertEqual(check, value)
-            self.assertEqual(check2, value2)
-        except AssertionError as msg:
-            print msg
-        else:
-            print "非公开space能正常添加"
+        self.assertEqual(check, value), u"space名称不匹配，验证失败"
+        self.assertEqual(check2, value2), u"公开方式不匹配，验证失败"
 
     def test2_member_confirm(self):
         # 使用space成员确认
@@ -123,7 +119,8 @@ class CreatePrivateSpace(unittest.TestCase):
     def tearDownClass(self):
         # 清空数据
         try:
-            Operations().login(dataoper.readxml('login', 0, 'username'), dataoper.readxml('login', 0, 'password'))
+            Operations().login(dataoper.readxml('login', 0, 'username'),
+                               dataoper.readxml('login', 0, 'password'))
             time.sleep(2)
             WebDriver().geturl(detail_url)
             time.sleep(2)

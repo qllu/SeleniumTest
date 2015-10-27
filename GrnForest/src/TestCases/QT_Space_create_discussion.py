@@ -32,7 +32,7 @@ class CreateDiscussion(unittest.TestCase):
                               dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
         # 点击进入Garoon
-        garoon_url = "https://qatest01.cybozu.cn/g/"
+        garoon_url = WebDriver().testurl("qatest01") + "/g/"
         WebDriver().geturl(garoon_url)
         time.sleep(1)
         # 点击进入space

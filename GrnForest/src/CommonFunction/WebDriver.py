@@ -76,7 +76,17 @@ class WebDriver(object):
                 print '路径错误！'
             self.driver.implicitly_wait(1)
         except NoSuchElementException:
-            print '您选择的测试地址出错！！'    
+            print '您选择的测试地址出错！！'
+
+    def testurl(self, url):
+        if(url == "jljin"):
+            return "http://jljin.cybozu-dev.com"
+        elif(url == "qatest01"):
+            return "http://qatest01.cybozu.cn"
+        elif(url == "qllu"):
+            return "http://qllu.cybozu-dev.com"
+        else:
+            print "url错误"
               
     def  teardown(self):
         '''

@@ -33,7 +33,7 @@ class AddShareTodo(unittest.TestCase):
         time.sleep(2)
 
         # 点击进入Garoon
-        garoon_url = "https://qatest01.cybozu.cn/g/"
+        garoon_url = WebDriver().testurl("qatest01") + "/g/"
         WebDriver().geturl(garoon_url)
         time.sleep(1)
         # 点击进入space
@@ -125,12 +125,7 @@ class AddShareTodo(unittest.TestCase):
         check = WebDriver().gettext('bylink', dataoper.readxml('todo', 0, 'todo_check'))
         value = dataoper.readxml('todo', 0, 'value')
         time.sleep(1)
-        try:
-            self.assertEqual(value, check)
-        except Exception as msg:
-            print msg
-        else:
-            print "Space共享ToDo已完成"
+        self.assertEqual(value, check), u"已完成的todo信息不匹配，验证失败"
         time.sleep(1)
 
     def tearDown(self):
