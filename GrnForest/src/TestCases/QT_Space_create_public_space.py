@@ -21,7 +21,7 @@ class CreatePublicSpace(unittest.TestCase):
     '''
     @classmethod
     def setUpClass(self):
-        WebDriver("open", "firefox", "local").setup("fcn")  # 打开浏览器，并打开forest
+        WebDriver("open", "firefox", "local").setup("qatest01")  # 打开浏览器，并打开forest
 
     def test1_create_public_space(self):
         global dataoper, detail_url, current_url

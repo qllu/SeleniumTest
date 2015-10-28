@@ -21,7 +21,7 @@ class CreateDiscussion(unittest.TestCase):
     '''
     @classmethod
     def setUpClass(self):
-        WebDriver("open", "firefox", "local").setup("fcn")  # 打开浏览器，并打开forest
+        WebDriver("open", "firefox", "local").setup("qatest01")  # 打开浏览器，并打开forest
 
     def test1_create_discussion(self):
         # 新建space

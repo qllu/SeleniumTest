@@ -20,7 +20,7 @@ class AddOrganization(unittest.TestCase):
     新增组织
     '''
     def setUp(self):
-        WebDriver("open","firefox","local").setup("fcn")#打开浏览器，并打开forest
+        WebDriver("open","firefox","local").setup("qatest01")#打开浏览器，并打开forest
 
     def test_add_organization(self):
 
@@ -34,7 +34,7 @@ class AddOrganization(unittest.TestCase):
         time.sleep(2)
 
         #点击进入共通管理
-        admin_url = "https://qatest01.cybozu.cn/admin/"
+        admin_url = WebDriver().testurl("qatest01") + "/admin/"
         WebDriver().geturl(admin_url)
         time.sleep(2)
 

@@ -19,7 +19,7 @@ class CreateSpaceCategory(unittest.TestCase):
     '''
 
     def setUp(self):
-        WebDriver("open", "firefox", "local").setup("fcn")  # 打开浏览器，并打开forest
+        WebDriver("open", "firefox", "local").setup("qatest01")  # 打开浏览器，并打开forest
 
     def test_create_space_category(self):
         global dataoper, detail_url

@@ -65,13 +65,13 @@ class WebDriver(object):
         @param logintype: 指定测试的URL： onpre:单机版测试地址，cloud:云版测试地址
         """
         try:
-            fdev_url = "http://jljin.cybozu-dev.com"
-            fcn_url = "https://qatest01.cybozu.cn"
+            jljin_url = "http://jljin.cybozu-dev.com"
+            qatest01_url = "https://qatest01.cybozu.cn"
 
-            if(logintype == "fdev"):
-                self.driver.get(fdev_url)
-            elif(logintype == "fcn"):
-                self.driver.get(fcn_url)
+            if(logintype == "jljin"):
+                self.driver.get(jljin_url)
+            elif(logintype == "qatest01"):
+                self.driver.get(qatest01_url)
             else:
                 print '路径错误！'
             self.driver.implicitly_wait(1)
