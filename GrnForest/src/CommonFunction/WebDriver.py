@@ -9,6 +9,7 @@ WebDriverHelp用来存放所有页面操作用到公用方法
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.action_chains import ActionChains
 # from selenium.webdriver.common.action_chains import ActionChains
 # from selenium.webdriver.common.keys import Keys
 global G_WEBDRIVER, G_BROWSERTYTPE,driver
@@ -126,17 +127,44 @@ class WebDriver(object):
         elif(findby == 'bycss'):
             self.driver.find_element_by_css_selector(elmethod).is_displayed()
 
+    def screenshot(self,file_path):
+        self.driver.get_screenshot_as_file(file_path)
 
-    """
-    def switch(self,type):
+    def drag_and_drop(self, el_css, target_css):
+        '''
+        Drags an element a certain distance and then drops it.
+
+        Usage:
+        driver.drag_and_drop("#el","#ta")
+        '''
+        element = self.driver.find_element_by_css_selector(el_css)
+        target = self.driver.find_element_by_css_selector(target_css)
+        ActionChains(driver).drag_and_drop(element, target).perform()
+
+
+    def switch_to_frame(self,elmethod):
 
         #切换到新页面
+        xf = self.driver.find_element_by_css_selector(elmethod)
+        self.driver._switch_to.frame(xf)
 
-        if(type == 'win'):
-            self.driver.switch_to_window(self.driver.window_handles[-1])
-        if type == 'iframe':
-            self.driver.switch_to_frame(frame)
-    """
+    def switch_to_frame_out(self):
+        self.driver._switch_to.default_content()
+
+    def open_new_window(self, elmethod):
+        '''
+        Open the new window and switch the handle to the newly opened window.
+        Usage:
+        driver.open_new_window()
+        '''
+        driver = self.driver
+        original_windows = driver.current_window_handle
+        driver.find_element_by_css_selector(elmethod).click()
+        all_handles = driver.window_handles
+        for handle in all_handles:
+            if handle != original_windows:
+                driver._switch_to.window(handle)
+
 
     def clickitem(self,findby,elmethod):
         '''
