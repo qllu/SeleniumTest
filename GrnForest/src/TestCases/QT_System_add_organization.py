@@ -27,7 +27,7 @@ class AddOrganization(unittest.TestCase):
 
         
         #读取测试数据     
-        dataoper = DataReader('QT_add_organization.xml')
+        dataoper = DataReader('QT_System_add_organization.xml')
 
         #登录用户
         Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))

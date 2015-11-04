@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-import unittest, time
+import unittest
+import time
+
 
 class myclass(unittest.TestCase):
 
@@ -9,13 +11,13 @@ class myclass(unittest.TestCase):
         self.driver = webdriver.Firefox()
 
     def test1(self):
-        global new_url
+        global NEW_URL
         url = "https://www.sogou.com/"
         print "start test1"
         self.driver.get(url)
         time.sleep(3)
-        new_url = self.driver.current_url
-        print "current_url:", new_url
+        NEW_URL = self.driver.current_url
+        print "current_url:", NEW_URL
         try:
             self.driver.find_element_by_xpath(".//*[@id='wrap']/div[3]/span").is_displayed()
         except NoSuchElementException:
@@ -23,7 +25,7 @@ class myclass(unittest.TestCase):
 
     def test2(self):
         print "start test2"
-        self.driver.get(new_url)
+        self.driver.get(NEW_URL)
         time.sleep(3)
         self.driver.find_element_by_xpath(".//*[@id='wrap']/div[3]/span").is_displayed()
 
@@ -36,9 +38,8 @@ class myclass(unittest.TestCase):
             print "元素存在"
         """
 
-
     def tearDown(self):
         self.driver.close()
 
-if __name__ == "__main__":
-    unittest.main()
+    if __name__ == "__main__":
+        unittest.main()

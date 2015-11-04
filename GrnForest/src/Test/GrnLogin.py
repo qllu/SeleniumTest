@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
 
-import unittest, time
+import unittest
+import time
 
 class Login(unittest.TestCase):
     def setUp(self):

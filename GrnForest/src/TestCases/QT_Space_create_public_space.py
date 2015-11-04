@@ -6,7 +6,10 @@ Created on 2015年10月14日
 @author: QLLU
 '''
 # 导入需要的公共函数类
-import time, unittest, sys, os
+import time
+import unittest
+import sys
+import os
 
 sys.path.append("..")
 sys.path.append(os.getcwd() + "/src/")
@@ -36,17 +39,18 @@ class CreatePublicSpace(unittest.TestCase):
         time.sleep(1)
         # 点击进入space
         WebDriver().clickitem('bycss', dataoper.readxml('space', 0, 'space_icon'))
+        WebDriver().clickitem('bycss', "aaa")
         time.sleep(2)
         # 创建space
         WebDriver().clickitem('bylink', dataoper.readxml('space', 0, 'creat_link'))
         time.sleep(1)
         # 输入title
         WebDriver().inputvalue('byid', dataoper.readxml('space', 0, 'space_title'),
-                                   dataoper.readxml('space', 0, 'title'))
+                                dataoper.readxml('space', 0, 'title'))
         time.sleep(1)
         # 搜索添加用户
         WebDriver().inputvalue('byname', dataoper.readxml('space', 0, 'e_keyword'),
-                                   dataoper.readxml('space', 0, 'keyword'))
+                                dataoper.readxml('space', 0, 'keyword'))
         time.sleep(1)
         WebDriver().clickitem('byxpath', dataoper.readxml('space', 0, 'search'))
         time.sleep(1)
