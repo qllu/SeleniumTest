@@ -10,6 +10,7 @@ import time
 import unittest
 import sys
 import os
+from selenium.common.exceptions import NoSuchElementException
 
 sys.path.append("..")
 sys.path.append(os.getcwd() + "/src/")
@@ -90,7 +91,7 @@ class CreatePrivateSpace(unittest.TestCase):
         # 确认是否能正常访问
         try:
             WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 1, 'element'))
-        except Exception as msg:
+        except NoSuchElementException as msg:
             print msg
         else:
             print "space成员确认可以访问"
@@ -106,7 +107,7 @@ class CreatePrivateSpace(unittest.TestCase):
         # 确认是否显示错误页面
         try:
             WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 0, 'element'))
-        except Exception as msg:
+        except NoSuchElementException as msg:
             print msg
         else:
             print "space以外的成员不能访问"
@@ -128,7 +129,7 @@ class CreatePrivateSpace(unittest.TestCase):
             time.sleep(2)
             WebDriver().clickitem('byxpath', dataoper.readxml('space', 0, 'delete_yes'))
             time.sleep(2)
-        except Exception as msg:
+        except NoSuchElementException as msg:
             print msg
         else:
             print "space数据已清除"

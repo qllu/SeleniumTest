@@ -6,11 +6,7 @@ Created on 2015年10月14日
 @author: QLLU
 """
 # 导入需要的公共函数类
-import time
-import unittest
-import sys
-import os
-
+import time, unittest, sys, os
 sys.path.append("..")
 sys.path.append(os.getcwd() + "/src/")
 from CommonFunction.DataReader import DataReader
@@ -18,7 +14,7 @@ from CommonFunction.Operations import Operations
 from CommonFunction.WebDriver import WebDriver
 
 
-class AddFacilityGroup(unittest.TestCase):
+class AllowAttacheFiles(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -35,25 +31,11 @@ class AddFacilityGroup(unittest.TestCase):
         WebDriver().geturl(garoon_url)
         time.sleep(1)
         WebDriver().clickitem("byid", "schedule")
-        WebDriver().clickitem("byid", "schedule/system/facility_group")
-        WebDriver().clickitem("byid", "schedule/system/facility_group_add")
-        time.sleep(1)
-        WebDriver().inputvalue("byname", "facilitygroupName-def", "fac_group1")
-        WebDriver().inputvalue("byname", "memo", "this is a facility group")
-        WebDriver().clickitem("byid", "facility_group_add_submit")
-        # 点击设备组进入详情
-        WebDriver().clickitem("bylink", "fac_group1")
-        group_url = WebDriver().currenturl()
-        WebDriver().clickitem("byxpath", "//div[2]/span/a")
-        time.sleep(1)
-        check1 = WebDriver().gettext("bycss", "td")
-        check2 = WebDriver().gettext("byxpath", "//tr[4]/td")
-        self.assertEqual(check1, "fac_group1"), "设备组名称验证失败"
-        self.assertEqual(check2, "this is a facility group") ,"设备组备注验证失败"
-        group_detail_url = WebDriver().currenturl()
+        WebDriver().clickitem("byid", "schedule/system/common_set")
 
 
-    def test2_add_facility(self):
+
+    def test2_confirm(self):
         global fac_detail_url
         WebDriver().geturl(group_url)
         time.sleep(2)
@@ -84,7 +66,7 @@ class AddFacilityGroup(unittest.TestCase):
             WebDriver().clickitem("byxpath", "//span[2]/span[2]/span/a")
             WebDriver().clickitem("bycss", "input.margin")
         except Exception as msg:
-            print msg, "数据不能正常清除"
+            print msg, "数据无法还原"
         finally:
             WebDriver().teardown()
 

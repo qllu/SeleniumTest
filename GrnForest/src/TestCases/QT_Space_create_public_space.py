@@ -16,6 +16,7 @@ sys.path.append(os.getcwd() + "/src/")
 from CommonFunction.DataReader import DataReader
 from CommonFunction.Operations import Operations
 from CommonFunction.WebDriver import WebDriver
+from selenium.common.exceptions import NoSuchElementException
 
 
 class CreatePublicSpace(unittest.TestCase):
@@ -39,7 +40,6 @@ class CreatePublicSpace(unittest.TestCase):
         time.sleep(1)
         # 点击进入space
         WebDriver().clickitem('bycss', dataoper.readxml('space', 0, 'space_icon'))
-        WebDriver().clickitem('bycss', "aaa")
         time.sleep(2)
         # 创建space
         WebDriver().clickitem('bylink', dataoper.readxml('space', 0, 'creat_link'))
@@ -88,10 +88,12 @@ class CreatePublicSpace(unittest.TestCase):
         # 确认是否存在元素
         try:
             WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 1, 'element'))
-        except Exception as msg:
+        except NoSuchElementException as msg:
             print msg
+            WebDriver().screenshot("../ScreenShot/error1.png")
         else:
             print "space成员可以访问space"
+
 
     def test3_other_confirm(self):
         # 使用其他用户确认
@@ -103,8 +105,9 @@ class CreatePublicSpace(unittest.TestCase):
         # 确认是否存在元素
         try:
             WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 0, 'element'))
-        except Exception as msg:
+        except NoSuchElementException as msg:
             print msg
+            WebDriver().screenshot("../ScreenShot/error2.png")
         else:
             print "其他用户确认可以访问公开space"
 
