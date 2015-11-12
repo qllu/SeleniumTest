@@ -19,7 +19,7 @@ class WebDriver(object):
     本类主要完成页面的基本操作，如打开指定的URL，对页面上在元素进行操作等
     '''
  
-    def  __init__(self,btype="open",atype="firefox",ctype="local"):
+    def  __init__(self,btype="close",atype="firefox",ctype="local"):
         """
         根据用户定制，打开对应的浏览器
         @param bType: 开关参数，如果为close则关闭浏览器
@@ -231,7 +231,21 @@ class WebDriver(object):
             select = Select(self.driver.find_element_by_name(select))
         elif(findby =='byclass'):
             select = Select(self.driver.find_element_by_classname(select))                 
-        select.select_by_visible_text(selectvalue)                      
+        select.select_by_visible_text(selectvalue)
+
+    def is_selected(self,findby,elmethod):
+        if(findby == 'byid'):
+            return self.driver.find_element_by_id(elmethod).is_selected()
+        elif(findby == 'byname'):
+            return self.driver.find_element_by_name(elmethod).is_selected()
+        elif(findby == 'byxpath'):
+            return self.driver.find_element_by_xpath(elmethod).is_selected()
+        elif(findby=='byclass'):
+            return self.driver.find_element_by_class_name(elmethod).is_selected()
+        elif(findby=='bycss'):
+            return self.driver.find_element_by_css_selector(elmethod).is_selected()
+        elif(findby== 'bylink'):
+            return self.driver.find_element_by_link_text(elmethod).is_selected()
 
     def gettext(self,findby,elmethod):
         '''

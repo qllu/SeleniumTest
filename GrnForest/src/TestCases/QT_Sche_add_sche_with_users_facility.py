@@ -23,10 +23,17 @@ class AddSche(unittest.TestCase):
         WebDriver("open","firefox","local").open("qatest01")  # 打开浏览器，并打开forest
 
     def test1_add_sche_with_users_facility(self):
-        dataoper = DataReader('QT_Sche_add_facility_group.xml')
+        dataoper = DataReader('QT_Sche_add_sche_with_users_facility.xml')
         Operations().login(dataoper.readxml('login', 0, 'username'),
                               dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
+        garoon_url = WebDriver().testurl("qatest01") + "/g/system/application_list.csp?app_id="
+        WebDriver().geturl(garoon_url)
+        time.sleep(1)
+        WebDriver().click("byid", "schedule")
+        WebDriver().click("byid", "schedule/system/common_set")
+        # 设置附件
+        print WebDriver().is_selected("byid", "allow_file_attachment")
 
 
     def tearDown(self):

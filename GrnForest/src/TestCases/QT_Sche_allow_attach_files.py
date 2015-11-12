@@ -19,38 +19,33 @@ class AllowAttacheFiles(unittest.TestCase):
     def setUp(self):
         WebDriver("open", "firefox", "local").open("qatest01")  # 打开浏览器，并打开forest
 
-
     def test1_allow_attache_files(self):
         dataoper = DataReader('QT_Sche_add_facility_group.xml')
         Operations().login(dataoper.readxml('login', 0, 'username'),
                               dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
-        #确认是否可以上传附件
+
+        # 进入日程安排系统后台
+        garoon_url = WebDriver().testurl("qatest01") + "/g/system/application_list.csp?app_id="
+        WebDriver().geturl(garoon_url)
+        time.sleep(1)
+        WebDriver().click("byid", "schedule")
+        WebDriver().click("byid", "schedule/system/common_set")
+
+        # 判断上传附件是否开启
+        switch = WebDriver().is_selected("byid", "allow_file_attachment")
+        if switch is False:
+            WebDriver().click("byid", "allow_file_attachment")
+            WebDriver().click("bycss", "input.margin")
+
         sche_url = WebDriver().testurl("qatest01") + "/g/schedule/index.csp?"
         WebDriver().geturl(sche_url)
         WebDriver().click("bycss", "span.menu_item > a")
-
-        try:
-            WebDriver().is_element_present("byxpath", "//tr[9]/td/div/div")
-        except:
-            print "开关没有打开，正在打开开关..."
-            # 进入日程安排系统后台
-            garoon_url = WebDriver().testurl("qatest01") + "/g/system/application_list.csp?app_id="
-            WebDriver().geturl(garoon_url)
-            time.sleep(1)
-            WebDriver().click("byid", "schedule")
-            WebDriver().click("byid", "schedule/system/common_set")
-            # 设置附件
-            WebDriver().click("byid", "allow_file_attachment")
-            WebDriver().click("bycss", "input.margin")
-            WebDriver().geturl(sche_url)
-
         time.sleep(2)
         upfile = os.path.abspath('../Attachement/cybozu.gif')
         WebDriver().input("byid", "file_upload_", upfile)
         WebDriver().click("byid", "schedule_submit_button")
         time.sleep(2)
-
         try:
             WebDriver().is_element_present("bycss", "tt > a > img")
         except NoSuchElementException as msg:

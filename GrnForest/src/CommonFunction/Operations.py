@@ -24,15 +24,15 @@ class Operations(object):
         @param type1:指示登录方式，1为从主页登录，2，从登录页登录
         '''
 
-        WebDriver().clickitem("byname", "username")
+        WebDriver().click("byname", "username")
         time.sleep(3)
-        WebDriver().clearvalue('byname','username')
-        WebDriver().inputvalue('byname','username',userName)
+        WebDriver().clear('byname','username')
+        WebDriver().input('byname','username',userName)
         time.sleep(1)
-        WebDriver().clearvalue('byname','password')
-        WebDriver().inputvalue('byname','password',passwd)
+        WebDriver().clear('byname','password')
+        WebDriver().input('byname','password',passwd)
         time.sleep(1)
-        WebDriver().clickitem("byclass", "login-button")
+        WebDriver().click("byclass", "login-button")
         time.sleep(2)
         # WebDriverFunction().geturl("https://qatest01.cybozu.cn")
         # time.sleep(2)
