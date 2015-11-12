@@ -20,7 +20,7 @@ class AddOrganization(unittest.TestCase):
     新增组织
     '''
     def setUp(self):
-        WebDriver("open","firefox","local").setup("qatest01")#打开浏览器，并打开forest
+        WebDriver("open","firefox","local").open("qatest01")#打开浏览器，并打开forest
 
     def test_add_organization(self):
 
@@ -39,26 +39,26 @@ class AddOrganization(unittest.TestCase):
         time.sleep(2)
 
         #点击进入组织
-        WebDriver().clickitem('byxpath', dataoper.readxml('org', 0, 'org_link'))
+        WebDriver().click('byxpath', dataoper.readxml('org', 0, 'org_link'))
         time.sleep(2) 
 
         #点击添加组织按钮
-        WebDriver().clickitem('byid', dataoper.readxml('org', 0, 'add_botton'))
+        WebDriver().click('byid', dataoper.readxml('org', 0, 'add_botton'))
 
         #输入组织名
-        WebDriver().inputvalue('byid', dataoper.readxml('org', 0, 'org_name'), dataoper.readxml('org', 0, 'name'))
+        WebDriver().input('byid', dataoper.readxml('org', 0, 'org_name'), dataoper.readxml('org', 0, 'name'))
         time.sleep(1) 
 
         # #输入组织代码
-        # WebDriver().inputvalue('byid', dataoper.readxml('org', 0, 'org_code'), dataoper.readxml('org', 0, 'code'))
+        # WebDriver().input('byid', dataoper.readxml('org', 0, 'org_code'), dataoper.readxml('org', 0, 'code'))
         # time.sleep(1)
 
         #输入组织说明
-        WebDriver().inputvalue('byid', dataoper.readxml('org', 0, 'org_comment'), dataoper.readxml('org', 0, 'comment'))
+        WebDriver().input('byid', dataoper.readxml('org', 0, 'org_comment'), dataoper.readxml('org', 0, 'comment'))
         time.sleep(1) 
 
         #保存
-        WebDriver().clickitem('byid', dataoper.readxml('org', 0, 'save'))
+        WebDriver().click('byid', dataoper.readxml('org', 0, 'save'))
         time.sleep(2)
 
         #验证(云版未验证)
@@ -72,7 +72,7 @@ class AddOrganization(unittest.TestCase):
 
         
     def tearDown(self):
-        WebDriver().teardown()#关闭浏览器
+        WebDriver().close()#关闭浏览器
        
 if __name__ == "__main__":   
     unittest.main()

@@ -19,7 +19,7 @@ class WebDriver(object):
     本类主要完成页面的基本操作，如打开指定的URL，对页面上在元素进行操作等
     '''
  
-    def  __init__(self,btype="close",atype="firefox",ctype="local"):
+    def  __init__(self,btype="open",atype="firefox",ctype="local"):
         """
         根据用户定制，打开对应的浏览器
         @param bType: 开关参数，如果为close则关闭浏览器
@@ -27,19 +27,19 @@ class WebDriver(object):
         @param cType:打开本地或是远程浏览器： local,本地；notlocal：远程
         """
         global driver
-        if(  btype == "open" ):           
+        if(  btype == "open" ):
             if(  atype == "chrome" ):
-                if(ctype == "local"):   
+                if(ctype == "local"):
                     driver = webdriver.Chrome()
                     # driver.maximize_window()
-                elif(ctype == "notlocal"): 
+                elif(ctype == "notlocal"):
                     print "打开远程的chrome"
                     driver = webdriver.Remote(command_executor='http://10.60.1.186:4444/wd/hub',
                                               desired_capabilities=webdriver.DesiredCapabilities.CHROME)
                     # driver.maximize_window()
 
             elif(  atype == "ie" ):
-                if(ctype == "local"): 
+                if(ctype == "local"):
                     driver = webdriver.Ie()
                     # driver.maximize_window()
                 elif(ctype == "notlocal"):
@@ -60,7 +60,7 @@ class WebDriver(object):
                                   
         self.driver = driver
  
-    def  setup(self,logintype):
+    def open(self,logintype):
         """
         定制测试URL，可分为单机版、云版
         @param logintype: 指定测试的URL： onpre:单机版测试地址，cloud:云版测试地址
@@ -89,7 +89,7 @@ class WebDriver(object):
         else:
             print "url错误"
               
-    def  teardown(self):
+    def  close(self):
         '''
         关闭浏览器
         '''       
@@ -126,6 +126,7 @@ class WebDriver(object):
             self.driver.find_element_by_class_name(elmethod).is_displayed()
         elif(findby == 'bycss'):
             self.driver.find_element_by_css_selector(elmethod).is_displayed()
+
 
     def screenshot(self,file_path):
         self.driver.get_screenshot_as_file(file_path)
@@ -166,7 +167,7 @@ class WebDriver(object):
                 driver._switch_to.window(handle)
 
 
-    def clickitem(self,findby,elmethod):
+    def click(self,findby,elmethod):
         '''
         通过定制定位方法，在对应的项目上执行单击操作
         @param findby: 定位方法，如：byid,byname,byclassname,byxpath等
@@ -185,7 +186,7 @@ class WebDriver(object):
         elif(findby == 'bycss'):
             self.driver.find_element_by_css_selector(elmethod).click()         
             
-    def clearvalue(self,findby,elmethod):
+    def clear(self,findby,elmethod):
         '''
         通过定制定位方法，在输入框中输入值
         @param findby: 定位方法，如：byid,byname,byclassname,byxpath等
@@ -201,7 +202,7 @@ class WebDriver(object):
         elif(findby == 'byxpath'):
             self.driver.find_element_by_xpath(elmethod).clear()          
       
-    def inputvalue(self,findby,elmethod,value):
+    def input(self,findby,elmethod,value):
         '''
         通过定制定位方法，在输入框中输入值
         @param findby: 定位方法，如：byid,byname,byclassname,byxpath等
@@ -217,7 +218,7 @@ class WebDriver(object):
         elif(findby == 'byxpath'):
             self.driver.find_element_by_xpath(elmethod).send_keys(value)
 
-    def  selectvalue(self,findby,select,selectvalue):
+    def  select(self,findby,select,selectvalue):
         '''
         通过定制定位方法和要选择项的文本，选择指定的项目
         @param findby:定位方法，如：byid,byname,byclassname等

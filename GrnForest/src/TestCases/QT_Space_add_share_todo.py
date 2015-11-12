@@ -21,7 +21,7 @@ class AddShareTodo(unittest.TestCase):
     '''
     @classmethod
     def setUpClass(self):
-        WebDriver("open", "firefox", "local").setup("qatest01")  # 打开浏览器，并打开forest
+        WebDriver("open", "firefox", "local").open("qatest01")  # 打开浏览器，并打开forest
 
     def test1_add_share_todo(self):
         # 新建space
@@ -37,43 +37,43 @@ class AddShareTodo(unittest.TestCase):
         WebDriver().geturl(garoon_url)
         time.sleep(1)
         # 点击进入space
-        WebDriver().clickitem('bycss', dataoper.readxml('space', 0, 'space_icon'))
+        WebDriver().click('bycss', dataoper.readxml('space', 0, 'space_icon'))
         time.sleep(2)
         # 创建space
-        WebDriver().clickitem('bylink', dataoper.readxml('space', 0, 'creat_link'))
+        WebDriver().click('bylink', dataoper.readxml('space', 0, 'creat_link'))
         time.sleep(1)
         # 输入title
-        WebDriver().inputvalue('byid', dataoper.readxml('space', 0, 'space_title'),
+        WebDriver().input('byid', dataoper.readxml('space', 0, 'space_title'),
                                    dataoper.readxml('space', 0, 'title'))
         # 搜索添加用户
-        WebDriver().inputvalue('byname', dataoper.readxml('space', 0, 'e_keyword'),
+        WebDriver().input('byname', dataoper.readxml('space', 0, 'e_keyword'),
                                    dataoper.readxml('space', 0, 'keyword'))
         time.sleep(1)
-        WebDriver().clickitem('byxpath', dataoper.readxml('space', 0, 'search'))
+        WebDriver().click('byxpath', dataoper.readxml('space', 0, 'search'))
         time.sleep(1)
-        WebDriver().clickitem('byid', dataoper.readxml('space', 0, 'add_user'))
+        WebDriver().click('byid', dataoper.readxml('space', 0, 'add_user'))
         time.sleep(1)
 
         # 保存
-        WebDriver().clickitem('byid', dataoper.readxml('space', 0, 'save'))
+        WebDriver().click('byid', dataoper.readxml('space', 0, 'save'))
         time.sleep(1)
         space_url = WebDriver().currenturl()
 
 
         # 点击添加Todo，输入标题、选择成员并保存
-        WebDriver().clickitem('bycss', dataoper.readxml('todo', 0, 'todo_add'))
+        WebDriver().click('bycss', dataoper.readxml('todo', 0, 'todo_add'))
         time.sleep(2)
-        WebDriver().inputvalue('byid', dataoper.readxml('todo', 0, 'todo_name_input'),
+        WebDriver().input('byid', dataoper.readxml('todo', 0, 'todo_name_input'),
                                    dataoper.readxml('todo', 0, 'todo_name'))
         time.sleep(1)
-        WebDriver().selectvalue('byid', dataoper.readxml('todo', 0, 'select_member'),
+        WebDriver().select('byid', dataoper.readxml('todo', 0, 'select_member'),
                                    dataoper.readxml('todo', 0, 'member1'))
-        WebDriver().selectvalue('byid', dataoper.readxml('todo', 0, 'select_member'),
+        WebDriver().select('byid', dataoper.readxml('todo', 0, 'select_member'),
                                    dataoper.readxml('todo', 0, 'member2'))
         time.sleep(1)
-        WebDriver().clickitem('byid', dataoper.readxml('todo', 0, 'add_member'))
+        WebDriver().click('byid', dataoper.readxml('todo', 0, 'add_member'))
         time.sleep(2)
-        WebDriver().clickitem('byid', dataoper.readxml('todo', 0, 'save'))
+        WebDriver().click('byid', dataoper.readxml('todo', 0, 'save'))
         time.sleep(2)
 
     def test2_member_add_todo(self):
@@ -83,19 +83,19 @@ class AddShareTodo(unittest.TestCase):
         WebDriver().geturl(space_url)
         time.sleep(2)
         # 调用添加todo的方法
-        WebDriver().clickitem('bycss', dataoper.readxml('todo', 0, 'todo_add'))
+        WebDriver().click('bycss', dataoper.readxml('todo', 0, 'todo_add'))
         time.sleep(2)
-        WebDriver().inputvalue('byid', dataoper.readxml('todo', 0, 'todo_name_input'),
+        WebDriver().input('byid', dataoper.readxml('todo', 0, 'todo_name_input'),
                                    dataoper.readxml('todo', 0, 'todo_name2'))
         time.sleep(1)
-        WebDriver().selectvalue('byid', dataoper.readxml('todo', 0, 'select_member'),
+        WebDriver().select('byid', dataoper.readxml('todo', 0, 'select_member'),
                                    dataoper.readxml('todo', 0, 'member1'))
-        WebDriver().selectvalue('byid', dataoper.readxml('todo', 0, 'select_member'),
+        WebDriver().select('byid', dataoper.readxml('todo', 0, 'select_member'),
                                    dataoper.readxml('todo', 0, 'member2'))
         time.sleep(1)
-        WebDriver().clickitem('byid', dataoper.readxml('todo', 0, 'add_member'))
+        WebDriver().click('byid', dataoper.readxml('todo', 0, 'add_member'))
         time.sleep(2)
-        WebDriver().clickitem('byid', dataoper.readxml('todo', 0, 'save'))
+        WebDriver().click('byid', dataoper.readxml('todo', 0, 'save'))
         time.sleep(2)
 
     def test3_process_todo(self):
@@ -104,9 +104,9 @@ class AddShareTodo(unittest.TestCase):
                               dataoper.readxml('login', 0, 'password'))
         WebDriver().geturl(space_url)
         time.sleep(2)
-        WebDriver().clickitem('byxpath', dataoper.readxml('todo', 0, 'todo_link'))
+        WebDriver().click('byxpath', dataoper.readxml('todo', 0, 'todo_link'))
         time.sleep(2)
-        WebDriver().clickitem('bycss', dataoper.readxml('todo', 0, 'make_complete'))
+        WebDriver().click('bycss', dataoper.readxml('todo', 0, 'make_complete'))
         time.sleep(1)
         Operations().logout()
         # u2完成todo
@@ -114,13 +114,13 @@ class AddShareTodo(unittest.TestCase):
                               dataoper.readxml('todo', 0, 'password'))
         WebDriver().geturl(space_url)
         time.sleep(2)
-        WebDriver().clickitem('byxpath', dataoper.readxml('todo', 0, 'todo_link'))
+        WebDriver().click('byxpath', dataoper.readxml('todo', 0, 'todo_link'))
         time.sleep(2)
-        WebDriver().clickitem('bycss', dataoper.readxml('todo', 0, 'make_complete'))
+        WebDriver().click('bycss', dataoper.readxml('todo', 0, 'make_complete'))
         time.sleep(1)
-        WebDriver().clickitem('byxpath', dataoper.readxml('todo', 0, 'shar_todo_link'))
+        WebDriver().click('byxpath', dataoper.readxml('todo', 0, 'shar_todo_link'))
         time.sleep(1)
-        WebDriver().clickitem('byxpath', dataoper.readxml('todo', 0, 'complete_link'))
+        WebDriver().click('byxpath', dataoper.readxml('todo', 0, 'complete_link'))
         time.sleep(3)
         check = WebDriver().gettext('bylink', dataoper.readxml('todo', 0, 'todo_check'))
         value = dataoper.readxml('todo', 0, 'value')
@@ -142,20 +142,20 @@ class AddShareTodo(unittest.TestCase):
                                   dataoper.readxml('login', 0, 'password'))
             WebDriver().geturl(space_url)
             time.sleep(2)
-            WebDriver().clickitem('byid', dataoper.readxml('space', 0, 'droplist'))
+            WebDriver().click('byid', dataoper.readxml('space', 0, 'droplist'))
             time.sleep(1)
-            WebDriver().clickitem('bylink', dataoper.readxml('space', 0, 'detail'))
+            WebDriver().click('bylink', dataoper.readxml('space', 0, 'detail'))
             time.sleep(1)
-            WebDriver().clickitem('byid', dataoper.readxml('space', 0, 'delete_link'))
+            WebDriver().click('byid', dataoper.readxml('space', 0, 'delete_link'))
             time.sleep(2)
-            WebDriver().clickitem('byxpath', dataoper.readxml('space', 0, 'delete_yes'))
+            WebDriver().click('byxpath', dataoper.readxml('space', 0, 'delete_yes'))
             time.sleep(2)
         except Exception as msg:
             print msg
         else:
             print "Space及todo数据已清除"
         finally:
-            WebDriver().teardown()
+            WebDriver().close()
 
 
 if __name__ == "__main__":

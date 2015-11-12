@@ -22,7 +22,7 @@ class AddFacilityGroup(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        WebDriver("open", "firefox", "local").setup("qatest01")  # 打开浏览器，并打开forest
+        WebDriver("open", "firefox", "local").open("qatest01")  # 打开浏览器，并打开forest
 
     def test1_add_facility_group(self):
         global group_url, group_detail_url
@@ -34,17 +34,17 @@ class AddFacilityGroup(unittest.TestCase):
         garoon_url = WebDriver().testurl("qatest01") + "/g/system/application_list.csp?app_id="
         WebDriver().geturl(garoon_url)
         time.sleep(1)
-        WebDriver().clickitem("byid", "schedule")
-        WebDriver().clickitem("byid", "schedule/system/facility_group")
-        WebDriver().clickitem("byid", "schedule/system/facility_group_add")
+        WebDriver().click("byid", "schedule")
+        WebDriver().click("byid", "schedule/system/facility_group")
+        WebDriver().click("byid", "schedule/system/facility_group_add")
         time.sleep(1)
-        WebDriver().inputvalue("byname", "facilitygroupName-def", "fac_group1")
-        WebDriver().inputvalue("byname", "memo", "this is a facility group")
-        WebDriver().clickitem("byid", "facility_group_add_submit")
+        WebDriver().input("byname", "facilitygroupName-def", "fac_group1")
+        WebDriver().input("byname", "memo", "this is a facility group")
+        WebDriver().click("byid", "facility_group_add_submit")
         # 点击设备组进入详情
-        WebDriver().clickitem("bylink", "fac_group1")
+        WebDriver().click("bylink", "fac_group1")
         group_url = WebDriver().currenturl()
-        WebDriver().clickitem("byxpath", "//div[2]/span/a")
+        WebDriver().click("byxpath", "//div[2]/span/a")
         time.sleep(1)
         check1 = WebDriver().gettext("bycss", "td")
         check2 = WebDriver().gettext("byxpath", "//tr[4]/td")
@@ -57,14 +57,14 @@ class AddFacilityGroup(unittest.TestCase):
         global fac_detail_url
         WebDriver().geturl(group_url)
         time.sleep(2)
-        WebDriver().clickitem("byid", "schedule/system/facility_add")
-        WebDriver().inputvalue("byname", "facilityName-def", "fac1")
-        WebDriver().inputvalue("byname", "facility_code", "fac1_code")
-        WebDriver().inputvalue("byname", "memo", "this is a facility")
-        WebDriver().clickitem("byid", "facility_add_submit")
+        WebDriver().click("byid", "schedule/system/facility_add")
+        WebDriver().input("byname", "facilityName-def", "fac1")
+        WebDriver().input("byname", "facility_code", "fac1_code")
+        WebDriver().input("byname", "memo", "this is a facility")
+        WebDriver().click("byid", "facility_add_submit")
         time.sleep(2)
         # 点击进入设备详情
-        WebDriver().clickitem("byxpath", "//td[2]/span/a")
+        WebDriver().click("byxpath", "//td[2]/span/a")
         check3 = WebDriver().gettext("bycss", "td")
         self.assertEqual(check3, "fac1")
         fac_detail_url = WebDriver().currenturl()
@@ -76,17 +76,17 @@ class AddFacilityGroup(unittest.TestCase):
             # 删除设备
             WebDriver().geturl(fac_detail_url)
             time.sleep(2)
-            WebDriver().clickitem("byxpath", "//span[2]/span[2]/span/a")
-            WebDriver().clickitem("bycss", "input.margin")
+            WebDriver().click("byxpath", "//span[2]/span[2]/span/a")
+            WebDriver().click("bycss", "input.margin")
             # 删除设备组
             WebDriver().geturl(group_detail_url)
             time.sleep(2)
-            WebDriver().clickitem("byxpath", "//span[2]/span[2]/span/a")
-            WebDriver().clickitem("bycss", "input.margin")
+            WebDriver().click("byxpath", "//span[2]/span[2]/span/a")
+            WebDriver().click("bycss", "input.margin")
         except Exception as msg:
             print msg, "数据不能正常清除"
         finally:
-            WebDriver().teardown()
+            WebDriver().close()
 
 
 if __name__ == "__main__":

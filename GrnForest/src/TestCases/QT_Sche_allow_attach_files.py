@@ -1,12 +1,12 @@
 # coding=utf-8
 """
 Created on 2015年10月14日
-1.施設グループが追加されること
-2.施設が追加されること
+1.予定のファイル添付が許可される
 @author: QLLU
 """
 # 导入需要的公共函数类
 import time, unittest, sys, os
+from selenium.common.exceptions import NoSuchElementException
 sys.path.append("..")
 sys.path.append(os.getcwd() + "/src/")
 from CommonFunction.DataReader import DataReader
@@ -16,59 +16,60 @@ from CommonFunction.WebDriver import WebDriver
 
 class AllowAttacheFiles(unittest.TestCase):
 
-    @classmethod
-    def setUpClass(self):
-        WebDriver("open", "firefox", "local").setup("qatest01")  # 打开浏览器，并打开forest
+    def setUp(self):
+        WebDriver("open", "firefox", "local").open("qatest01")  # 打开浏览器，并打开forest
 
-    def test1_add_facility_group(self):
-        global group_url, group_detail_url
+
+    def test1_allow_attache_files(self):
         dataoper = DataReader('QT_Sche_add_facility_group.xml')
         Operations().login(dataoper.readxml('login', 0, 'username'),
                               dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
-        # 进入日程安排系统后台
-        garoon_url = WebDriver().testurl("qatest01") + "/g/system/application_list.csp?app_id="
-        WebDriver().geturl(garoon_url)
-        time.sleep(1)
-        WebDriver().clickitem("byid", "schedule")
-        WebDriver().clickitem("byid", "schedule/system/common_set")
+        #确认是否可以上传附件
+        sche_url = WebDriver().testurl("qatest01") + "/g/schedule/index.csp?"
+        WebDriver().geturl(sche_url)
+        WebDriver().click("bycss", "span.menu_item > a")
 
+        try:
+            WebDriver().is_element_present("byxpath", "//tr[9]/td/div/div")
+        except:
+            print "开关没有打开，正在打开开关..."
+            # 进入日程安排系统后台
+            garoon_url = WebDriver().testurl("qatest01") + "/g/system/application_list.csp?app_id="
+            WebDriver().geturl(garoon_url)
+            time.sleep(1)
+            WebDriver().click("byid", "schedule")
+            WebDriver().click("byid", "schedule/system/common_set")
+            # 设置附件
+            WebDriver().click("byid", "allow_file_attachment")
+            WebDriver().click("bycss", "input.margin")
+            WebDriver().geturl(sche_url)
 
-
-    def test2_confirm(self):
-        global fac_detail_url
-        WebDriver().geturl(group_url)
         time.sleep(2)
-        WebDriver().clickitem("byid", "schedule/system/facility_add")
-        WebDriver().inputvalue("byname", "facilityName-def", "fac1")
-        WebDriver().inputvalue("byname", "facility_code", "fac1_code")
-        WebDriver().inputvalue("byname", "memo", "this is a facility")
-        WebDriver().clickitem("byid", "facility_add_submit")
+        upfile = os.path.abspath('../Attachement/cybozu.gif')
+        WebDriver().input("byid", "file_upload_", upfile)
+        WebDriver().click("byid", "schedule_submit_button")
         time.sleep(2)
-        # 点击进入设备详情
-        WebDriver().clickitem("byxpath", "//td[2]/span/a")
-        check3 = WebDriver().gettext("bycss", "td")
-        self.assertEqual(check3, "fac1")
-        fac_detail_url = WebDriver().currenturl()
 
-    @classmethod
-    def tearDownClass(self):
+        try:
+            WebDriver().is_element_present("bycss", "tt > a > img")
+        except NoSuchElementException as msg:
+            print msg
+        else:
+            print "附件上传成功，可正常显示"
+
+
+    def tearDown(self):
         # 清空数据
         try:
-            # 删除设备
-            WebDriver().geturl(fac_detail_url)
-            time.sleep(2)
-            WebDriver().clickitem("byxpath", "//span[2]/span[2]/span/a")
-            WebDriver().clickitem("bycss", "input.margin")
-            # 删除设备组
-            WebDriver().geturl(group_detail_url)
-            time.sleep(2)
-            WebDriver().clickitem("byxpath", "//span[2]/span[2]/span/a")
-            WebDriver().clickitem("bycss", "input.margin")
-        except Exception as msg:
-            print msg, "数据无法还原"
+            WebDriver().click("byxpath", "//span[2]/span/a")
+            WebDriver().click("bycss", "input.margin")
+        except NoSuchElementException as msg:
+            print msg
+        else:
+            print "sche数据已清空"
         finally:
-            WebDriver().teardown()
+            WebDriver().close()
 
 
 if __name__ == "__main__":
