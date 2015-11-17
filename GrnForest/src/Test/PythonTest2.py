@@ -1,20 +1,36 @@
 #!/usr/bin/env python
 #encoding: utf-8
 
-import time, unittest, sys, os
+#coding=utf-8
+from selenium import webdriver
+import time
 
-sys.path.append("..")
-sys.path.append(os.getcwd() + "/src/")
-from CommonFunction.DataReader import DataReader
-from CommonFunction.Operations import Operations
-from CommonFunction.WebDriver import WebDriver
 
-dataoper = DataReader('QT_Space_add_share_todo.xml')
-test1 = dataoper.readxml_attribute('space', 0, 'space_icon', 'desc')
-test2 = dataoper.readxml('space', 0, 'creat_link')
+#实例化一个火狐配置文件
+fp = webdriver.FirefoxProfile()
+
+#设置各项参数，参数可以通过在浏览器地址栏中输入about:config查看。
+
+#设置成0代表下载到浏览器默认下载路径；设置成2则可以保存到指定目录
+fp.set_preference("browser.download.folderList",2)
+
+
+#是否显示开始,(个人实验，不管设成True还是False，都不显示开始，直接下载)
+fp.set_preference("browser.download.manager.showWhenStarting",False)
+
+
+#下载到指定目录
+fp.set_preference("browser.download.dir","d:\\test")
+
+#不询问下载路径；后面的参数为要下载页面的Content-type的值
+fp.set_preference("browser.helperApps.neverAsk.saveToDisk","application/octet-stream")
+
+dr = webdriver.Firefox(firefox_profile=fp)
+
+dr.get("https://pypi.python.org/pypi/selenium")
 time.sleep(2)
-print "test1:", test1
-print "test2:", test2
+dr.find_elements_by_xpath(".//*[@id='content']/div[3]/table/tbody/tr[3]/td[1]/span/a[1]").click()
+
 
 
 

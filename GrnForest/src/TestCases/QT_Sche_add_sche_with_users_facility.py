@@ -22,15 +22,20 @@ class AddSche(unittest.TestCase):
     def setUp(self):
         WebDriver("open","firefox","local").open("qatest01")  # 打开浏览器，并打开forest
 
-    def test1_add_sche_with_users_facility(self):
-        # dataoper = DataReader('QT_Sche_add_sche_with_users_facility.xml')
-        # Operations().login(dataoper.readxml('login', 0, 'username'),
-        #                       dataoper.readxml('login', 0, 'password'))
-        # addfac.add_facility_group()
-        # addfac.add_facility()
-        # Operations().logout()
-        # 使用u1操作
+    def test_add_sche_with_users_facility(self):
+        global dataoper
         dataoper = DataReader('QT_Sche_add_sche_with_users_facility.xml')
+        Operations().login(dataoper.readxml('login', 0, 'username'),
+                              dataoper.readxml('login', 0, 'password'))
+        # 添加设备，设备组
+        try:
+            addfac.add_facility_group()
+            addfac.add_facility()
+        except:
+            print "设备、设备组无法添加"
+        Operations().logout()
+
+        # 使用u1操作
         Operations().login(dataoper.readxml('sche', 0, 'username'),
                               dataoper.readxml('sche', 0, 'password'))
         garoon_url = WebDriver().testurl("qatest01") + "/g/schedule/index.csp?"
@@ -61,18 +66,39 @@ class AddSche(unittest.TestCase):
         upfile = os.path.abspath('../Attachement/cybozu.gif')
         WebDriver().input("byid", "file_upload_", upfile)
         time.sleep(1)
-        WebDriver().click("byid", "schedule_submit_button")
+        try:
+            WebDriver().click("byid", "schedule_submit_button")
+            time.sleep(3)
+            WebDriver().screenshot("../ScreenShot/add_sche_with_users_facility.png")
+        except:
+            print "不能添加预定，可能与其他预定重合"
+
+        try:
+            time.sleep(3)
+            check1 = WebDriver().gettext("bylink", "u2")
+            self.assertEqual(check1, "u2")
+            check2 = WebDriver().gettext("bylink", "fac1")
+            self.assertEqual(check2, "fac1")
+        except NoSuchElementException as msg:
+            print msg
 
 
     def tearDown(self):
-        # 清空数据
-        pass
-        # try:
-        #     addfac.del_fac()
-        # except Exception as msg:
-        #     print msg, "数据不能正常清除"
-        # finally:
-        #     WebDriver().close()
+        try:
+            # 清空sche数据
+            time.sleep(2)
+            WebDriver().click("byxpath", "//span[2]/span/a")
+            WebDriver().click("byid", "1")
+            WebDriver().click("bycss", "input.margin")
+            Operations().logout()
+            # 清空设备
+            Operations().login(dataoper.readxml('login', 0, 'username'),
+                              dataoper.readxml('login', 0, 'password'))
+            addfac.del_fac()
+        except Exception as msg:
+            print msg, "数据不能正常清除"
+        finally:
+            WebDriver().close()
 
 
 if __name__ == "__main__":
