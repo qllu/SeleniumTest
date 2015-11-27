@@ -11,8 +11,8 @@ import sys,os
 sys.path.append("..")
 sys.path.append(os.getcwd()+"/src/")
 from CommonFunction.DataReader import DataReader
-from CommonFunction.Operations import QT_Operations
-from CommonFunction.WebDriver import WebDriverHelp
+from CommonFunction.Operations import Operations
+from CommonFunction.WebDriver import WebDriver
 
 
 # 导入需要的公共函数类
@@ -21,52 +21,48 @@ class LoginGrn(unittest.TestCase):
     登录检测，更换用户登录
     """
     def setUp(self):
-        WebDriverHelp("open","firefox","local").setup("fcn")#打开浏览器，并打开forest
+        WebDriver("open","firefox","local").open("qatest01")#打开浏览器，并打开forest
 
     def test_login_grn(self):
 
-        # 读取测试数据
-        dataoper = DataReader('QT_login_grn.xml')
+        # 读取测试数据        
 
         # 登录用户
-        QT_Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))
+        Operations().login("q1", "cybozu2")
 
         # 进入Garoon
-        grn_url = "https://qatest01.cybozu.cn/g/"
-        WebDriverHelp().geturl(grn_url)
-
-        # 点击用户下拉菜单
-        WebDriverHelp().clickitem('byid', dataoper.readxml('login', 0, 'item'))
-               
-        checkpoint1 = WebDriverHelp().gettext('bycss',dataoper.readxml('login', 0,'checkpoint'))
-        value1 = dataoper.readxml('login', 0, 'value')        
-        self.assertEqual(checkpoint1,value1)
+        grn_url = "https://qatest01.cybozu.cn/g/mail/index.csp?"
+        WebDriver().geturl(grn_url)
+        WebDriver().click("bylink", u"发送E-mail")
+        time.sleep(2)
+        WebDriver().click("bycss", "ul.holder.ui-sortable")
+        time.sleep(2)
+        WebDriver().clear("bycss", "input.maininput")
+        time.sleep(2)
+        WebDriver().clear("bycss", "input.maininput")
+        WebDriver().input("bycss", "input.maininput", "ynchang@cybozu.net.cn")
+        time.sleep(2)
+        WebDriver().click("bycss", "input.maininput")
+        WebDriver().input("byid", "subject_mail", "test")
+        WebDriver().click("byclass", "buttonMain-grn")
+        WebDriver().click("bycss", "p > input.buttonMain-grn")
 
 
         # 退出
-        QT_Operations().logout()
+        Operations().logout()
         time.sleep(3) 
 
         """
         #设置起始节点为0，循环2次
         num = 0
         while num < 2:        
-            #登录用户
-            QT_Operations().login(dataoper.readxml('login', num, 'username'),dataoper.readxml('login', num, 'password'))  
-            #点击用户下拉菜单
-            WebDriverHelp().clickitem('byid', dataoper.readxml('login', num, 'item'))
-                   
-            checkpoint1 = WebDriverHelp().gettext('bycss',dataoper.readxml('login', num,'checkpoint'))
-            value1 = dataoper.readxml('login', num, 'value')        
-            self.assertEqual(checkpoint1,value1) 
-            #退出
-            QT_Operations().logout()
-            time.sleep(3)
-                        
+            #操作
+
             num = num + 1  
         """
         
     def tearDown(self):
-        WebDriverHelp().teardown()#关闭浏览器
+        WebDriver().close()#关闭浏览器
+
 if __name__ == "__main__":
     unittest.main()

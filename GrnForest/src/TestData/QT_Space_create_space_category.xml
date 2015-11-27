@@ -17,7 +17,7 @@
 		<save>input.margin</save>
 		<cate_detail>详情</cate_detail>
 		<check>//div[@id='body']/div[2]/table/tbody/tr[2]/td/span</check>
-		<check2>//div[@id='body']/div[2]/table/tbody/tr[4]/td/span</check2>
+		<check2>.//*[@id='body']/div[2]/table/tbody/tr[4]/td/span</check2>
 		<value>test06</value>
 		<value2>this is a test</value2>
 		<delete_link>.//*[@id='main_menu_part']/span[3]/span/a</delete_link>
