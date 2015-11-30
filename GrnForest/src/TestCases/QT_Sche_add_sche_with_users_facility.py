@@ -5,6 +5,8 @@ Created on 2015年10月14日
 2.参加者に予定の共有者が含まれていること
 3.ファイルが添付されておりダウンロードできること
 4.施設欄に施設が含まれていること
+5.登録した予定が未確認の通知として存在すること
+6.タイトル、日時、メモ、参加者、施設、添付ファイルなどの変更内容が反映されていること
 @author: QLLU
 """
 # 导入需要的公共函数类
@@ -17,13 +19,14 @@ from CommonFunction.Operations import Operations
 from CommonFunction.WebDriver import WebDriver
 import QT_Sche_add_facility_group as addfac
 
-class AddSche(unittest.TestCase):
+class AddAppointments(unittest.TestCase):
 
-    def setUp(self):
-        WebDriver("open","firefox","local").open("qatest01")  # 打开浏览器，并打开forest
+    @classmethod
+    def setUpClass(self):
+        WebDriver("open","firefox","local").open("qatest01")
 
-    def test_add_sche_with_users_facility(self):
-        global dataoper
+    def test1_add_appointments_with_users_facility(self):
+        global dataoper, sche_url
         dataoper = DataReader('QT_Sche_add_sche_with_users_facility.xml')
         Operations().login(dataoper.readxml('login', 0, 'username'),
                               dataoper.readxml('login', 0, 'password'))
@@ -73,19 +76,94 @@ class AddSche(unittest.TestCase):
         except:
             print "不能添加预定，可能与其他预定重合"
 
+        sche_url = WebDriver().currenturl()
+        time.sleep(3)
+        # 验证用户、设备是否添加
+        check1 = WebDriver().gettext("bylink", "u2")
+        self.assertEqual(check1, "u2")
+        check2 = WebDriver().gettext("bylink", "fac1")
+        self.assertEqual(check2, "fac1")
+
+
+    def test2_confirm_notifacation(self):
+        # 验证未读通知是否存在
+        Operations().login(dataoper.readxml('confirm', 0, 'username'),
+                              dataoper.readxml('confirm', 0, 'password'))
+        notifacation_url = WebDriver().testurl("qatest01") + "/g/notification/pending_list.csp?module_id="
+        WebDriver().geturl(notifacation_url)
+        time.sleep(2)
+        check = WebDriver().gettext("bylink", "16:00 sche01")
+        self.assertEqual(check, "16:00 sche01")
+
+    def test3_change_appointments(self):
+        # 修改预定
+        Operations().login(dataoper.readxml('sche', 0, 'username'),
+                              dataoper.readxml('sche', 0, 'password'))
+        WebDriver().geturl(sche_url)
+        time.sleep(2)
+        WebDriver().click("byxpath", ".//*[@id='main_menu_part']/div[1]/span[1]/span/a")
+        time.sleep(2)
+        # 选择结束时间
+        WebDriver().click('byid', "time_selector")
+        WebDriver().click("byid", "time17")
+        # 输入标题
+        WebDriver().clear("byname", "title")
+        WebDriver().input("byname", "title", "sche01 change")
+        # 检索用户并添加
+        time.sleep(1)
+        WebDriver().input("byname", "keyword_CGID", "u3")
+        time.sleep(1)
+        WebDriver().click("byid", "searchbox-submit-users")
+        time.sleep(1)
+        WebDriver().click("bycss", "span.aButtonText-grn")
+        # 去除设备
+        time.sleep(1)
+        WebDriver().click("byxpath", "//tr[4]/td/table/tbody/tr/td[2]/div/div[2]/span/a/span[2]")
+        # 更换附件
+        WebDriver().click("byname", "fids[]")
+        upfile = os.path.abspath('../Attachement/test3.xls')
+        WebDriver().input("byid", "file_upload_", upfile)
+        time.sleep(1)
+        WebDriver().input("byid", "textarea_id", "this is a comment")
+        WebDriver().click("bycss", "#schedule_submit_button > span")
+        time.sleep(3)
+        # 验证标题、用户、设备、附件、备注是否修改
         try:
-            time.sleep(3)
-            check1 = WebDriver().gettext("bylink", "u2")
-            self.assertEqual(check1, "u2")
-            check2 = WebDriver().gettext("bylink", "fac1")
-            self.assertEqual(check2, "fac1")
+            title = WebDriver().gettext("byclass", "schedule")
+            self.assertEqual(title, "sche01 change")
+        except NoSuchElementException as msg:
+            print msg
+
+        try:
+            user = WebDriver().gettext("bylink", "u3")
+            self.assertEqual(user, "u3")
+        except NoSuchElementException as msg:
+            print msg
+        # facility = WebDriver().gettext("bylink", "fac1")
+
+        try:
+            comment = WebDriver().gettext("byclass", "format_contents")
+            self.assertEqual(comment, "this is a comment")
+        except NoSuchElementException as msg:
+            print msg
+
+        try:
+            attachment = WebDriver().gettext("bylink", "test3.xls")
+            self.assertEqual(attachment, "test3.xls")
         except NoSuchElementException as msg:
             print msg
 
 
     def tearDown(self):
+        Operations().logout()
+
+    @classmethod
+    def tearDownClass(self):
         try:
             # 清空sche数据
+            Operations().login(dataoper.readxml('sche', 0, 'username'),
+                              dataoper.readxml('sche', 0, 'password'))
+            WebDriver().geturl(sche_url)
             time.sleep(2)
             WebDriver().click("byxpath", "//span[2]/span/a")
             WebDriver().click("byid", "1")

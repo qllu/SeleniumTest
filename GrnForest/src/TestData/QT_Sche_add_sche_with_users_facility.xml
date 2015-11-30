@@ -10,4 +10,9 @@
 		<password>cybozu1</password>
 	</sche>
 
+	<confirm name="登录测试数据">
+		<username>u2</username>
+		<password>cybozu1</password>
+	</confirm>
+
 </TestData>	
