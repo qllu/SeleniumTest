@@ -64,7 +64,7 @@ class AddAppointments(unittest.TestCase):
         time.sleep(1)
         WebDriver().click("byid", "searchbox-submit-facilities")
         time.sleep(1)
-        WebDriver().click("byxpath", "//table[@id='main_table']/tbody/tr[4]/td/table/tbody/tr/td[2]/div/div/span/a/span[2]")
+        WebDriver().click("byxpath", "//span[text()='添加']")
         # 添加附件
         upfile = os.path.abspath('../Attachement/cybozu.gif')
         WebDriver().input("byid", "file_upload_", upfile)
@@ -127,31 +127,21 @@ class AddAppointments(unittest.TestCase):
         WebDriver().input("byid", "textarea_id", "this is a comment")
         WebDriver().click("bycss", "#schedule_submit_button > span")
         time.sleep(3)
-        # 验证标题、用户、设备、附件、备注是否修改
-        try:
-            title = WebDriver().gettext("byclass", "schedule")
-            self.assertEqual(title, "sche01 change")
-        except NoSuchElementException as msg:
-            print msg
+        # 验证标题、时间、用户、设备、附件、备注是否修改
 
-        try:
-            user = WebDriver().gettext("bylink", "u3")
-            self.assertEqual(user, "u3")
-        except NoSuchElementException as msg:
-            print msg
-        # facility = WebDriver().gettext("bylink", "fac1")
-
-        try:
-            comment = WebDriver().gettext("byclass", "format_contents")
-            self.assertEqual(comment, "this is a comment")
-        except NoSuchElementException as msg:
-            print msg
-
-        try:
-            attachment = WebDriver().gettext("bylink", "test3.xls")
-            self.assertEqual(attachment, "test3.xls")
-        except NoSuchElementException as msg:
-            print msg
+        title = WebDriver().gettext("byclass", "schedule")
+        self.assertEqual(title, "sche01 change")
+        date = WebDriver().gettext("bycss", ".mLeft15")
+        self.assertEqual(date, u"17:00 ～ 18:00")
+        user = WebDriver().gettext("bylink", "u3")
+        self.assertEqual(user, "u3")
+        comment = WebDriver().gettext("byclass", "format_contents")
+        self.assertEqual(comment, "this is a comment")
+        attachment = WebDriver().gettext("bylink", "test3.xls")
+        self.assertEqual(attachment, "test3.xls")
+        # assertNotEquals，验证内容不存在
+        facility = WebDriver().gettext("byxpath", ".//*[@id='body']/div[3]/div/div/table/tbody/tr[2]/td/div")
+        self.assertNotEqual(facility, "fac1")
 
 
     def tearDown(self):
