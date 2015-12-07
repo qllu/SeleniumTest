@@ -3,10 +3,10 @@
 # -*- coding: utf-8 -*-
 import unittest
 import time
+from selenium.webdriver.support.ui import Select
 
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
-
 
 class Untitled(unittest.TestCase):
     def setUp(self):
@@ -17,6 +17,7 @@ class Untitled(unittest.TestCase):
         self.accept_next_alert = True
 
     def test_untitled(self):
+        global element
         driver = self.driver
         driver.get(self.base_url + "/login")
         driver.find_element_by_id("username-:0-text").clear()
@@ -25,24 +26,40 @@ class Untitled(unittest.TestCase):
         driver.find_element_by_id("password-:1-text").send_keys("cybozu1")
         driver.find_element_by_css_selector("input.login-button").click()
         time.sleep(2)
-        driver.get("https://qatest01.cybozu.cn/g/schedule/index.csp?")
+        driver.get("https://qatest01.cybozu.cn/settings/account")
         time.sleep(2)
-        driver.find_element_by_link_text(u"周").click()
+        driver.find_element_by_id(":1").click()
+        time.sleep(1)
+        lang = driver.find_element_by_id(":1").text
+        print "初始语言:", lang
+        if lang == u"日本語":
+            element = ":3"
+            # return element
+            print "element0:", element
+
+        elif lang == "English (US)":
+            element = ":4"
+            # return element
+        elif lang == u"中文（简体）":
+            element = ":5"
+            # return element
+        print "element1:", element
+
+        driver.find_element_by_id(":5").click()
         time.sleep(2)
-        element = driver.find_element_by_xpath("//form/div[4]/div[1]/table/tbody/tr/td[3]/div/div[12]")
-        target = driver.find_element_by_xpath("//div[4]/div[1]/table/tbody/tr/td[3]/div/div[4]")
-        actionChains = ActionChains(driver)
-        actionChains.drag_and_drop(element, target).perform()
-
+        driver.find_element_by_id("form-submit-button-slash")
         time.sleep(2)
-        driver.find_element_by_css_selector("span.buttonSpacePlus-grn").click()
-
-
-        driver.find_element_by_css_selector("span").click()
-        driver.find_element_by_id("com-header-logout-link").click()
-
+        driver.get("https://qatest01.cybozu.cn/g/")
+        time.sleep(3)
 
     def tearDown(self):
+        self.driver.get("https://qatest01.cybozu.cn/settings/account")
+        print "element2:", element
+        time.sleep(2)
+        self.driver.find_element_by_id(":1").click()
+        self.driver.find_element_by_id(element).click()
+        self.driver.find_element_by_id("form-submit-button-slash")
+        self.driver.get("https://qatest01.cybozu.cn/g")
         self.driver.quit()
 
 if __name__ == "__main__":

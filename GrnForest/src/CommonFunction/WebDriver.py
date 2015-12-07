@@ -142,6 +142,10 @@ class WebDriver(object):
         target = self.driver.find_element_by_css_selector(target_css)
         ActionChains(driver).drag_and_drop(element, target).perform()
 
+    def click_and_move(self, elemet_xpath, target_xpath):
+        element = self.driver.find_element_by_xpath(elemet_xpath)
+        target = self.driver.find_element_by_xpath(target_xpath)
+        ActionChains(driver).click_and_hold(element).move_to_element(target).click().perform()
 
     def switch_to_frame(self,elmethod):
 
