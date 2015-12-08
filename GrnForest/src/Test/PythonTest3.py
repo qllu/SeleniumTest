@@ -34,18 +34,16 @@ class Untitled(unittest.TestCase):
         print "初始语言:", lang
         if lang == u"日本語":
             element = ":3"
-            # return element
             print "element0:", element
-
         elif lang == "English (US)":
             element = ":4"
-            # return element
+            print "element0:", element
         elif lang == u"中文（简体）":
             element = ":5"
-            # return element
+            print "element0:", element
         print "element1:", element
 
-        driver.find_element_by_id(":5").click()
+        driver.find_element_by_id(":3").click()
         time.sleep(2)
         driver.find_element_by_id("form-submit-button-slash")
         time.sleep(2)

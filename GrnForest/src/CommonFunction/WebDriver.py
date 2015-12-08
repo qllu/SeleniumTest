@@ -28,7 +28,7 @@ class WebDriver(object):
         """
         global driver
         if(  btype == "open" ):
-            if(  atype == "chrome" ):
+            if(atype == "chrome"):
                 if(ctype == "local"):
                     driver = webdriver.Chrome()
                     # driver.maximize_window()
@@ -38,7 +38,7 @@ class WebDriver(object):
                                               desired_capabilities=webdriver.DesiredCapabilities.CHROME)
                     # driver.maximize_window()
 
-            elif(  atype == "ie" ):
+            elif(atype == "ie"):
                 if(ctype == "local"):
                     driver = webdriver.Ie()
                     # driver.maximize_window()

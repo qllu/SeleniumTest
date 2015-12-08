@@ -30,6 +30,8 @@ class AddMyGroup(unittest.TestCase):
         Operations().login(dataoper.readxml('login', 0, 'username'),
                               dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
+        # language = "CH"
+        # Operations().select_language(language)
         # 进入我的组的设置
         url = WebDriver().testurl("qatest01") + "/g/personal/common_list.csp?id=user"
         WebDriver().geturl(url)

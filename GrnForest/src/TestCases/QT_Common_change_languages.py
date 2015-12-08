@@ -25,40 +25,69 @@ class ChangeLanguages(unittest.TestCase):
         WebDriver("open", "firefox", "local").open("qatest01")  # 打开浏览器，并打开forest
 
     def test1_change_to_japanese(self):
-        global setting_url
-        dataoper = DataReader('QT_Common_add_my_group.xml')
+        global lang_url, garoon_url, default_lang
+        dataoper = DataReader('QT_Common_change_languages.xml')
         Operations().login(dataoper.readxml('login', 0, 'username'),
                               dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
         # 进入语言修改页面
-        setting_url = WebDriver().testurl("qatest01") + "/settings/account"
+        lang_url = WebDriver().testurl("qatest01") + "/settings/account"
         garoon_url = WebDriver().testurl("qatest01") + "/g/"
-        WebDriver().geturl(setting_url)
+        WebDriver().geturl(lang_url)
         time.sleep(2)
+        default_lang = Operations().confirm_language()
         WebDriver().click("byid", ":1")
+
         time.sleep(1)
         # :3 日语，:4 英语，:5 中文
         WebDriver().click("byid", ":3")
         time.sleep(1)
         WebDriver().click("byid", "form-submit-button-slash")
         WebDriver().geturl(garoon_url)
+        WebDriver().refresh()
         time.sleep(2)
         name = WebDriver().gettext("bycss", "#appmenu-portal>a>div>nobr")
-        self.assertEqual(name, u"ポータル")
+        self.assertEqual(name, u"ポータル"), "语言不能修改为日语"
 
     def test2_change_to_english(self):
-        pass
+        WebDriver().geturl(lang_url)
+        time.sleep(2)
+        WebDriver().click("byid", ":1")
+        time.sleep(1)
+        # :3 日语，:4 英语，:5 中文
+        WebDriver().click("byid", ":4")
+        time.sleep(1)
+        WebDriver().click("byid", "form-submit-button-slash")
+        WebDriver().geturl(garoon_url)
+        WebDriver().refresh()
+        time.sleep(2)
+        name = WebDriver().gettext("bycss", "#appmenu-portal>a>div>nobr")
+        self.assertEqual(name, "Portal"), "语言不能修改为英语"
 
     def test3_change_to_chinese(self):
-        pass
-
+        WebDriver().geturl(lang_url)
+        time.sleep(2)
+        WebDriver().click("byid", ":1")
+        time.sleep(1)
+        # :3 日语，:4 英语，:5 中文
+        WebDriver().click("byid", ":5")
+        time.sleep(1)
+        WebDriver().click("byid", "form-submit-button-slash")
+        WebDriver().geturl(garoon_url)
+        WebDriver().refresh()
+        time.sleep(2)
+        name = WebDriver().gettext("bycss", "#appmenu-portal>a>div>nobr")
+        self.assertEqual(name, u"门户"), "语言不能修改为中文"
 
     @classmethod
     def tearDownClass(self):
         # 清空数据
         try:
-            WebDriver().geturl(setting_url)
-
+            WebDriver().geturl(lang_url)
+            WebDriver().click("byid", ":1")
+            WebDriver().click("byid", default_lang)
+            WebDriver().click("byid", "form-submit-button-slash")
+            print "语言已还原"
         except Exception as msg:
             print msg, "数据不能还原"
         finally:

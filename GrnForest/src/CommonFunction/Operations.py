@@ -37,10 +37,55 @@ class Operations(object):
         # WebDriverFunction().geturl("https://qatest01.cybozu.cn")
         # time.sleep(2)
 
+    def select_language(self, language):
+        setting_url = WebDriver().testurl("qatest01") + "/settings/account"
+        WebDriver().geturl(setting_url)
+        # lang = WebDriver().gettext("byid", ":1")
+        time.sleep(2)
+        if (language == "JP"):
+            WebDriver().click("byid", ":1")
+            time.sleep(1)
+            WebDriver().click("byid", ":3")
+
+        elif (language == "EN"):
+            WebDriver().click("byid", ":1")
+            time.sleep(1)
+            WebDriver().click("byid", ":4")
+
+        elif (language == "CH"):
+            WebDriver().click("byid", ":1")
+            time.sleep(1)
+            WebDriver().click("byid", ":5")
+        time.sleep(2)
+        WebDriver().click("byid", "form-submit-button-slash")
+        time.sleep(2)
+        WebDriver().refresh()
+
+    def confirm_language(self):
+        setting_url = WebDriver().testurl("qatest01") + "/settings/account"
+        WebDriver().geturl(setting_url)
+        time.sleep(2)
+        lang = WebDriver().gettext("byid", ":1")
+        print "初始语言：", lang
+        if lang == u"日本語":
+            lang_element = ":3"
+            return lang_element
+
+        elif lang == "English (US)":
+            lang_element = ":4"
+            return lang_element
+            # print "element0:", element
+        elif lang == u"中文（简体）":
+            lang_element = ":5"
+            return lang_element
+            # print "element0:", element
+
+
     def logout(self):
         '''
         退出登录
         '''
-        WebDriver().geturl("https://qatest01.cybozu.cn/logout")
+        logout_url = WebDriver().testurl("qatest01") + "/logout"
+        WebDriver().geturl(logout_url)
 
         
