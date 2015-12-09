@@ -6,6 +6,7 @@ WebDriverHelp用来存放所有页面操作用到公用方法
 
 @author: QLLU
 '''
+import logging
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
@@ -126,7 +127,7 @@ class WebDriver(object):
             self.driver.find_element_by_class_name(elmethod).is_displayed()
         elif(findby == 'bycss'):
             self.driver.find_element_by_css_selector(elmethod).is_displayed()
-
+        return True
 
     def screenshot(self,file_path):
         self.driver.get_screenshot_as_file(file_path)
@@ -222,7 +223,7 @@ class WebDriver(object):
         elif(findby == 'byxpath'):
             self.driver.find_element_by_xpath(elmethod).send_keys(value)
 
-    def  select(self,findby,select,selectvalue):
+    def select(self,findby,select,selectvalue):
         '''
         通过定制定位方法和要选择项的文本，选择指定的项目
         @param findby:定位方法，如：byid,byname,byclassname等
@@ -270,3 +271,11 @@ class WebDriver(object):
             return self.driver.find_element_by_css_selector(elmethod).text
         elif(findby== 'bylink'):
             return self.driver.find_element_by_link_text(elmethod).text
+
+    def getlog(self, filelog):
+        logging.basicConfig(
+            filename = filelog,
+            level = logging.INFO,
+            format = '[%(asctime)s %(levelname)s] %(message)s',
+            datefmt = '%Y%m%d %H:%M:%S')
+        logging.info('debug log')

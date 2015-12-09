@@ -10,7 +10,6 @@ import time
 import unittest
 import sys
 import os
-
 sys.path.append("..")
 sys.path.append(os.getcwd() + "/src/")
 from CommonFunction.DataReader import DataReader
@@ -35,7 +34,7 @@ class ChangeLanguages(unittest.TestCase):
         garoon_url = WebDriver().testurl("qatest01") + "/g/"
         WebDriver().geturl(lang_url)
         time.sleep(2)
-        default_lang = Operations().confirm_language()
+        default_lang = Operations().get_language()
         WebDriver().click("byid", ":1")
 
         time.sleep(1)
@@ -87,9 +86,10 @@ class ChangeLanguages(unittest.TestCase):
             WebDriver().click("byid", ":1")
             WebDriver().click("byid", default_lang)
             WebDriver().click("byid", "form-submit-button-slash")
-            print "语言已还原"
         except Exception as msg:
-            print msg, "数据不能还原"
+            print msg, "语言不能还原"
+        else:
+            print "语言已还原"
         finally:
             WebDriver().close()
 

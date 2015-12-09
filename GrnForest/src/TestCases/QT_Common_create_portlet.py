@@ -18,41 +18,32 @@ from CommonFunction.Operations import Operations
 from CommonFunction.WebDriver import WebDriver
 
 
-class AddMyGroup(unittest.TestCase):
+class CreatePortlet(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
         WebDriver("open", "firefox", "local").open("qatest01")  # 打开浏览器，并打开forest
-        # filelog = "../Log/AddMyGroup.log"
-        # WebDriver().getlog(filelog)
 
-    def test1_add_my_group(self):
+    def test1_creating_an_html_portlet(self):
         global detail_url
-
-        dataoper = DataReader('QT_Common_add_my_group.xml')
+        dataoper = DataReader('QT_Common_create_portlet.xml')
         Operations().login(dataoper.readxml('login', 0, 'username'),
                               dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
-        # language = "CH"
-        # Operations().select_language(language)
-        # 进入我的组的设置
-        url = WebDriver().testurl("qatest01") + "/g/personal/common_list.csp?id=user"
+        # 进入追加HTML组件页面
+        url = WebDriver().testurl("qatest01") + "/g/system/application_list.csp?app_id=portal"
         WebDriver().geturl(url)
         time.sleep(2)
-        WebDriver().click("byid", "personal/user/mygroup_list")
-        WebDriver().click("byid", "personal_mygroup_add")
-        WebDriver().input("byname", "name", "my group")
-        WebDriver().input("byid", "textarea_id", "this is a comment")
-        WebDriver().click("byid", "mygroup_add_submit")
-        # 进入详情页面
-        WebDriver().click("byxpath", "//td[@id='view_part']/span/span/a")
-        time.sleep(2)
+        WebDriver().click("byid", "portal/system/html_portlet_list")
+        WebDriver().click("byxpath", "//div[@id='main_menu_part']/span/span/a")
+        WebDriver().input("byid", "portletName-label-line-value-def", "portlet test")
+        content = "<table class='top_title'> <tr><td><strong>cybozu</strong></td></tr>"
+        WebDriver().input("byid", "data_editor_id", content)
+        WebDriver().click("bycss", "input.margin")
+        WebDriver().click("bylink", "portlet test")
         detail_url = WebDriver().currenturl()
-
-        name = WebDriver().gettext("byxpath", "//div[3]/table/tbody/tr/td")
-        comment = WebDriver().gettext("bycss", "pre.format_contents")
-        self.assertEqual(name, "my group")
-        self.assertEqual(comment, "this is a comment")
+        WebDriver().click("byxpath", "//div[@id='main_menu_part']/span[3]/span/a")
+        WebDriver().is_element_present("bycss", ".top_title>tbody>tr>td")
 
 
     @classmethod
@@ -60,15 +51,14 @@ class AddMyGroup(unittest.TestCase):
         # 清空数据
         try:
             WebDriver().geturl(detail_url)
-            WebDriver().click("byid", "lnk_delete")
-            WebDriver().click("byid", "msgbox_btn_yes")
+            WebDriver().click("byxpath", "//div[@id='main_menu_part']/span[2]/span/a")
+            WebDriver().click("bycss", "input.margin")
         except Exception as msg:
             print msg, "数据不能正常清除"
         else:
             print "数据已清除"
         finally:
             WebDriver().close()
-
 
 if __name__ == "__main__":
     unittest.main()

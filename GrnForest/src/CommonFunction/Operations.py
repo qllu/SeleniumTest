@@ -61,7 +61,7 @@ class Operations(object):
         time.sleep(2)
         WebDriver().refresh()
 
-    def confirm_language(self):
+    def get_language(self):
         setting_url = WebDriver().testurl("qatest01") + "/settings/account"
         WebDriver().geturl(setting_url)
         time.sleep(2)
