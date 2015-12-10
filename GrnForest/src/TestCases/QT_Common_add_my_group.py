@@ -29,9 +29,9 @@ class AddMyGroup(unittest.TestCase):
     def test1_add_my_group(self):
         global detail_url
 
-        dataoper = DataReader('QT_Common_add_my_group.xml')
-        Operations().login(dataoper.readxml('login', 0, 'username'),
-                              dataoper.readxml('login', 0, 'password'))
+        dataoper = DataReader('USER_INFO.xml')
+        Operations().login(dataoper.readxml('u1', 0, 'username'),
+                              dataoper.readxml('u1', 0, 'password'))
         time.sleep(2)
         # language = "CH"
         # Operations().select_language(language)

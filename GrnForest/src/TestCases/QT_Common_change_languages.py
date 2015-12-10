@@ -25,9 +25,9 @@ class ChangeLanguages(unittest.TestCase):
 
     def test1_change_to_japanese(self):
         global lang_url, garoon_url, default_lang
-        dataoper = DataReader('QT_Common_change_languages.xml')
-        Operations().login(dataoper.readxml('login', 0, 'username'),
-                              dataoper.readxml('login', 0, 'password'))
+        dataoper = DataReader('USER_INFO.xml')
+        Operations().login(dataoper.readxml('u1', 0, 'username'),
+                              dataoper.readxml('u1', 0, 'password'))
         time.sleep(2)
         # 进入语言修改页面
         lang_url = WebDriver().testurl("qatest01") + "/settings/account"
