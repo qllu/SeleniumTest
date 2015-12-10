@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestData>
+	<admin>
+		<username>Administrator</username>
+		<password>qatest01</password>
+	</admin>
+	<u1>
+		<username>u1</username>
+		<password>cybozu1</password>
+	</u1>
+
+</TestData>	

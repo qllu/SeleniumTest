@@ -10,7 +10,6 @@ import time
 import unittest
 import sys
 import os
-import logging
 sys.path.append("..")
 sys.path.append(os.getcwd() + "/src/")
 from CommonFunction.DataReader import DataReader
@@ -32,7 +31,7 @@ class CreatePortlet(unittest.TestCase):
         time.sleep(2)
         # 进入追加HTML组件页面
         portal_url = WebDriver().testurl("qatest01") + "/g/system/application_list.csp?app_id=portal"
-        # WebDriver().geturl(portal_url)
+        WebDriver().geturl(portal_url)
         # time.sleep(2)
         # WebDriver().click("byid", "portal/system/html_portlet_list")
         # WebDriver().click("byxpath", "//div[@id='main_menu_part']/span/span/a")
@@ -52,9 +51,11 @@ class CreatePortlet(unittest.TestCase):
         WebDriver().click("byxpath", "//div[@id='main_menu_part']/span/span/a")
         WebDriver().input("byid", "portalName-label-line-value-def", "portlets test")
         time.sleep(1)
-        WebDriver().click("css", "input.margin")
+        WebDriver().click("bycss", "input.margin")
         WebDriver().click("bylink", "portlets test")
-        WebDriver().drag_and_drop("#draggable_portlet_parts_p8", "#top")
+        time.sleep(1)
+        WebDriver().max_window()
+        WebDriver().drag_and_drop("#draggable_portlet_parts_p8>span", "#top")
 
 
     @classmethod

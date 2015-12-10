@@ -7,6 +7,7 @@ WebDriverHelp用来存放所有页面操作用到公用方法
 @author: QLLU
 '''
 import logging
+import time
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
@@ -32,7 +33,7 @@ class WebDriver(object):
             if(atype == "chrome"):
                 if(ctype == "local"):
                     driver = webdriver.Chrome()
-                    # driver.maximize_window()
+
                 elif(ctype == "notlocal"):
                     print "打开远程的chrome"
                     driver = webdriver.Remote(command_executor='http://10.60.1.186:4444/wd/hub',
@@ -42,7 +43,7 @@ class WebDriver(object):
             elif(atype == "ie"):
                 if(ctype == "local"):
                     driver = webdriver.Ie()
-                    # driver.maximize_window()
+
                 elif(ctype == "notlocal"):
                     print "打开远程的IE"
                     driver = webdriver.Remote(command_executor='http://10.60.1.186:4444/wd/hub',
@@ -52,7 +53,7 @@ class WebDriver(object):
             elif(  atype == "firefox" ):
                 if(ctype == "local"):
                     driver = webdriver.Firefox()
-                    # driver.maximize_window()
+
                 elif(ctype == "notlocal"):
                     print "打开远程的Firefox"
                     driver = webdriver.Remote(command_executor='http://10.60.1.186:4444/wd/hub',
@@ -89,6 +90,9 @@ class WebDriver(object):
             return "http://qllu.cybozu-dev.com"
         else:
             print "url错误"
+
+    def max_window(self):
+        self.driver.maximize_window()
               
     def  close(self):
         '''
@@ -132,21 +136,27 @@ class WebDriver(object):
     def screenshot(self,file_path):
         self.driver.get_screenshot_as_file(file_path)
 
-    def drag_and_drop(self, el_css, target_css):
+    def drag_and_drop(self, css_element, css_target):
+        # driver = self.driver
         '''
         Drags an element a certain distance and then drops it.
-
         Usage:
         driver.drag_and_drop("#el","#ta")
         '''
-        element = self.driver.find_element_by_css_selector(el_css)
-        target = self.driver.find_element_by_css_selector(target_css)
-        ActionChains(driver).drag_and_drop(element, target).perform()
+        element = self.driver.find_element_by_css_selector(css_element)
+        target = self.driver.find_element_by_css_selector(css_target)
+        action = ActionChains(self.driver).drag_and_drop(element, target)
+        time.sleep(3)
+        action.perform()
 
-    def click_and_move(self, elemet_xpath, target_xpath):
-        element = self.driver.find_element_by_xpath(elemet_xpath)
-        target = self.driver.find_element_by_xpath(target_xpath)
-        ActionChains(driver).click_and_hold(element).move_to_element(target).click().perform()
+
+    def click_and_move(self, elemet_css, target_css):
+        # driver = self.driver
+        element = self.driver.find_element_by_css_selector(elemet_css)
+        target = self.driver.find_element_by_css_selector(target_css)
+        action = ActionChains(self.driver).click_and_hold(element).move_to_element(target)
+        time.sleep(3)
+        action.click().perform()
 
     def switch_to_frame(self,elmethod):
 
@@ -170,6 +180,25 @@ class WebDriver(object):
         for handle in all_handles:
             if handle != original_windows:
                 driver._switch_to.window(handle)
+
+    def findby(self,findby,elmethod):
+        '''
+        通过定制定位方法，在对应的项目上执行单击操作
+        @param findby: 定位方法，如：byid,byname,byclassname,byxpath等
+        @param elmethod: 要定位元素的属性值 ，如：id,name,class name,xpath，text等
+        '''
+        if(findby == 'byid'):
+            self.driver.find_element_by_id(elmethod)
+        elif(findby == 'byname'):
+            self.driver.find_element_by_name(elmethod)
+        elif(findby == 'byxpath'):
+            self.driver.find_element_by_xpath(elmethod)
+        elif(findby == 'bylink'):
+            self.driver.find_element_by_link_text(elmethod)
+        elif(findby == 'byclass'):
+            self.driver.find_element_by_class_name(elmethod)
+        elif(findby == 'bycss'):
+            self.driver.find_element_by_css_selector(elmethod)
 
 
     def click(self,findby,elmethod):

@@ -29,7 +29,7 @@ class Untitled(unittest.TestCase):
         driver.get("https://qatest01.cybozu.cn/g/portal/system/view.csp?pid=3")
         time.sleep(2)
         source = driver.find_element_by_css_selector("#draggable_portlet_parts_p8>span")
-        target = driver.find_element_by_id("top")
+        target = driver.find_element_by_css_selector("#top")
         # action = ActionChains(driver).click_and_hold(source).move_to_element(target)
         ActionChains(driver).drag_and_drop(source, target).perform()
 
