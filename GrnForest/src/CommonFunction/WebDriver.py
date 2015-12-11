@@ -91,6 +91,16 @@ class WebDriver(object):
         else:
             print "url错误"
 
+    def garoon_url(self, url):
+        if(url == "jljin"):
+            return "http://jljin.cybozu-dev.com/g/"
+        elif(url == "qatest01"):
+            return "http://qatest01.cybozu.cn/g/"
+        elif(url == "qllu"):
+            return "http://qllu.cybozu-dev.com/g/"
+        else:
+            print "url错误"
+
     def max_window(self):
         self.driver.maximize_window()
               
