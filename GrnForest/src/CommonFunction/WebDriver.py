@@ -62,19 +62,37 @@ class WebDriver(object):
                                   
         self.driver = driver
  
-    def open(self,logintype):
+    def open(self, url, type):
         """
         定制测试URL，可分为单机版、云版
         @param logintype: 指定测试的URL： onpre:单机版测试地址，cloud:云版测试地址
         """
         try:
-            jljin_url = "http://jljin.cybozu-dev.com"
-            qatest01_url = "https://qatest01.cybozu.cn"
+            garoon = "/g/"
+            sys_common = "/g/system/common_list.csp?"
+            sys_app = "/g/system/application_list.csp?"
+            person_set = "/g/personal/common_list.csp?"
+            jljin = "http://jljin.cybozu-dev.com"
+            qatest01 = "https://qatest01.cybozu.cn"
 
-            if(logintype == "jljin"):
-                self.driver.get(jljin_url)
-            elif(logintype == "qatest01"):
-                self.driver.get(qatest01_url)
+            if(url == "jljin"):
+                self.driver.get(jljin)
+
+            elif(url == "qatest01"):
+                if type == "slash":
+                    self.driver.get(qatest01)
+                elif type == "g":
+                    garoon_url = qatest01 + garoon
+                    self.driver.get(garoon_url)
+                elif type == "sys_common":
+                    sys_common_url = qatest01 + sys_common
+                    self.driver.get(sys_common_url)
+                elif type == "sys_app":
+                    sys_app_url = qatest01 + sys_app
+                    self.driver.get(sys_app_url)
+                elif type == "person_set":
+                    person_set_url = qatest01 + person_set
+                    self.driver.get(person_set_url)
             else:
                 print '路径错误！'
             self.driver.implicitly_wait(1)
@@ -91,15 +109,15 @@ class WebDriver(object):
         else:
             print "url错误"
 
-    def garoon_url(self, url):
-        if(url == "jljin"):
-            return "http://jljin.cybozu-dev.com/g/"
-        elif(url == "qatest01"):
-            return "http://qatest01.cybozu.cn/g/"
-        elif(url == "qllu"):
-            return "http://qllu.cybozu-dev.com/g/"
-        else:
-            print "url错误"
+    def geturl(self,url):
+        '''
+        打开指定的网址
+        @param url: 要打开的网址
+        '''
+        self.driver.get(url)
+
+    def currenturl(self):
+        return self.driver.current_url
 
     def max_window(self):
         self.driver.maximize_window()
@@ -110,16 +128,6 @@ class WebDriver(object):
         '''       
         self.driver.close()
 
-    def geturl(self,url):
-        '''
-        打开指定的网址
-        @param url: 要打开的网址
-        '''
-        self.driver.get(url)
-
-
-    def currenturl(self):
-        return self.driver.current_url
 
     def refresh(self):
         '''
@@ -143,7 +151,14 @@ class WebDriver(object):
             self.driver.find_element_by_css_selector(elmethod).is_displayed()
         return True
 
-    def screenshot(self,file_path):
+    def is_element_exist(self, by):
+        try:
+            self.driver.find_element(by)
+            return True
+        except Exception:
+            return False
+
+    def screenshot(self, file_path):
         self.driver.get_screenshot_as_file(file_path)
 
     def drag_and_drop(self, css_element, css_target):

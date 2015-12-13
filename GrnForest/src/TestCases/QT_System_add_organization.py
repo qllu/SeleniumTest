@@ -20,11 +20,11 @@ class AddOrganization(unittest.TestCase):
     新增组织
     '''
     def setUp(self):
-        WebDriver("open","firefox","local").open("qatest01")#打开浏览器，并打开forest
+        global domain
+        domain = "qatest01"
+        WebDriver("open","firefox","local").open(domain, "slash")#打开浏览器，并打开forest
 
     def test_add_organization(self):
-
-
         
         #读取测试数据     
         dataoper = DataReader('QT_System_add_organization.xml')

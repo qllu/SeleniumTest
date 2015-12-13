@@ -22,7 +22,9 @@ class CreatePortlet(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        WebDriver("open", "firefox", "local").open("qatest01")  # 打开浏览器，并打开forest
+        global domain
+        domain = "qatest01"
+        WebDriver("open", "firefox", "local").open(domain, "slash")  # 打开浏览器，并打开forest
 
     def test1_creating_an_html_portlet(self):
         global detail_url, dataoper, portal_url
@@ -31,16 +33,19 @@ class CreatePortlet(unittest.TestCase):
                               dataoper.readxml('admin', 0, 'password'))
         time.sleep(2)
         # 进入追加HTML组件页面
-        portal_url = WebDriver().testurl("qatest01") + "/g/system/application_list.csp?app_id=portal"
-        WebDriver().geturl(portal_url)
+        html_portlet_name = "html portlet test"
+        WebDriver().open(domain, "sys_app")
+        WebDriver().click("byid", "portal")
+        portal_url = WebDriver().currenturl()
         time.sleep(2)
         WebDriver().click("byid", "portal/system/html_portlet_list")
         WebDriver().click("byxpath", "//div[@id='main_menu_part']/span/span/a")
-        WebDriver().input("byid", "portletName-label-line-value-def", "portlet test")
+        WebDriver().input("byid", "portletName-label-line-value-def", html_portlet_name)
         content = "<table class='top_title'> <tr><td><strong>cybozu</strong></td></tr>"
         WebDriver().input("byid", "data_editor_id", content)
+        time.sleep(2)
         WebDriver().click("bycss", "input.margin")
-        WebDriver().click("bylink", "html portlet test")
+        WebDriver().click("bylink", html_portlet_name)
         detail_url = WebDriver().currenturl()
         WebDriver().click("byxpath", "//div[@id='main_menu_part']/span[3]/span/a")
         WebDriver().is_element_present("bycss", ".top_title>tbody>tr>td")
@@ -59,11 +64,12 @@ class CreatePortlet(unittest.TestCase):
         WebDriver().click("bylink", portal_name)
         # 打开门户详细画面，设置为公开
         portal_detail_url = WebDriver().currenturl()
-        time.sleep(1)
+        time.sleep(2)
         WebDriver().click("byxpath", "//span[@id='open_button_portal']/div/a")
+        time.sleep(2)
         WebDriver().click("byid", "msgbox_btn_yes")
         # 首页确认是否显示
-        WebDriver().geturl(WebDriver().garoon_url("qatest01"))
+        WebDriver().open(domain, "g")
         WebDriver().click("byxpath", "//span[@id='appmenu-portal']/a/div")
         WebDriver().click("bylink", portal_name)
         time.sleep(1)
@@ -81,6 +87,7 @@ class CreatePortlet(unittest.TestCase):
         WebDriver().is_element_present("byxpath", ".//*[@id='top']/div/li/div")
         time.sleep(2)
         WebDriver().click("byxpath", "//*[@id='top']/div/li/div/table/tbody/tr[1]/td[2]/span/div/a")
+        time.sleep(2)
         WebDriver().geturl(new_portal_url)
         time.sleep(2)
         WebDriver().is_element_present("bycss", ".portlet_title_grn>a")

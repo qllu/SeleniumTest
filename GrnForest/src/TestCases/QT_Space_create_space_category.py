@@ -19,7 +19,9 @@ class CreateSpaceCategory(unittest.TestCase):
     '''
 
     def setUp(self):
-        WebDriver("open", "firefox", "local").open("qatest01")  # 打开浏览器，并打开forest
+        global domain
+        domain = "qatest01"
+        WebDriver("open", "firefox", "local").open(domain, "slash")  # 打开浏览器，并打开forest
 
     def test_create_space_category(self):
         global dataoper, detail_url
@@ -33,9 +35,7 @@ class CreateSpaceCategory(unittest.TestCase):
         time.sleep(2)
 
         # 点击进入garoon各应用程序管理
-        # system_url = "https://qatest01.cybozu.cn/g/system/application_list.csp?app_id="
-        system_url = WebDriver().testurl("qatest01") + "/g/system/application_list.csp?app_id="
-        WebDriver().geturl(system_url)
+        WebDriver().open(domain, "sys_app")
         time.sleep(2)
 
         # 点击进入space

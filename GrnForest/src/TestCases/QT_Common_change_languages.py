@@ -21,17 +21,18 @@ class ChangeLanguages(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        WebDriver("open", "firefox", "local").open("qatest01")  # 打开浏览器，并打开forest
+        global domain
+        domain = "qatest01"
+        WebDriver("open", "firefox", "local").open(domain, "slash")  # 打开浏览器，并打开forest
 
     def test1_change_to_japanese(self):
-        global lang_url, garoon_url, default_lang
+        global lang_url, default_lang
         dataoper = DataReader('USER_INFO.xml')
         Operations().login(dataoper.readxml('u1', 0, 'username'),
                               dataoper.readxml('u1', 0, 'password'))
         time.sleep(2)
         # 进入语言修改页面
-        lang_url = WebDriver().testurl("qatest01") + "/settings/account"
-        garoon_url = WebDriver().testurl("qatest01") + "/g/"
+        lang_url = WebDriver().testurl(domain) + "/settings/account"
         WebDriver().geturl(lang_url)
         time.sleep(2)
         default_lang = Operations().get_language()
@@ -42,7 +43,7 @@ class ChangeLanguages(unittest.TestCase):
         WebDriver().click("byid", ":3")
         time.sleep(1)
         WebDriver().click("byid", "form-submit-button-slash")
-        WebDriver().geturl(garoon_url)
+        WebDriver().open(domain, "g")
         WebDriver().refresh()
         time.sleep(2)
         name = WebDriver().gettext("bycss", "#appmenu-portal>a>div>nobr")
@@ -57,7 +58,7 @@ class ChangeLanguages(unittest.TestCase):
         WebDriver().click("byid", ":4")
         time.sleep(1)
         WebDriver().click("byid", "form-submit-button-slash")
-        WebDriver().geturl(garoon_url)
+        WebDriver().open(domain, "g")
         WebDriver().refresh()
         time.sleep(2)
         name = WebDriver().gettext("bycss", "#appmenu-portal>a>div>nobr")
@@ -72,7 +73,7 @@ class ChangeLanguages(unittest.TestCase):
         WebDriver().click("byid", ":5")
         time.sleep(1)
         WebDriver().click("byid", "form-submit-button-slash")
-        WebDriver().geturl(garoon_url)
+        WebDriver().open(domain, "g")
         WebDriver().refresh()
         time.sleep(2)
         name = WebDriver().gettext("bycss", "#appmenu-portal>a>div>nobr")

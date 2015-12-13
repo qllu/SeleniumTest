@@ -17,7 +17,9 @@ from CommonFunction.WebDriver import WebDriver
 class AllowAttacheFiles(unittest.TestCase):
 
     def setUp(self):
-        WebDriver("open", "firefox", "local").open("qatest01")  # 打开浏览器，并打开forest
+        global domain
+        domain = "qatest01"
+        WebDriver("open", "firefox", "local").open(domain, "slash")  # 打开浏览器，并打开forest
 
     def test1_allow_attache_files(self):
         dataoper = DataReader('QT_Sche_add_facility_group.xml')
@@ -26,8 +28,7 @@ class AllowAttacheFiles(unittest.TestCase):
         time.sleep(2)
 
         # 进入日程安排系统后台
-        garoon_url = WebDriver().testurl("qatest01") + "/g/system/application_list.csp?app_id="
-        WebDriver().geturl(garoon_url)
+        WebDriver().open(domain, "sys_app")
         time.sleep(1)
         WebDriver().click("byid", "schedule")
         WebDriver().click("byid", "schedule/system/common_set")

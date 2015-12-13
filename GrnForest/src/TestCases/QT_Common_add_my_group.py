@@ -22,7 +22,9 @@ class AddMyGroup(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        WebDriver("open", "firefox", "local").open("qatest01")  # 打开浏览器，并打开forest
+        global domain
+        domain = "qatest01"
+        WebDriver("open", "firefox", "local").open(domain, "slash")  # 打开浏览器，并打开forest
         # filelog = "../Log/AddMyGroup.log"
         # WebDriver().getlog(filelog)
 
@@ -36,9 +38,11 @@ class AddMyGroup(unittest.TestCase):
         # language = "CH"
         # Operations().select_language(language)
         # 进入我的组的设置
-        url = WebDriver().testurl("qatest01") + "/g/personal/common_list.csp?id=user"
-        WebDriver().geturl(url)
+        # url = WebDriver().testurl(domain) + "/g/personal/common_list.csp?id=user"
+        # WebDriver().geturl(url)
+        WebDriver().open(domain, "person_set")
         time.sleep(2)
+        WebDriver().click("byid", "user")
         WebDriver().click("byid", "personal/user/mygroup_list")
         WebDriver().click("byid", "personal_mygroup_add")
         WebDriver().input("byname", "name", "my group")

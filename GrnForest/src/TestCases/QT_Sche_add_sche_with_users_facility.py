@@ -23,7 +23,7 @@ class AddAppointments(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        WebDriver("open","firefox","local").open("qatest01")
+        WebDriver("open","firefox","local").open("qatest01", "slash")
 
     def test1_add_appointments_with_users_facility(self):
         global dataoper, sche_url
