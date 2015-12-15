@@ -151,9 +151,9 @@ class WebDriver(object):
             self.driver.find_element_by_css_selector(elmethod).is_displayed()
         return True
 
-    def is_element_exist(self, by):
+    def is_element_exist(self, by, elemthod):
         try:
-            self.driver.find_element(by)
+            self.driver.find_element(by, elemthod)
             return True
         except Exception:
             return False

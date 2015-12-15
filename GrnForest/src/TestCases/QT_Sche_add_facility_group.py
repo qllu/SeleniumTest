@@ -20,7 +20,7 @@ from CommonFunction.WebDriver import WebDriver
 def add_facility_group():
     global group_url, group_detail_url
     # 进入日程安排系统后台，添加设备组
-    garoon_url = WebDriver().testurl(domain) + "/g/system/application_list.csp?app_id="
+    garoon_url = WebDriver().testurl("qatest01") + "/g/system/application_list.csp?app_id="
     WebDriver().geturl(garoon_url)
     time.sleep(1)
     WebDriver().click("byid", "schedule")

@@ -143,6 +143,16 @@ class AddAppointments(unittest.TestCase):
         facility = WebDriver().gettext("byxpath", ".//*[@id='body']/div[3]/div/div/table/tbody/tr[2]/td/div")
         self.assertNotEqual(facility, "fac1")
 
+    def test4_delete_appointments(self):
+        # 删除预定
+        Operations().login(dataoper.readxml('sche', 0, 'username'),
+                              dataoper.readxml('sche', 0, 'password'))
+        WebDriver().geturl(sche_url)
+        time.sleep(2)
+        WebDriver().click("byxpath", "//span[2]/span/a")
+        # 删除全部参加者
+        WebDriver().click("byid", "1")
+        WebDriver().click("bycss", "input.margin")
 
     def tearDown(self):
         Operations().logout()
@@ -150,15 +160,6 @@ class AddAppointments(unittest.TestCase):
     @classmethod
     def tearDownClass(self):
         try:
-            # 清空sche数据
-            Operations().login(dataoper.readxml('sche', 0, 'username'),
-                              dataoper.readxml('sche', 0, 'password'))
-            WebDriver().geturl(sche_url)
-            time.sleep(2)
-            WebDriver().click("byxpath", "//span[2]/span/a")
-            WebDriver().click("byid", "1")
-            WebDriver().click("bycss", "input.margin")
-            Operations().logout()
             # 清空设备
             Operations().login(dataoper.readxml('login', 0, 'username'),
                               dataoper.readxml('login', 0, 'password'))
