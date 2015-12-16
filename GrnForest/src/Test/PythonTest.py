@@ -8,6 +8,7 @@ import time
 class myclass(unittest.TestCase):
 
     def setUp(self):
+        # fp = webdriver.FirefoxProfile("C:\Users\QLLU\AppData\Roaming\Mozilla\Firefox\Profiles\\0c3hiems.default")
         self.driver = webdriver.Firefox()
 
     def test1(self):

@@ -54,6 +54,7 @@ class WebDriver(object):
                 if(ctype == "local"):
                     driver = webdriver.Firefox()
 
+
                 elif(ctype == "notlocal"):
                     print "打开远程的Firefox"
                     driver = webdriver.Remote(command_executor='http://10.60.1.186:4444/wd/hub',
@@ -137,26 +138,27 @@ class WebDriver(object):
 
     def is_element_present(self, findby, elmethod):
         # 判断页面元素是否存在
-        if(findby == 'byid'):
-            self.driver.find_element_by_id(elmethod).is_displayed()
-        elif(findby == 'byname'):
-            self.driver.find_element_by_name(elmethod).is_displayed()
-        elif(findby == 'byxpath'):
-            self.driver.find_element_by_xpath(elmethod).is_displayed()
-        elif(findby == 'bylink'):
-            self.driver.find_element_by_link_text(elmethod).is_displayed()
-        elif(findby == 'byclass'):
-            self.driver.find_element_by_class_name(elmethod).is_displayed()
-        elif(findby == 'bycss'):
-            self.driver.find_element_by_css_selector(elmethod).is_displayed()
+        try:
+            if(findby == 'byid'):
+                self.driver.find_element_by_id(elmethod)
+            elif(findby == 'byname'):
+                self.driver.find_element_by_name(elmethod)
+            elif(findby == 'byxpath'):
+                self.driver.find_element_by_xpath(elmethod)
+            elif(findby == 'bylink'):
+                self.driver.find_element_by_link_text(elmethod)
+            elif(findby == 'byclass'):
+                self.driver.find_element_by_class_name(elmethod)
+            elif(findby == 'bycss'):
+                self.driver.find_element_by_css_selector(elmethod)
+        except NoSuchElementException: return False
         return True
 
     def is_element_exist(self, by, elemthod):
         try:
             self.driver.find_element(by, elemthod)
-            return True
-        except Exception:
-            return False
+        except NoSuchElementException:return False
+        return True
 
     def screenshot(self, file_path):
         self.driver.get_screenshot_as_file(file_path)
@@ -213,18 +215,17 @@ class WebDriver(object):
         @param elmethod: 要定位元素的属性值 ，如：id,name,class name,xpath，text等
         '''
         if(findby == 'byid'):
-            self.driver.find_element_by_id(elmethod)
+            return self.driver.find_element_by_id(elmethod)
         elif(findby == 'byname'):
-            self.driver.find_element_by_name(elmethod)
+            return self.driver.find_element_by_name(elmethod)
         elif(findby == 'byxpath'):
-            self.driver.find_element_by_xpath(elmethod)
+            return self.driver.find_element_by_xpath(elmethod)
         elif(findby == 'bylink'):
-            self.driver.find_element_by_link_text(elmethod)
+            return self.driver.find_element_by_link_text(elmethod)
         elif(findby == 'byclass'):
-            self.driver.find_element_by_class_name(elmethod)
+            return self.driver.find_element_by_class_name(elmethod)
         elif(findby == 'bycss'):
-            self.driver.find_element_by_css_selector(elmethod)
-
+            return self.driver.find_element_by_css_selector(elmethod)
 
     def click(self,findby,elmethod):
         '''
@@ -250,7 +251,6 @@ class WebDriver(object):
         通过定制定位方法，在输入框中输入值
         @param findby: 定位方法，如：byid,byname,byclassname,byxpath等
         @param elmethod: 要定位元素的属性值 ，如：id,name,class name,xpath等
-        @param value: 要给文本框输入的值
         '''
         if(findby == 'byid'):
             self.driver.find_element_by_id(elmethod).clear()
