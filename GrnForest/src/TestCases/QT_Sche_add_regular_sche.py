@@ -19,13 +19,13 @@ from CommonFunction.Operations import Operations
 from CommonFunction.WebDriver import WebDriver
 import QT_Sche_add_facility_group as addfac
 
-class AddAppointments(unittest.TestCase):
+class AddAppointment(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
         WebDriver("open","firefox","local").open("qatest01", "slash")
 
-    def test1_add_appointments_with_users_facility(self):
+    def test1_add_regular_appointment(self):
         global dataoper, sche_url
         dataoper = DataReader('QT_Sche_add_sche_with_users_facility.xml')
         Operations().login(dataoper.readxml('login', 0, 'username'),
@@ -95,7 +95,7 @@ class AddAppointments(unittest.TestCase):
         check = WebDriver().gettext("bylink", "16:00 sche01")
         self.assertEqual(check, "16:00 sche01")
 
-    def test3_change_appointments(self):
+    def test3_Edit_appointment(self):
         # 修改预定
         Operations().login(dataoper.readxml('sche', 0, 'username'),
                               dataoper.readxml('sche', 0, 'password'))
@@ -143,7 +143,7 @@ class AddAppointments(unittest.TestCase):
         facility = WebDriver().gettext("byxpath", ".//*[@id='body']/div[3]/div/div/table/tbody/tr[2]/td/div")
         self.assertNotEqual(facility, "fac1")
 
-    def test4_delete_appointments(self):
+    def test4_delete_appointment(self):
         # 删除预定
         Operations().login(dataoper.readxml('sche', 0, 'username'),
                               dataoper.readxml('sche', 0, 'password'))

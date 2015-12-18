@@ -47,13 +47,8 @@ class AllowAttacheFiles(unittest.TestCase):
         WebDriver().input("byid", "file_upload_", upfile)
         WebDriver().click("byid", "schedule_submit_button")
         time.sleep(2)
-        try:
-            WebDriver().is_element_present("bycss", "tt > a > img")
-        except NoSuchElementException as msg:
-            print msg
-        else:
-            print "附件上传成功，可正常显示"
-
+        if WebDriver().is_element_present("bycss", "tt > a > img") is False:
+            print "上传失败"
 
     def tearDown(self):
         # 清空数据

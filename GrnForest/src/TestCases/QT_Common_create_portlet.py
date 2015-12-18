@@ -26,7 +26,7 @@ class CreatePortlet(unittest.TestCase):
         domain = "qatest01"
         WebDriver("open", "firefox", "local").open(domain, "slash")  # 打开浏览器，并打开forest
 
-    def test1_creating_an_html_portlet(self):
+    def test1_add_html_portlet(self):
         global detail_url, dataoper, portal_url
         dataoper = DataReader('USER_INFO.xml')
         Operations().login(dataoper.readxml('admin', 0, 'username'),
@@ -50,7 +50,7 @@ class CreatePortlet(unittest.TestCase):
         WebDriver().click("byxpath", "//div[@id='main_menu_part']/span[3]/span/a")
         WebDriver().is_element_present("bycss", ".top_title>tbody>tr>td")
 
-    def test2_add_portal(self):
+    def test2_add_public_portal(self):
         global portal_detail_url, new_portal_url
         # 添加门户
         portal_name = "portal test"
@@ -77,7 +77,7 @@ class CreatePortlet(unittest.TestCase):
         new_portal_url = WebDriver().currenturl()
         self.assertEqual(get_portal_name, portal_name)
 
-    def test3_drag_drop_portlets(self):
+    def test3_drag_and_drop_portlet(self):
         # 拖拽添加组件
         WebDriver().geturl(portal_detail_url)
         time.sleep(2)

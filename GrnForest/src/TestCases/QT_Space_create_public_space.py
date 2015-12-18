@@ -96,7 +96,7 @@ class CreatePublicSpace(unittest.TestCase):
             print "space成员可以访问space"
 
 
-    def test3_other_confirm(self):
+    def test3_other_user_confirm(self):
         # 使用其他用户确认
         Operations().login(dataoper.readxml('confirm', 0, 'username'),
                               dataoper.readxml('confirm', 0, 'password'))

@@ -23,7 +23,7 @@ class CreateSpaceCategory(unittest.TestCase):
         domain = "qatest01"
         WebDriver("open", "firefox", "local").open(domain, "slash")  # 打开浏览器，并打开forest
 
-    def test_create_space_category(self):
+    def test1_create_space_category(self):
         global dataoper, detail_url
 
         # 读取测试数据

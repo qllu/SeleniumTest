@@ -37,6 +37,9 @@ class AddRepeatAppointments(unittest.TestCase):
         WebDriver().click("byid", "tab-repeat-schedule")
         WebDriver().click("byid", "week")
         # 输入时间
+        # WebDriver().select("byname", "wday", u"星期三")
+        WebDriver().click("byname", "wday")
+        WebDriver().click("bycss", "option[value='3']")
         WebDriver().click("byid", "time_selector")
         WebDriver().click("byid", "time9")
         WebDriver().click("bylink", u"关闭")
@@ -58,15 +61,12 @@ class AddRepeatAppointments(unittest.TestCase):
         # user = WebDriver().gettext("bylink", "u2")
         # self.assertEqual(user, "u2")
 
-    def tearDown(self):
-        Operations().logout()
-
     @classmethod
     def tearDownClass(self):
         try:
             # 清空预定
-            Operations().login(dataoper.readxml('u1', 0, 'username'),
-                              dataoper.readxml('u1', 0, 'password'))
+            # Operations().login(dataoper.readxml('u1', 0, 'username'),
+            #                   dataoper.readxml('u1', 0, 'password'))
             WebDriver().geturl(sche_detail_url)
             time.sleep(2)
             WebDriver().click("byxpath", "//span[2]/span/a")

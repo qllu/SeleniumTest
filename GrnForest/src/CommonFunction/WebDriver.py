@@ -154,12 +154,6 @@ class WebDriver(object):
         except NoSuchElementException: return False
         return True
 
-    def is_element_exist(self, by, elemthod):
-        try:
-            self.driver.find_element(by, elemthod)
-        except NoSuchElementException:return False
-        return True
-
     def screenshot(self, file_path):
         self.driver.get_screenshot_as_file(file_path)
 
