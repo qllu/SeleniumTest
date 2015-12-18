@@ -37,9 +37,9 @@ class AddRepeatAppointments(unittest.TestCase):
         WebDriver().click("byid", "tab-repeat-schedule")
         WebDriver().click("byid", "week")
         # 输入时间
-        # WebDriver().select("byname", "wday", u"星期三")
         WebDriver().click("byname", "wday")
-        WebDriver().click("bycss", "option[value='3']")
+        WebDriver().select("byname", "wday", u"星期三")
+        # WebDriver().click("bycss", "option[value=\"3\"]")
         WebDriver().click("byid", "time_selector")
         WebDriver().click("byid", "time9")
         WebDriver().click("bylink", u"关闭")

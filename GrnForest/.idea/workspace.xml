@@ -41,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QT_Sche_add_repeat_sche.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="QT_Sche_add_repeat_sche.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TestCases/QT_Sche_add_repeat_sche.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.28985506">
+              <caret line="44" column="42" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
               <folding>
                 <element signature="e#110#140#0" expanded="true" />
               </folding>
@@ -63,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QT_Sche_allow_attach_files.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="QT_Sche_allow_attach_files.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TestCases/QT_Sche_allow_attach_files.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4710145">
-              <caret line="50" column="24" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="61" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -148,8 +148,8 @@
         <option value="$PROJECT_DIR$/src/TestCases/QT_Sche_add_regular_sche.py" />
         <option value="$PROJECT_DIR$/src/CommonFunction/WebDriver.py" />
         <option value="$PROJECT_DIR$/src/TestCases/QT_Common_add_my_group.py" />
-        <option value="$PROJECT_DIR$/src/TestCases/QT_Sche_add_repeat_sche.py" />
         <option value="$PROJECT_DIR$/src/TestCases/QT_Sche_allow_attach_files.py" />
+        <option value="$PROJECT_DIR$/src/TestCases/QT_Sche_add_repeat_sche.py" />
       </list>
     </option>
   </component>
@@ -395,29 +395,7 @@
       <recent name="E:\Github\SeleniumPythonTest\GrnForest\src\Test" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in QT_Sche_add_repeat_sche">
-    <configuration default="false" name="Unittests in AddAllDayAppointments" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="E:\Python27\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/TestCases" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PythonTest" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/TestCases/QT_Sche_add_all_day_sche.py" />
-      <option name="CLASS_NAME" value="AddAllDayAppointments" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_CLASS" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Unittests in AddRepeatAppointments">
     <configuration default="false" name="Unittests in QT_Sche_add_repeat_sche" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -496,6 +474,28 @@
       <module name="PythonTest" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/TestCases/QT_Common_add_my_group.py" />
       <option name="CLASS_NAME" value="AddMyGroup" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_CLASS" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests in AddRepeatAppointments" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="E:\Python27\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/TestCases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PythonTest" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/TestCases/QT_Sche_add_repeat_sche.py" />
+      <option name="CLASS_NAME" value="AddRepeatAppointments" />
       <option name="METHOD_NAME" value="" />
       <option name="FOLDER_NAME" value="" />
       <option name="TEST_TYPE" value="TEST_CLASS" />
@@ -688,19 +688,19 @@
       <item index="0" class="java.lang.String" itemvalue="Python.run TestSuite1" />
       <item index="1" class="java.lang.String" itemvalue="Python.run TestSuite2" />
       <item index="2" class="java.lang.String" itemvalue="Python tests.run Unittests" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in AddAllDayAppointments" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in QT_Sche_add_repeat_sche" />
-      <item index="5" class="java.lang.String" itemvalue="Python tests.Unittests in QT_Common_add_my_group" />
-      <item index="6" class="java.lang.String" itemvalue="Python tests.Unittests in AddMyGroup" />
-      <item index="7" class="java.lang.String" itemvalue="Python tests.Unittests in AddMyGroup (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in QT_Sche_add_repeat_sche" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in QT_Common_add_my_group" />
+      <item index="5" class="java.lang.String" itemvalue="Python tests.Unittests in AddMyGroup" />
+      <item index="6" class="java.lang.String" itemvalue="Python tests.Unittests in AddMyGroup (1)" />
+      <item index="7" class="java.lang.String" itemvalue="Python tests.Unittests in AddRepeatAppointments" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in QT_Sche_add_repeat_sche" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in QT_Common_add_my_group" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in AddMyGroup (1)" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in AddMyGroup" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in AddAllDayAppointments" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in AddRepeatAppointments" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in QT_Sche_add_repeat_sche" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in QT_Common_add_my_group" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in AddMyGroup (1)" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in AddMyGroup" />
       </list>
     </recent_temporary>
   </component>
@@ -724,6 +724,9 @@
     <history-entry file="Unittests_in_AddMyGroup_(1) - 2015.12.18 at 14h 42m 23s.xml">
       <configuration name="Unittests in AddMyGroup (1)" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_in_AddRepeatAppointments - 2015.12.18 at 18h 10m 42s.xml">
+      <configuration name="Unittests in AddRepeatAppointments" configurationId="tests" />
+    </history-entry>
     <history-entry file="Unittests_in_QT_Common_add_my_group - 2015.12.18 at 14h 34m 18s.xml">
       <configuration name="Unittests in QT_Common_add_my_group" configurationId="tests" />
     </history-entry>
@@ -733,20 +736,17 @@
     <history-entry file="Unittests_in_QT_Common_add_my_group - 2015.12.18 at 14h 47m 36s.xml">
       <configuration name="Unittests in QT_Common_add_my_group" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_QT_Sche_add_all_day_sche - 2015.12.16 at 16h 28m 38s.xml">
-      <configuration name="Unittests in QT_Sche_add_all_day_sche" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_QT_Sche_add_repeat_sche - 2015.12.16 at 18h 13m 47s.xml">
-      <configuration name="Unittests in QT_Sche_add_repeat_sche" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_QT_Sche_add_repeat_sche - 2015.12.18 at 15h 39m 28s.xml">
       <configuration name="Unittests in QT_Sche_add_repeat_sche" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_myclass - 2015.12.16 at 12h 36m 19s.xml">
-      <configuration name="Unittests in myclass" configurationId="tests" />
+    <history-entry file="Unittests_in_QT_Sche_add_repeat_sche - 2015.12.18 at 17h 53m 39s.xml">
+      <configuration name="Unittests in QT_Sche_add_repeat_sche" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_myclass_(1) - 2015.12.16 at 12h 37m 04s.xml">
-      <configuration name="Unittests in myclass (1)" configurationId="tests" />
+    <history-entry file="Unittests_in_QT_Sche_add_repeat_sche - 2015.12.18 at 18h 05m 44s.xml">
+      <configuration name="Unittests in QT_Sche_add_repeat_sche" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_QT_Sche_add_repeat_sche - 2015.12.18 at 18h 07m 21s.xml">
+      <configuration name="Unittests in QT_Sche_add_repeat_sche" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -760,14 +760,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="286" y="0" width="1394" height="1010" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1939528" sideWeight="0.49382716" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287827" sideWeight="0.49758744" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24145786" sideWeight="0.34365782" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.4951749" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3382688" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3382688" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24926254" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287827" sideWeight="0.49758744" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20205066" sideWeight="0.50617284" order="2" side_tool="true" content_ui="tabs" />
@@ -1170,16 +1170,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestCases/QT_Sche_add_repeat_sche.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
-          <folding>
-            <element signature="e#110#140#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TestCases/QT_Space_create_discussion.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1190,9 +1180,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TestCases/QT_Sche_allow_attach_files.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4710145">
-          <caret line="50" column="24" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="61" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestCases/QT_Sche_add_repeat_sche.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28985506">
+          <caret line="44" column="42" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
+          <folding>
+            <element signature="e#110#140#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
