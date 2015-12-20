@@ -30,6 +30,7 @@ class AddAppointment(unittest.TestCase):
         dataoper = DataReader('QT_Sche_add_sche_with_users_facility.xml')
         Operations().login(dataoper.readxml('login', 0, 'username'),
                               dataoper.readxml('login', 0, 'password'))
+        lang = Operations().get_language()
         # 添加设备，设备组
         try:
             addfac.add_facility_group()
@@ -64,7 +65,11 @@ class AddAppointment(unittest.TestCase):
         time.sleep(1)
         WebDriver().click("byid", "searchbox-submit-facilities")
         time.sleep(1)
-        WebDriver().click("byxpath", "//span[text()='添加']")
+        if lang == "CH":
+            WebDriver().click("byxpath", "//span[text()='添加']")
+        else:
+            WebDriver().click("byxpath", ".//*[@id='schedule/repeat_add']/table/tbody/tr[5]/td/table/tbody/tr/td[2]/div/div[1]/span/a")
+
         # 添加附件
         upfile = os.path.abspath('../Attachement/cybozu.gif')
         WebDriver().input("byid", "file_upload_", upfile)

@@ -53,7 +53,7 @@ class WebDriver(object):
             elif(  atype == "firefox" ):
                 if(ctype == "local"):
                     driver = webdriver.Firefox()
-
+                    driver.maximize_window()
 
                 elif(ctype == "notlocal"):
                     print "打开远程的Firefox"
@@ -159,11 +159,6 @@ class WebDriver(object):
 
     def drag_and_drop(self, css_element, css_target):
         # driver = self.driver
-        '''
-        Drags an element a certain distance and then drops it.
-        Usage:
-        driver.drag_and_drop("#el","#ta")
-        '''
         element = self.driver.find_element_by_css_selector(css_element)
         target = self.driver.find_element_by_css_selector(css_target)
         action = ActionChains(self.driver).drag_and_drop(element, target)

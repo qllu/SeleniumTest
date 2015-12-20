@@ -66,18 +66,21 @@ class Operations(object):
         WebDriver().geturl(setting_url)
         time.sleep(2)
         lang = WebDriver().gettext("byid", ":1")
-        print "初始语言：", lang
+        # print "初始语言：", lang
         if lang == u"日本語":
-            lang_element = ":3"
-            return lang_element
+            # lang_element = ":3"
+            language = "JP"
+            return language
 
         elif lang == "English (US)":
-            lang_element = ":4"
-            return lang_element
+            # lang_element = ":4"
+            language = "EN"
+            return language
             # print "element0:", element
         elif lang == u"中文（简体）":
-            lang_element = ":5"
-            return lang_element
+            # lang_element = ":5"
+            language = "CH"
+            return language
             # print "element0:", element
 
 
