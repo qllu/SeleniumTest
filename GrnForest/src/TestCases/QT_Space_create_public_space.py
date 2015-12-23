@@ -87,14 +87,9 @@ class CreatePublicSpace(unittest.TestCase):
         WebDriver().geturl(current_url)
         time.sleep(2)
         # 确认是否存在元素
-        try:
-            WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 1, 'element'))
-        except NoSuchElementException as msg:
-            print msg
-            WebDriver().screenshot("../ScreenShot/error1.png")
-        else:
-            print "space成员可以访问space"
-
+        if WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 1, 'element')) is False:
+            print "元素验证失败"
+            assert False
 
     def test3_other_user_confirm(self):
         # 使用其他用户确认
@@ -104,13 +99,9 @@ class CreatePublicSpace(unittest.TestCase):
         WebDriver().geturl(current_url)
         time.sleep(2)
         # 确认是否存在元素
-        try:
-            WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 0, 'element'))
-        except NoSuchElementException as msg:
-            print msg
-            WebDriver().screenshot("../ScreenShot/error2.png")
-        else:
-            print "其他用户确认可以访问公开space"
+        if WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 0, 'element')) is False:
+            print "元素验证失败"
+            assert False
 
     def test4_delete_space(self):
         Operations().login(dataoper.readxml('login', 0, 'username'), dataoper.readxml('login', 0, 'password'))

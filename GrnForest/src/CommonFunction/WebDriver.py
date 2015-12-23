@@ -151,7 +151,9 @@ class WebDriver(object):
                 self.driver.find_element_by_class_name(elmethod)
             elif(findby == 'bycss'):
                 self.driver.find_element_by_css_selector(elmethod)
-        except NoSuchElementException: return False
+        except NoSuchElementException as msg:
+            print msg
+            return False
         return True
 
     def screenshot(self, file_path):

@@ -99,7 +99,7 @@ class SendAndReciveMessage(unittest.TestCase):
             driver.click("byid", "checkbox_id")
             driver.click("byid", "msgbox_btn_yes")
         except Exception as msg:
-            print msg, "数据不能正常清除"
+            print msg, "Can't delete data."
         finally:
             driver.close()
 

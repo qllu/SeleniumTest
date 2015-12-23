@@ -90,12 +90,9 @@ class CreatePrivateSpace(unittest.TestCase):
         time.sleep(2)
 
         # 确认是否能正常访问
-        try:
-            WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 1, 'element'))
-        except NoSuchElementException as msg:
-            print msg
-        else:
-            print "space成员确认可以访问"
+        if WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 1, 'element')) is False:
+            print "不能正常访问space"
+            assert False
 
     def test3_other_user_confirm(self):
         # 使用其他用户确认
@@ -106,12 +103,9 @@ class CreatePrivateSpace(unittest.TestCase):
         WebDriver().geturl(current_url)
         time.sleep(2)
         # 确认是否显示错误页面
-        try:
-            WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 0, 'element'))
-        except NoSuchElementException as msg:
-            print msg
-        else:
+        if WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 0, 'element')) is False:
             print "space以外的成员不能访问"
+            assert False
 
     def tearDown(self):
         # 退出

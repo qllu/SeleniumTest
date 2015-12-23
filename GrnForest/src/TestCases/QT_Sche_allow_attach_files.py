@@ -49,6 +49,7 @@ class AllowAttacheFiles(unittest.TestCase):
         time.sleep(2)
         if WebDriver().is_element_present("bycss", "tt > a > img") is False:
             print "上传失败"
+            assert False
 
     def tearDown(self):
         # 清空数据
