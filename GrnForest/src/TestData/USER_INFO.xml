@@ -8,5 +8,9 @@
 		<username>u1</username>
 		<password>cybozu1</password>
 	</u1>
+	<u2>
+		<username>u2</username>
+		<password>cybozu1</password>
+	</u2>
 
 </TestData>	

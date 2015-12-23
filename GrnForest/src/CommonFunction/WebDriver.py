@@ -53,7 +53,7 @@ class WebDriver(object):
             elif(  atype == "firefox" ):
                 if(ctype == "local"):
                     driver = webdriver.Firefox()
-                    driver.maximize_window()
+                    # driver.maximize_window()
 
                 elif(ctype == "notlocal"):
                     print "打开远程的Firefox"

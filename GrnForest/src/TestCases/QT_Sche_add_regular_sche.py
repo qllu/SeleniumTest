@@ -27,7 +27,7 @@ class AddAppointment(unittest.TestCase):
 
     def test1_add_regular_appointment(self):
         global dataoper, sche_url
-        dataoper = DataReader('QT_Sche_add_sche_with_users_facility.xml')
+        dataoper = DataReader('QT_Sche_add_regular_sche.xml')
         Operations().login(dataoper.readxml('login', 0, 'username'),
                               dataoper.readxml('login', 0, 'password'))
         lang = Operations().get_language()
