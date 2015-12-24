@@ -21,9 +21,10 @@ class CreateDiscussion(unittest.TestCase):
     '''
     @classmethod
     def setUpClass(self):
-        global domain
+        global domain, driver
         domain = "qatest01"
-        WebDriver("open", "firefox", "local").open(domain, "slash")  # 打开浏览器，并打开forest
+        driver = WebDriver("open", "firefox", "local")
+        driver.open(domain, "slash")  # 打开浏览器，并打开forest
 
     def test1_create_discussion(self):
         # 新建space
@@ -34,56 +35,56 @@ class CreateDiscussion(unittest.TestCase):
                               dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
         # 点击进入Garoon
-        WebDriver().open(domain, "g")
+        driver.open(domain, "g")
         time.sleep(1)
         # 点击进入space
-        WebDriver().click('bycss', dataoper.readxml('space', 0, 'space_icon'))
+        driver.click('bycss', dataoper.readxml('space', 0, 'space_icon'))
         time.sleep(2)
         # 创建space
-        WebDriver().click('bylink', dataoper.readxml('space', 0, 'creat_link'))
+        driver.click('byclass', dataoper.readxml('space', 0, 'creat_link'))
         time.sleep(1)
         # 输入title
-        WebDriver().input('byid', dataoper.readxml('space', 0, 'space_title'),
+        driver.input('byid', dataoper.readxml('space', 0, 'space_title'),
                                    dataoper.readxml('space', 0, 'title'))
         # 选择公开方式
-        WebDriver().click('byid', dataoper.readxml('space', 0, 'public'))
+        driver.click('byid', dataoper.readxml('space', 0, 'public'))
         # 保存
-        WebDriver().click('byid', dataoper.readxml('space', 0, 'save'))
+        driver.click('byid', dataoper.readxml('space', 0, 'save'))
         time.sleep(1)
-        space_url = WebDriver().currenturl()
+        space_url = driver.currenturl()
 
         # 点击添加讨论区
-        WebDriver().click('bycss', dataoper.readxml('disc', 0, 'add_disc'))
+        driver.click('bycss', dataoper.readxml('disc', 0, 'add_disc'))
         time.sleep(1)
         # 输入标题、内容，上传附件并保存
         upfile1 = os.path.abspath('../Attachement/cybozu.gif')
 
-        WebDriver().input('byid', dataoper.readxml('disc', 0, 'title_input'),
+        driver.input('byid', dataoper.readxml('disc', 0, 'title_input'),
                                    dataoper.readxml('disc', 0, 'disc_title'))
         time.sleep(1)
-        WebDriver().input('byid', dataoper.readxml('disc', 0, 'content_input'),
+        driver.input('byid', dataoper.readxml('disc', 0, 'content_input'),
                                    dataoper.readxml('disc', 0, 'content'))
         time.sleep(1)
-        WebDriver().input('byid', dataoper.readxml('disc', 0, 'disc_upfile'), upfile1)
+        driver.input('byid', dataoper.readxml('disc', 0, 'disc_upfile'), upfile1)
         time.sleep(3)
-        WebDriver().click('byid', dataoper.readxml('disc', 0, 'disc_save'))
+        driver.click('byid', dataoper.readxml('disc', 0, 'disc_save'))
         # 获取discussion的URL
-        disc_url = WebDriver().currenturl()
+        disc_url = driver.currenturl()
 
     def test2_add_comment(self):
         # 提交带附件的回复
         dataoper = DataReader('QT_Space_create_discussion.xml')
         Operations().login(dataoper.readxml('login', 0, 'username'),
                               dataoper.readxml('login', 0, 'password'))
-        WebDriver().geturl(disc_url)
+        driver.geturl(disc_url)
         time.sleep(2)
         upfile2 = os.path.abspath('../Attachement/test.txt')
-        WebDriver().input('byid', dataoper.readxml('disc', 0, 'comment_input'),
+        driver.input('byid', dataoper.readxml('disc', 0, 'comment_input'),
                                    dataoper.readxml('disc', 0, 'comment'))
         time.sleep(2)
-        WebDriver().input('byid', dataoper.readxml('disc', 0, 'comment_upfile'), upfile2)
+        driver.input('byid', dataoper.readxml('disc', 0, 'comment_upfile'), upfile2)
         time.sleep(3)
-        WebDriver().click('byid', dataoper.readxml('disc', 0, 'comment_submit'))
+        driver.click('byid', dataoper.readxml('disc', 0, 'comment_submit'))
         time.sleep(2)
 
 
@@ -91,25 +92,25 @@ class CreateDiscussion(unittest.TestCase):
         Operations().login(dataoper.readxml('confirm', 0, 'username'),
                               dataoper.readxml('confirm', 0, 'password'))
         time.sleep(2)
-        WebDriver().geturl(disc_url)
+        driver.geturl(disc_url)
         time.sleep(3)
-        WebDriver().input('byid', dataoper.readxml('confirm', 0, 'comment_input'),
+        driver.input('byid', dataoper.readxml('confirm', 0, 'comment_input'),
                                    dataoper.readxml('confirm', 0, 'comment'))
         time.sleep(2)
-        WebDriver().input('byid', dataoper.readxml('confirm', 0, 'comment_upfile'), upfile1)
+        driver.input('byid', dataoper.readxml('confirm', 0, 'comment_upfile'), upfile1)
         time.sleep(3)
-        WebDriver().click('byid', dataoper.readxml('confirm', 0, 'comment_submit'))
+        driver.click('byid', dataoper.readxml('confirm', 0, 'comment_submit'))
         time.sleep(2)
 
     def test4_delete_discssion(self):
         Operations().login(dataoper.readxml('login', 0, 'username'),
                               dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
-        WebDriver().geturl(disc_url)
+        driver.geturl(disc_url)
         time.sleep(2)
-        WebDriver().click('bycss', dataoper.readxml('delete', 0, 'droplist'))
-        WebDriver().click('byid', dataoper.readxml('delete', 0, 'delete_link'))
-        WebDriver().click('byid', dataoper.readxml('delete', 0, 'delete_yes'))
+        driver.click('bycss', dataoper.readxml('delete', 0, 'droplist'))
+        driver.click('byid', dataoper.readxml('delete', 0, 'delete_link'))
+        driver.click('byid', dataoper.readxml('delete', 0, 'delete_yes'))
         time.sleep(2)
 
     def tearDown(self):
@@ -122,22 +123,22 @@ class CreateDiscussion(unittest.TestCase):
         try:
             Operations().login(dataoper.readxml('login', 0, 'username'),
                                   dataoper.readxml('login', 0, 'password'))
-            WebDriver().geturl(space_url)
+            driver.geturl(space_url)
             time.sleep(2)
-            WebDriver().click('byid', dataoper.readxml('space', 0, 'droplist'))
+            driver.click('byid', dataoper.readxml('space', 0, 'droplist'))
             time.sleep(1)
-            WebDriver().click('bylink', dataoper.readxml('space', 0, 'detail'))
+            driver.click('bylink', dataoper.readxml('space', 0, 'detail'))
             time.sleep(1)
-            WebDriver().click('byid', dataoper.readxml('space', 0, 'delete_link'))
+            driver.click('byid', dataoper.readxml('space', 0, 'delete_link'))
             time.sleep(2)
-            WebDriver().click('byxpath', dataoper.readxml('space', 0, 'delete_yes'))
+            driver.click('byxpath', dataoper.readxml('space', 0, 'delete_yes'))
             time.sleep(2)
         except Exception as msg:
             print msg
         else:
             print "Space及Discussion数据已清除"
         finally:
-            WebDriver().close()
+            driver.close()
 
 
 if __name__ == "__main__":

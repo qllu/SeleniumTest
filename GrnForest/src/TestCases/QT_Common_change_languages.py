@@ -21,9 +21,10 @@ class ChangeLanguages(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        global domain
+        global domain, driver
         domain = "qatest01"
-        WebDriver("open", "firefox", "local").open(domain, "slash")  # 打开浏览器，并打开forest
+        driver = WebDriver("open", "firefox", "local")
+        driver.open(domain, "slash")  # 打开浏览器，并打开forest
 
     def test1_change_to_japanese(self):
         global lang_url, default_lang
@@ -32,67 +33,67 @@ class ChangeLanguages(unittest.TestCase):
                               dataoper.readxml('u1', 0, 'password'))
         time.sleep(2)
         # 进入语言修改页面
-        lang_url = WebDriver().testurl(domain) + "/settings/account"
-        WebDriver().geturl(lang_url)
+        lang_url = driver.testurl(domain) + "/settings/account"
+        driver.geturl(lang_url)
         time.sleep(2)
         default_lang = Operations().get_language()
-        WebDriver().click("byid", ":1")
+        driver.click("byid", ":1")
 
         time.sleep(1)
         # :3 日语，:4 英语，:5 中文
-        WebDriver().click("byid", ":3")
+        driver.click("byid", ":3")
         time.sleep(1)
-        WebDriver().click("byid", "form-submit-button-slash")
-        WebDriver().open(domain, "g")
-        WebDriver().refresh()
+        driver.click("byid", "form-submit-button-slash")
+        driver.open(domain, "g")
+        driver.refresh()
         time.sleep(2)
-        name = WebDriver().gettext("bycss", "#appmenu-portal>a>div>nobr")
+        name = driver.gettext("bycss", "#appmenu-portal>a>div>nobr")
         self.assertEqual(name, u"ポータル"), "语言不能修改为日语"
 
     def test2_change_to_english(self):
-        WebDriver().geturl(lang_url)
+        driver.geturl(lang_url)
         time.sleep(2)
-        WebDriver().click("byid", ":1")
+        driver.click("byid", ":1")
         time.sleep(1)
         # :3 日语，:4 英语，:5 中文
-        WebDriver().click("byid", ":4")
+        driver.click("byid", ":4")
         time.sleep(1)
-        WebDriver().click("byid", "form-submit-button-slash")
-        WebDriver().open(domain, "g")
-        WebDriver().refresh()
+        driver.click("byid", "form-submit-button-slash")
+        driver.open(domain, "g")
+        driver.refresh()
         time.sleep(2)
-        name = WebDriver().gettext("bycss", "#appmenu-portal>a>div>nobr")
+        name = driver.gettext("bycss", "#appmenu-portal>a>div>nobr")
         self.assertEqual(name, "Portal"), "语言不能修改为英语"
 
     def test3_change_to_chinese(self):
-        WebDriver().geturl(lang_url)
+        driver.geturl(lang_url)
         time.sleep(2)
-        WebDriver().click("byid", ":1")
+        driver.click("byid", ":1")
         time.sleep(1)
         # :3 日语，:4 英语，:5 中文
-        WebDriver().click("byid", ":5")
+        driver.click("byid", ":5")
         time.sleep(1)
-        WebDriver().click("byid", "form-submit-button-slash")
-        WebDriver().open(domain, "g")
-        WebDriver().refresh()
+        driver.click("byid", "form-submit-button-slash")
+        driver.open(domain, "g")
+        driver.refresh()
         time.sleep(2)
-        name = WebDriver().gettext("bycss", "#appmenu-portal>a>div>nobr")
+        name = driver.gettext("bycss", "#appmenu-portal>a>div>nobr")
         self.assertEqual(name, u"门户"), "语言不能修改为中文"
 
     @classmethod
     def tearDownClass(self):
         # 清空数据
         try:
-            WebDriver().geturl(lang_url)
-            WebDriver().click("byid", ":1")
-            WebDriver().click("byid", default_lang)
-            WebDriver().click("byid", "form-submit-button-slash")
+            driver.geturl(lang_url)
+            driver.click("byid", ":1")
+            driver.click("byid", default_lang)
+            driver.click("byid", "form-submit-button-slash")
         except Exception as msg:
             print msg, "语言不能还原"
         else:
             print "语言已还原"
         finally:
-            WebDriver().close()
+            driver.close()
 
 
 if __name__ == "__main__":

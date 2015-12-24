@@ -23,7 +23,9 @@ class AddAppointment(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        WebDriver("open","firefox","local").open("qatest01", "slash")
+        global driver
+        driver = WebDriver("open","firefox","local")
+        driver.open("qatest01", "slash")
 
     def test1_add_regular_appointment(self):
         global dataoper, sche_url
@@ -42,51 +44,51 @@ class AddAppointment(unittest.TestCase):
         # 使用u1操作
         Operations().login(dataoper.readxml('sche', 0, 'username'),
                               dataoper.readxml('sche', 0, 'password'))
-        garoon_url = WebDriver().testurl("qatest01") + "/g/schedule/index.csp?"
-        WebDriver().geturl(garoon_url)
+        garoon_url = driver.testurl("qatest01") + "/g/schedule/index.csp?"
+        driver.geturl(garoon_url)
         time.sleep(2)
-        WebDriver().click("byxpath", ".//*[@id='smart_main_menu_part']/span[1]/a")
+        driver.click("byxpath", ".//*[@id='smart_main_menu_part']/span[1]/a")
         time.sleep(2)
         # 选择结束时间
-        WebDriver().click('byid', "time_selector")
-        WebDriver().click("byid", "time16")
+        driver.click('byid', "time_selector")
+        driver.click("byid", "time16")
         # 输入标题
-        WebDriver().input('byname', "title", "sche01")
+        driver.input('byname', "title", "sche01")
         # 检索用户并添加
         time.sleep(1)
-        WebDriver().input("byname", "keyword_CGID", "u2")
+        driver.input("byname", "keyword_CGID", "u2")
         time.sleep(1)
-        WebDriver().click("byid", "searchbox-submit-users")
+        driver.click("byid", "searchbox-submit-users")
         time.sleep(1)
-        WebDriver().click("bycss", "span.aButtonText-grn")
+        driver.click("bycss", "span.aButtonText-grn")
         # 检索设备并添加
         time.sleep(1)
-        WebDriver().input("byid", "facility_search_text", "fac1")
+        driver.input("byid", "facility_search_text", "fac1")
         time.sleep(1)
-        WebDriver().click("byid", "searchbox-submit-facilities")
+        driver.click("byid", "searchbox-submit-facilities")
         time.sleep(1)
         if lang == "CH":
-            WebDriver().click("byxpath", "//span[text()='添加']")
+            driver.click("byxpath", "//span[text()='添加']")
         else:
-            WebDriver().click("byxpath", ".//*[@id='schedule/repeat_add']/table/tbody/tr[5]/td/table/tbody/tr/td[2]/div/div[1]/span/a")
+            driver.click("byxpath", ".//*[@id='schedule/repeat_add']/table/tbody/tr[5]/td/table/tbody/tr/td[2]/div/div[1]/span/a")
 
         # 添加附件
         upfile = os.path.abspath('../Attachement/cybozu.gif')
-        WebDriver().input("byid", "file_upload_", upfile)
+        driver.input("byid", "file_upload_", upfile)
         time.sleep(1)
         try:
-            WebDriver().click("byid", "schedule_submit_button")
+            driver.click("byid", "schedule_submit_button")
             time.sleep(3)
-            WebDriver().screenshot("../ScreenShot/add_sche_with_users_facility.png")
+            driver.screenshot("../ScreenShot/add_sche_with_users_facility.png")
         except:
             print "不能添加预定，可能与其他预定重合"
 
-        sche_url = WebDriver().currenturl()
+        sche_url = driver.currenturl()
         time.sleep(3)
         # 验证用户、设备是否添加
-        check1 = WebDriver().gettext("bylink", "u2")
+        check1 = driver.gettext("bylink", "u2")
         self.assertEqual(check1, "u2")
-        check2 = WebDriver().gettext("bylink", "fac1")
+        check2 = driver.gettext("bylink", "fac1")
         self.assertEqual(check2, "fac1")
 
 
@@ -94,70 +96,70 @@ class AddAppointment(unittest.TestCase):
         # 验证未读通知是否存在
         Operations().login(dataoper.readxml('confirm', 0, 'username'),
                               dataoper.readxml('confirm', 0, 'password'))
-        notifacation_url = WebDriver().testurl("qatest01") + "/g/notification/pending_list.csp?module_id="
-        WebDriver().geturl(notifacation_url)
+        notifacation_url = driver.testurl("qatest01") + "/g/notification/pending_list.csp?module_id="
+        driver.geturl(notifacation_url)
         time.sleep(2)
-        check = WebDriver().gettext("bylink", "16:00 sche01")
+        check = driver.gettext("bylink", "16:00 sche01")
         self.assertEqual(check, "16:00 sche01")
 
     def test3_Edit_appointment(self):
         # 修改预定
         Operations().login(dataoper.readxml('sche', 0, 'username'),
                               dataoper.readxml('sche', 0, 'password'))
-        WebDriver().geturl(sche_url)
+        driver.geturl(sche_url)
         time.sleep(2)
-        WebDriver().click("byxpath", ".//*[@id='main_menu_part']/div[1]/span[1]/span/a")
+        driver.click("byxpath", ".//*[@id='main_menu_part']/div[1]/span[1]/span/a")
         time.sleep(2)
         # 选择结束时间
-        WebDriver().click('byid', "time_selector")
-        WebDriver().click("byid", "time17")
+        driver.click('byid', "time_selector")
+        driver.click("byid", "time17")
         # 输入标题
-        WebDriver().clear("byname", "title")
-        WebDriver().input("byname", "title", "sche01 change")
+        driver.clear("byname", "title")
+        driver.input("byname", "title", "sche01 change")
         # 检索用户并添加
         time.sleep(1)
-        WebDriver().input("byname", "keyword_CGID", "u3")
+        driver.input("byname", "keyword_CGID", "u3")
         time.sleep(1)
-        WebDriver().click("byid", "searchbox-submit-users")
+        driver.click("byid", "searchbox-submit-users")
         time.sleep(1)
-        WebDriver().click("bycss", "span.aButtonText-grn")
+        driver.click("bycss", "span.aButtonText-grn")
         # 去除设备
         time.sleep(1)
-        WebDriver().click("byxpath", "//tr[4]/td/table/tbody/tr/td[2]/div/div[2]/span/a/span[2]")
+        driver.click("byxpath", "//tr[4]/td/table/tbody/tr/td[2]/div/div[2]/span/a/span[2]")
         # 更换附件
-        WebDriver().click("byname", "fids[]")
+        driver.click("byname", "fids[]")
         upfile = os.path.abspath('../Attachement/test3.xls')
-        WebDriver().input("byid", "file_upload_", upfile)
+        driver.input("byid", "file_upload_", upfile)
         time.sleep(1)
-        WebDriver().input("byid", "textarea_id", "this is a comment")
-        WebDriver().click("bycss", "#schedule_submit_button > span")
+        driver.input("byid", "textarea_id", "this is a comment")
+        driver.click("bycss", "#schedule_submit_button > span")
         time.sleep(3)
         # 验证标题、时间、用户、设备、附件、备注是否修改
 
-        title = WebDriver().gettext("byclass", "schedule")
+        title = driver.gettext("byclass", "schedule")
         self.assertEqual(title, "sche01 change")
-        date = WebDriver().gettext("bycss", ".mLeft15")
+        date = driver.gettext("bycss", ".mLeft15")
         self.assertEqual(date, u"17:00 ～ 18:00")
-        user = WebDriver().gettext("bylink", "u3")
+        user = driver.gettext("bylink", "u3")
         self.assertEqual(user, "u3")
-        comment = WebDriver().gettext("byclass", "format_contents")
+        comment = driver.gettext("byclass", "format_contents")
         self.assertEqual(comment, "this is a comment")
-        attachment = WebDriver().gettext("bylink", "test3.xls")
+        attachment = driver.gettext("bylink", "test3.xls")
         self.assertEqual(attachment, "test3.xls")
         # assertNotEquals，验证内容不存在
-        facility = WebDriver().gettext("byxpath", ".//*[@id='body']/div[3]/div/div/table/tbody/tr[2]/td/div")
+        facility = driver.gettext("byxpath", ".//*[@id='body']/div[3]/div/div/table/tbody/tr[2]/td/div")
         self.assertNotEqual(facility, "fac1")
 
     def test4_delete_appointment(self):
         # 删除预定
         Operations().login(dataoper.readxml('sche', 0, 'username'),
                               dataoper.readxml('sche', 0, 'password'))
-        WebDriver().geturl(sche_url)
+        driver.geturl(sche_url)
         time.sleep(2)
-        WebDriver().click("byxpath", "//span[2]/span/a")
+        driver.click("byxpath", "//span[2]/span/a")
         # 删除全部参加者
-        WebDriver().click("byid", "1")
-        WebDriver().click("bycss", "input.margin")
+        driver.click("byid", "1")
+        driver.click("bycss", "input.margin")
 
     def tearDown(self):
         Operations().logout()
@@ -172,7 +174,7 @@ class AddAppointment(unittest.TestCase):
         except Exception as msg:
             print msg, "数据不能正常清除"
         finally:
-            WebDriver().close()
+            driver.close()
 
 
 if __name__ == "__main__":

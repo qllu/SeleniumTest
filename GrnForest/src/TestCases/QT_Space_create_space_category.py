@@ -19,9 +19,10 @@ class CreateSpaceCategory(unittest.TestCase):
     '''
 
     def setUp(self):
-        global domain
+        global domain, driver
         domain = "qatest01"
-        WebDriver("open", "firefox", "local").open(domain, "slash")  # 打开浏览器，并打开forest
+        driver = WebDriver("open", "firefox", "local")
+        driver.open(domain, "slash")  # 打开浏览器，并打开forest
 
     def test1_create_space_category(self):
         global dataoper, detail_url
@@ -35,43 +36,43 @@ class CreateSpaceCategory(unittest.TestCase):
         time.sleep(2)
 
         # 点击进入garoon各应用程序管理
-        WebDriver().open(domain, "sys_app")
+        driver.open(domain, "sys_app")
         time.sleep(2)
 
         # 点击进入space
-        WebDriver().click('byid', dataoper.readxml('space', 0, 'space_link'))
+        driver.click('byid', dataoper.readxml('space', 0, 'space_link'))
         time.sleep(2)
 
         # 点击进入类别设置
-        WebDriver().click('byid', dataoper.readxml('space', 0, 'cate_set'))
+        driver.click('byid', dataoper.readxml('space', 0, 'cate_set'))
         time.sleep(1)
 
         # 点击添加目录按钮
-        WebDriver().click('bylink', dataoper.readxml('space', 0, u'add_link'))
+        driver.click('bylink', dataoper.readxml('space', 0, u'add_link'))
         time.sleep(1)
 
         # 输入类别名称
-        WebDriver().input('byid', dataoper.readxml('space', 0, 'cate_name'),
+        driver.input('byid', dataoper.readxml('space', 0, 'cate_name'),
                                    dataoper.readxml('space', 0, 'name'))
         time.sleep(1)
 
         # 输入类别备注
-        WebDriver().input('byname', dataoper.readxml('space', 0, 'e_comment'),
+        driver.input('byname', dataoper.readxml('space', 0, 'e_comment'),
                                    dataoper.readxml('space', 0, 'comment'))
         time.sleep(1)
 
         # 保存
-        WebDriver().click('bycss', dataoper.readxml('space', 0, 'save'))
+        driver.click('bycss', dataoper.readxml('space', 0, 'save'))
         time.sleep(2)
 
         # 进入详细页面
-        WebDriver().click('bylink', dataoper.readxml('space', 0, 'cate_detail'))
+        driver.click('bylink', dataoper.readxml('space', 0, 'cate_detail'))
         time.sleep(2)
-        detail_url = WebDriver().currenturl()
+        detail_url = driver.currenturl()
 
         # 验证，1.类别名称，2.类别说明
-        check = WebDriver().gettext('byxpath', dataoper.readxml('space', 0, 'check'))
-        check2 = WebDriver().gettext('byxpath', dataoper.readxml('space', 0, 'check2'))
+        check = driver.gettext('byxpath', dataoper.readxml('space', 0, 'check'))
+        check2 = driver.gettext('byxpath', dataoper.readxml('space', 0, 'check2'))
         # print "check:", check
         value = dataoper.readxml('space', 0, 'value')
         value2 = dataoper.readxml('space', 0, 'value2')
@@ -82,17 +83,17 @@ class CreateSpaceCategory(unittest.TestCase):
     def tearDown(self):
         # 清空数据
         try:
-            WebDriver().geturl(detail_url)
+            driver.geturl(detail_url)
             time.sleep(2)
-            WebDriver().click('byxpath', dataoper.readxml('space', 0, 'delete_link'))
+            driver.click('byxpath', dataoper.readxml('space', 0, 'delete_link'))
             time.sleep(1)
-            WebDriver().click('byxpath', dataoper.readxml('space', 0, 'delete'))
+            driver.click('byxpath', dataoper.readxml('space', 0, 'delete'))
         except Exception as msg:
             print msg
         else:
             print "space类别已清除"
         finally:
-            WebDriver().close()  # 关闭浏览器
+            driver.close()  # 关闭浏览器
 
 
 if __name__ == "__main__":

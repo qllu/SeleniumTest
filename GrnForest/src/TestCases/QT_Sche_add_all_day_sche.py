@@ -18,9 +18,10 @@ class AddAllDayAppointment(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        global domain
+        global domain, driver
         domain = "qatest01"
-        WebDriver("open","firefox","local").open(domain, "slash")
+        driver = WebDriver("open","firefox","local")
+        driver.open(domain, "slash")
 
     def test1_add_all_day_appointment(self):
         global dataoper, sche_detail_url
@@ -29,28 +30,28 @@ class AddAllDayAppointment(unittest.TestCase):
                               dataoper.readxml('u1', 0, 'password'))
         # 添加整日预定
         sche_name = "banner sche test"
-        WebDriver().open(domain, "g")
-        WebDriver().click("byxpath", "//span[@id='appmenu-schedule']/a/div")
-        # WebDriver().findby("byxpath", "//span[@id='appmenu-schedule']/a/div").click()
-        WebDriver().click("byxpath", "//div[@id='smart_main_menu_part']/span/a")
+        driver.open(domain, "g")
+        driver.click("byxpath", "//span[@id='appmenu-schedule']/a/div")
+        # driver.findby("byxpath", "//span[@id='appmenu-schedule']/a/div").click()
+        driver.click("byxpath", "//div[@id='smart_main_menu_part']/span/a")
         # 选择整日预定
-        WebDriver().click("bycss", "span.tab_text_noimage > a")
-        WebDriver().input("byname", "title", sche_name)
+        driver.click("bycss", "span.tab_text_noimage > a")
+        driver.input("byname", "title", sche_name)
         # 检索用户并添加
         time.sleep(1)
-        WebDriver().input("byname", "keyword_CGID", "u2")
+        driver.input("byname", "keyword_CGID", "u2")
         time.sleep(1)
-        WebDriver().click("byid", "searchbox-submit-users")
+        driver.click("byid", "searchbox-submit-users")
         time.sleep(1)
-        WebDriver().click("bycss", "span.aButtonText-grn")
-        WebDriver().click("byid", "schedule_submit_button")
+        driver.click("bycss", "span.aButtonText-grn")
+        driver.click("byid", "schedule_submit_button")
         time.sleep(2)
-        sche_detail_url = WebDriver().currenturl()
-        sche_time = WebDriver().gettext("bycss", "span.schedule_text_noticeable_grn")
+        sche_detail_url = driver.currenturl()
+        sche_time = driver.gettext("bycss", "span.schedule_text_noticeable_grn")
         print "output:", sche_time
         self.assertTrue( u"00:00～23:59" in sche_time)
         # self.assertIn(u"00:00～23:59", sche_time)
-        user = WebDriver().gettext("bylink", "u2")
+        user = driver.gettext("bylink", "u2")
         self.assertEqual(user, "u2")
 
     def tearDown(self):
@@ -62,18 +63,18 @@ class AddAllDayAppointment(unittest.TestCase):
             # 清空预定
             Operations().login(dataoper.readxml('u1', 0, 'username'),
                               dataoper.readxml('u1', 0, 'password'))
-            WebDriver().geturl(sche_detail_url)
+            driver.geturl(sche_detail_url)
             time.sleep(2)
-            WebDriver().click("byxpath", "//span[2]/span/a")
+            driver.click("byxpath", "//span[2]/span/a")
             # 删除全部参加者
-            WebDriver().click("byid", "1")
-            WebDriver().click("bycss", "input.margin")
+            driver.click("byid", "1")
+            driver.click("bycss", "input.margin")
         except Exception as msg:
             print msg, "预定不能删除"
         else:
             print "预定已清除"
         finally:
-            WebDriver().close()
+            driver.close()
 
 
 if __name__ == "__main__":

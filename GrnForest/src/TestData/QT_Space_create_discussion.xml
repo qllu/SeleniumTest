@@ -7,7 +7,7 @@
 	
 	<space name="创建公开的空间">
 		<space_icon desc="bycss">div.icon-appMenu-space.appmenu-item-icon</space_icon>
-		<creat_link desc="bylink">创建空间</creat_link>
+		<creat_link desc="byclass">icon-add-grn</creat_link>
 		<space_title desc="byid">name-label-line-value-def</space_title>
 		<title>Space05</title>
 

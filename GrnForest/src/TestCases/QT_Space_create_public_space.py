@@ -25,9 +25,10 @@ class CreatePublicSpace(unittest.TestCase):
     '''
     @classmethod
     def setUpClass(self):
-        global domain
+        global domain, driver
         domain = "qatest01"
-        WebDriver("open", "firefox", "local").open(domain, "slash")  # 打开浏览器，并打开forest
+        driver = WebDriver("open", "firefox", "local")
+        driver.open(domain, "slash")  # 打开浏览器，并打开forest
 
     def test1_create_public_space(self):
         global dataoper, detail_url, current_url
@@ -37,42 +38,42 @@ class CreatePublicSpace(unittest.TestCase):
                               dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
         # 点击进入Garoon
-        WebDriver().open(domain, "g")
+        driver.open(domain, "g")
         time.sleep(1)
         # 点击进入space
-        WebDriver().click('bycss', dataoper.readxml('space', 0, 'space_icon'))
+        driver.click('bycss', dataoper.readxml('space', 0, 'space_icon'))
         time.sleep(2)
         # 创建space
-        WebDriver().click('bylink', dataoper.readxml('space', 0, 'creat_link'))
+        driver.click('bylink', dataoper.readxml('space', 0, 'creat_link'))
         time.sleep(1)
         # 输入title
-        WebDriver().input('byid', dataoper.readxml('space', 0, 'space_title'),
+        driver.input('byid', dataoper.readxml('space', 0, 'space_title'),
                                 dataoper.readxml('space', 0, 'title'))
         time.sleep(1)
         # 搜索添加用户
-        WebDriver().input('byname', dataoper.readxml('space', 0, 'e_keyword'),
+        driver.input('byname', dataoper.readxml('space', 0, 'e_keyword'),
                                 dataoper.readxml('space', 0, 'keyword'))
         time.sleep(1)
-        WebDriver().click('byxpath', dataoper.readxml('space', 0, 'search'))
+        driver.click('byxpath', dataoper.readxml('space', 0, 'search'))
         time.sleep(1)
-        WebDriver().click('byid', dataoper.readxml('space', 0, 'add_user'))
+        driver.click('byid', dataoper.readxml('space', 0, 'add_user'))
         time.sleep(1)
         # 选择公开方式
-        WebDriver().click('byid', dataoper.readxml('space', 0, 'public'))
+        driver.click('byid', dataoper.readxml('space', 0, 'public'))
         # 保存
-        WebDriver().click('byid', dataoper.readxml('space', 0, 'save'))
+        driver.click('byid', dataoper.readxml('space', 0, 'save'))
         time.sleep(1)
-        current_url = WebDriver().currenturl()
+        current_url = driver.currenturl()
         # print "current_url:", current_url
         # 进入详细页面
-        WebDriver().click('byid', dataoper.readxml('space', 0, 'droplist'))
+        driver.click('byid', dataoper.readxml('space', 0, 'droplist'))
         time.sleep(1)
-        WebDriver().click('bylink', dataoper.readxml('space', 0, 'detail'))
+        driver.click('bylink', dataoper.readxml('space', 0, 'detail'))
         time.sleep(1)
-        detail_url = WebDriver().currenturl()
+        detail_url = driver.currenturl()
         # 验证：1.确认space名称；2.确认公开方式
-        check = WebDriver().gettext('byxpath', dataoper.readxml('space', 0, 'check'))
-        check2 = WebDriver().gettext('byxpath', dataoper.readxml('space', 0, u'check2'))
+        check = driver.gettext('byxpath', dataoper.readxml('space', 0, 'check'))
+        check2 = driver.gettext('byxpath', dataoper.readxml('space', 0, u'check2'))
         value = dataoper.readxml('space', 0, 'value')
         value2 = dataoper.readxml('space', 0, u'value2')
 
@@ -84,10 +85,10 @@ class CreatePublicSpace(unittest.TestCase):
         Operations().login(dataoper.readxml('confirm', 1, 'username'),
                               dataoper.readxml('confirm', 1, 'password'))
         # print "open current_url by other user..."
-        WebDriver().geturl(current_url)
+        driver.geturl(current_url)
         time.sleep(2)
         # 确认是否存在元素
-        if WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 1, 'element')) is False:
+        if driver.is_element_present('byclass', dataoper.readxml('confirm', 1, 'element')) is False:
             print "元素验证失败"
             assert False
 
@@ -96,22 +97,22 @@ class CreatePublicSpace(unittest.TestCase):
         Operations().login(dataoper.readxml('confirm', 0, 'username'),
                               dataoper.readxml('confirm', 0, 'password'))
         # print "open current_url by other user..."
-        WebDriver().geturl(current_url)
+        driver.geturl(current_url)
         time.sleep(2)
         # 确认是否存在元素
-        if WebDriver().is_element_present('byclass', dataoper.readxml('confirm', 0, 'element')) is False:
+        if driver.is_element_present('byclass', dataoper.readxml('confirm', 0, 'element')) is False:
             print "元素验证失败"
             assert False
 
     def test4_delete_space(self):
         Operations().login(dataoper.readxml('login', 0, 'username'), dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
-        WebDriver().geturl(detail_url)
+        driver.geturl(detail_url)
         time.sleep(2)
-        WebDriver().click('byid', dataoper.readxml('space', 0, 'delete_link'))
+        driver.click('byid', dataoper.readxml('space', 0, 'delete_link'))
         time.sleep(2)
         try:
-            WebDriver().click('byxpath', dataoper.readxml('space', 0, 'delete_yes'))
+            driver.click('byxpath', dataoper.readxml('space', 0, 'delete_yes'))
             time.sleep(2)
         except Exception as msg:
             print msg
@@ -125,7 +126,7 @@ class CreatePublicSpace(unittest.TestCase):
     @classmethod
     def tearDownClass(self):
         # 关闭浏览器
-        WebDriver().close()
+        driver.close()
 
 
 if __name__ == "__main__":

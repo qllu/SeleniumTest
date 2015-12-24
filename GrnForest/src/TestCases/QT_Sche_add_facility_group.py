@@ -65,9 +65,10 @@ class AddFacilityGroup(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        global domain
+        global domain, driver
         domain = "qatest01"
-        WebDriver("open", "firefox", "local").open(domain, "slash")  # 打开浏览器，并打开forest
+        driver = WebDriver("open", "firefox", "local")
+        driver.open(domain, "slash")  # 打开浏览器，并打开forest
 
     def test1_add_facility_group(self):
         global group_url, group_detail_url
@@ -76,15 +77,15 @@ class AddFacilityGroup(unittest.TestCase):
                               dataoper.readxml('login', 0, 'password'))
         time.sleep(2)
         add_facility_group()
-        check1 = WebDriver().gettext("bycss", "td")
-        check2 = WebDriver().gettext("byxpath", "//tr[4]/td")
+        check1 = driver.gettext("bycss", "td")
+        check2 = driver.gettext("byxpath", "//tr[4]/td")
         self.assertEqual(check1, "fac_group1"), "设备组名称验证失败"
         self.assertEqual(check2, "this is a facility group") ,"设备组备注验证失败"
 
 
     def test2_add_facility(self):
         add_facility()
-        check3 = WebDriver().gettext("bycss", "td")
+        check3 = driver.gettext("bycss", "td")
         self.assertEqual(check3, "fac1")
 
 
@@ -94,9 +95,9 @@ class AddFacilityGroup(unittest.TestCase):
         try:
             del_fac()
         except Exception as msg:
-            print msg, "数据不能正常清除"
+            print msg, "Can't delete data."
         finally:
-            WebDriver().close()
+            driver.close()
 
 
 if __name__ == "__main__":

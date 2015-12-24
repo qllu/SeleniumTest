@@ -22,11 +22,12 @@ class AddMyGroup(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        global domain
+        global domain, driver
         domain = "qatest01"
-        WebDriver("open", "firefox", "local").open(domain, "slash")  # 打开浏览器，并打开forest
+        driver = WebDriver("open", "firefox", "local")
+        driver.open(domain, "slash")  # 打开浏览器，并打开forest
         # filelog = "../Log/AddMyGroup.log"
-        # WebDriver().getlog(filelog)
+        # driver.getlog(filelog)
 
     def test1_add_my_group(self):
         global detail_url, group_url
@@ -38,37 +39,37 @@ class AddMyGroup(unittest.TestCase):
         # language = "CH"
         # Operations().select_language(language)
         # 进入我的组的设置
-        WebDriver().open(domain, "person_set")
+        driver.open(domain, "person_set")
         time.sleep(2)
-        WebDriver().click("byid", "user")
-        WebDriver().click("byid", "personal/user/mygroup_list")
-        WebDriver().click("byid", "personal_mygroup_add")
-        WebDriver().input("byname", "name", "my group")
-        WebDriver().input("byid", "textarea_id", "this is a comment")
-        WebDriver().click("byid", "mygroup_add_submit")
-        group_url = WebDriver().currenturl()
+        driver.click("byid", "user")
+        driver.click("byid", "personal/user/mygroup_list")
+        driver.click("byid", "personal_mygroup_add")
+        driver.input("byname", "name", "my group")
+        driver.input("byid", "textarea_id", "this is a comment")
+        driver.click("byid", "mygroup_add_submit")
+        group_url = driver.currenturl()
         # 进入详情页面
-        WebDriver().click("byxpath", "//td[@id='view_part']/span/span/a")
+        driver.click("byxpath", "//td[@id='view_part']/span/span/a")
         time.sleep(2)
-        detail_url = WebDriver().currenturl()
-        name = WebDriver().gettext("byxpath", "//div[3]/table/tbody/tr/td")
-        comment = WebDriver().gettext("bycss", "pre.format_contents")
+        detail_url = driver.currenturl()
+        name = driver.gettext("byxpath", "//div[3]/table/tbody/tr/td")
+        comment = driver.gettext("bycss", "pre.format_contents")
         self.assertEqual(name, "my group")
         self.assertEqual(comment, "this is a comment")
 
     def test2_add_user_to_group(self):
-        WebDriver().geturl(group_url)
-        WebDriver().click("byid", "mygroup_user_add_link")
-        WebDriver().input("byname", "search_text", "u2")
-        WebDriver().click("byid", "search_submit")
-        WebDriver().select("byname", "aid[]", "u2")
-        WebDriver().click("byname", "add")
-        WebDriver().click("byid", "user_select_submit")
+        driver.geturl(group_url)
+        driver.click("byid", "mygroup_user_add_link")
+        driver.input("byname", "search_text", "u2")
+        driver.click("byid", "search_submit")
+        driver.select("byname", "aid[]", "u2")
+        driver.click("byname", "add")
+        driver.click("byid", "user_select_submit")
         time.sleep(2)
-        WebDriver().geturl(detail_url)
-        user = WebDriver().gettext("bylink", "u2")
+        driver.geturl(detail_url)
+        user = driver.gettext("bylink", "u2")
         self.assertEqual(user, "u2")
-        # if WebDriver().is_element_present("bylink", "u3") is True:
+        # if driver.is_element_present("bylink", "u3") is True:
         #     print "pass"
         # else:
         #     print "fail"
@@ -77,15 +78,15 @@ class AddMyGroup(unittest.TestCase):
     def tearDownClass(self):
         # 清空数据
         try:
-            WebDriver().geturl(detail_url)
-            WebDriver().click("byid", "lnk_delete")
-            WebDriver().click("byid", "msgbox_btn_yes")
+            driver.geturl(detail_url)
+            driver.click("byid", "lnk_delete")
+            driver.click("byid", "msgbox_btn_yes")
         except Exception as msg:
             print msg, "数据不能正常清除"
         else:
             print "数据已清除"
         finally:
-            WebDriver().close()
+            driver.close()
 
 
 if __name__ == "__main__":
