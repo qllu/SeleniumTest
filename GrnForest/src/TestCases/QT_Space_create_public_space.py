@@ -116,8 +116,6 @@ class CreatePublicSpace(unittest.TestCase):
             time.sleep(2)
         except Exception as msg:
             print msg
-        else:
-            print "space已删除"
 
     def tearDown(self):
         # 退出

@@ -95,7 +95,7 @@ class AddFacilityGroup(unittest.TestCase):
         try:
             del_fac()
         except Exception as msg:
-            print msg, "Can't delete data."
+            print msg, "Data has not been removed."
         finally:
             driver.close()
 

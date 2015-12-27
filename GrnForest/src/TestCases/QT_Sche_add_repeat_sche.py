@@ -116,9 +116,7 @@ class AddRepeatAppointments(unittest.TestCase):
             driver.click("byid", "5")
             driver.click("bycss", "input.margin")
         except Exception as msg:
-            print msg, "预定不能删除"
-        else:
-            print "预定已清除"
+            print msg, "Data has not been removed."
         finally:
             driver.close()
 

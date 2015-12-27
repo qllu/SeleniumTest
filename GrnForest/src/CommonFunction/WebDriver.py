@@ -28,6 +28,7 @@ class WebDriver(object):
         @param aType:打开浏览器的类型，如chrome,firefox,ie等要测试的浏览器类型
         @param cType:打开本地或是远程浏览器： local,本地；notlocal：远程
         """
+
         global driver
         if(  btype == "open" ):
             if(atype == "chrome"):

@@ -60,7 +60,7 @@ class AllowAttacheFiles(unittest.TestCase):
         except NoSuchElementException as msg:
             print msg
         else:
-            print "sche数据已清空"
+            print "Data has not been removed."
         finally:
             driver.close()
 

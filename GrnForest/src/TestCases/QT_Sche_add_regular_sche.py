@@ -172,7 +172,7 @@ class AddAppointment(unittest.TestCase):
                               dataoper.readxml('login', 0, 'password'))
             addfac.del_fac()
         except Exception as msg:
-            print msg, "数据不能正常清除"
+            print msg, "Data has not been removed."
         finally:
             driver.close()
 

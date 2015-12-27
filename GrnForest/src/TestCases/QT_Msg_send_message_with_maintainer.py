@@ -1,19 +1,21 @@
 # coding=utf-8
 """
 Created on 2015年12月23日
-1.ファイルを添付したメッセージが送信されること
+1.変更/削除の許可を設定したメッセージが送信されること
+2.宛先の詳細画面で変更/削除の許可欄にチェックが入っていること
 @author: QLLU
 """
 # 导入需要的公共函数类
 import time, unittest, sys, os
 from selenium.common.exceptions import NoSuchElementException
+
 sys.path.append("..")
 sys.path.append(os.getcwd() + "/src/")
 from CommonFunction.DataReader import DataReader
 from CommonFunction.Operations import Operations
 from CommonFunction.WebDriver import WebDriver
 
-class SendAndReciveMessage(unittest.TestCase):
+class SendMessage(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -31,7 +33,7 @@ class SendAndReciveMessage(unittest.TestCase):
         global msg_detail_url, msg_name
         Operations().login(u1_name, u1_pwd)
         # 发送站内信
-        msg_name = "msg test"
+        msg_name = "msg test2"
         driver.open(domain, "g")
         driver.click("byxpath", "//span[@id='appmenu-message']/a/div")
         driver.click("byxpath", "//div[@id='smart_main_menu_part']/span/span/a")
@@ -42,46 +44,32 @@ class SendAndReciveMessage(unittest.TestCase):
         driver.click("byxpath", u"//input[@value='用户搜索']")
         time.sleep(1)
         driver.click("byid", "btn_add_CID[]")
+        # 设置更改/删除的许可
+        driver.click("byid", "operator-set2")
+        driver.click("byid", "btn_add_CID_o[]")
         time.sleep(1)
-        # 上传附件
-        upfile = os.path.abspath('../Attachement/test3.xls')
-        driver.input("byid", "file_upload_", upfile)
-        time.sleep(2)
+        # 提交
         driver.click("bycss", "input.margin")
         # 进入详细
-        time.sleep(2)
-        driver.click("bylink", msg_name)
-        msg_detail_url = driver.currenturl()
-        # 验证
-        filename = driver.gettext("bylink", "test3.xls")
-        self.assertEqual(filename, "test3.xls")
-
-    def test2_add_comment(self):
-        Operations().login(u1_name, u1_pwd)
-        driver.geturl(msg_detail_url)
-        driver.input("byid", "data_editor_id", "comment1")
-        upfile = os.path.abspath('../Attachement/cybozu.gif')
-        driver.input("byid", "file_upload_message_comment", upfile)
-        driver.click("byclass", "button_min_width2_grn")
-        time.sleep(2)
-        # 验证
-        if driver.is_element_present("bycss", ".vAlignTop-grn>tt>a>img") is True:
-            comment = driver.gettext("byxpath", "//pre[text()='comment1']")
-            self.assertEqual(comment, "comment1")
-        else:
+        try:
+            time.sleep(2)
+            driver.click("bylink", msg_name)
+            msg_detail_url = driver.currenturl()
+        except NoSuchElementException as msg:
+            print msg, "Can not add message."
             assert False
 
-    def test3_confirm_notification_and_message(self):
+    def test2_confirm_message(self):
         Operations().login(u2_name, u2_pwd)
         driver.open(domain, "g")
-        driver.click("byxpath", "//span[@id='appmenu-notification']/a")
-        driver.click("byxpath", "//td[@id='tree_part']/div[2]/span/a")
+        driver.click("byxpath", "//span[@id='appmenu-message']/a/div")
         time.sleep(2)
-        if driver.is_element_present("bylink", msg_name) is True:
-            driver.click("bylink", msg_name)
-            filename = driver.gettext("bylink", "test3.xls")
-            self.assertEqual(filename, "test3.xls")
-        else:
+        driver.click("bylink", msg_name)
+        driver.click("byxpath", "//small/div/span/a")
+        time.sleep(1)
+        # 验证
+        if driver.is_element_present("bycss", ".lineone>td>img") is False:
+            print "Maintainer is not checked."
             assert False
 
     def tearDown(self):

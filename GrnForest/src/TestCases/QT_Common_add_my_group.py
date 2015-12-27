@@ -69,10 +69,6 @@ class AddMyGroup(unittest.TestCase):
         driver.geturl(detail_url)
         user = driver.gettext("bylink", "u2")
         self.assertEqual(user, "u2")
-        # if driver.is_element_present("bylink", "u3") is True:
-        #     print "pass"
-        # else:
-        #     print "fail"
 
     @classmethod
     def tearDownClass(self):
@@ -82,9 +78,7 @@ class AddMyGroup(unittest.TestCase):
             driver.click("byid", "lnk_delete")
             driver.click("byid", "msgbox_btn_yes")
         except Exception as msg:
-            print msg, "数据不能正常清除"
-        else:
-            print "数据已清除"
+            print msg, "Test data can not be removed."
         finally:
             driver.close()
 

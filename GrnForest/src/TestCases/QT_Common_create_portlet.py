@@ -105,9 +105,7 @@ class CreatePortlet(unittest.TestCase):
             driver.click("bycss", "#delete_portal")
             driver.click("bycss", "#msgbox_btn_yes")
         except Exception as msg:
-            print msg, "数据不能正常清除"
-        else:
-            print "数据已清除"
+            print msg, "Test data has not been removed."
         finally:
             driver.close()
 

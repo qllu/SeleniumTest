@@ -154,9 +154,7 @@ class AddShareTodo(unittest.TestCase):
             driver.click('byxpath', dataoper.readxml('space', 0, 'delete_yes'))
             time.sleep(2)
         except Exception as msg:
-            print msg
-        else:
-            print "Space及todo数据已清除"
+            print msg, "Data has not been removed."
         finally:
             driver.close()
 

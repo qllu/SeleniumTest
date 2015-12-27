@@ -89,9 +89,7 @@ class CreateSpaceCategory(unittest.TestCase):
             time.sleep(1)
             driver.click('byxpath', dataoper.readxml('space', 0, 'delete'))
         except Exception as msg:
-            print msg
-        else:
-            print "space类别已清除"
+            print msg, "Data has not been removed."
         finally:
             driver.close()  # 关闭浏览器
 

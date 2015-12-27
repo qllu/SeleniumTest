@@ -90,8 +90,6 @@ class ChangeLanguages(unittest.TestCase):
             driver.click("byid", "form-submit-button-slash")
         except Exception as msg:
             print msg, "语言不能还原"
-        else:
-            print "语言已还原"
         finally:
             driver.close()
 
