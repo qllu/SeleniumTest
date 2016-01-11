@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestData>
+	<sche name="登录测试数据">
+		<username>u1</username>
+		<password>cybozu1</password>
+		<item disc="点击用户下拉菜单">cloudHeader-userName-grn</item>		
+		<checkpoint disc="确认登录名">div > a</checkpoint>
+		<value>u1</value>
+		<sche_icon>div.icon-appMenu-schedule.appmenu-item-icon</sche_icon>	
+		<add_link>登记预定</add_link>
+		<start_hour>start_hour</start_hour>
+		<end_hour>end_hour</end_hour>
+		<select_start_hour>13点</select_start_hour>
+		<select_end_hour>14点</select_end_hour>
+		<select_CID>select_CID[]</select_CID>
+		<adduser>span.aButtonText-grn</adduser>
+
+		<title>title</title>
+		<title_name>lye_test</title_name>
+		<save>#schedule_submit_button > span</save>
+	</sche>
+</TestData>
+	

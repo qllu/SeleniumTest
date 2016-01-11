@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestData>
+	<login name="登录测试数据">
+		<username>u1</username>
+		<password>cybozu1</password>
+		<item disc="点击用户下拉菜单，bycss">span</item>
+		<checkpoint disc="确认登录名，bycss">span.nowrap-grn > a</checkpoint>
+		<logout disc="点击退出，byid">com-header-logout-link</logout>
+		<value>u1</value>
+	</login>
+
+	
+</TestData>	
+	

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestData>
+	<login>
+		<username>u1</username>
+		<password>cybozu1</password>
+	</login>
+	
+	<space name="创建公开的空间">
+		<space_icon desc="bycss">div.icon-appMenu-space.appmenu-item-icon</space_icon>
+		<creat_link desc="bylink">创建空间</creat_link>
+		<space_title desc="byid">name-label-line-value-def</space_title>
+		<title>Space04</title>
+		<e_keyword>keyword_CGID</e_keyword>
+		<keyword>u2</keyword>
+		<search>//input[@value='用户搜索']</search>
+		<add_user>btn_add_CID[]</add_user>
+
+		<public desc="byid">isPublic1</public>
+		<save desc="byid">buttonSubmit</save>
+		<droplist desc="byid">space-operation</droplist>
+		<detail desc="bylink">空间的详情</detail>
+
+		<check desc="byxpath">.//*[@id='body']/div[3]/table[1]/tbody/tr[1]/td</check>
+		<check2 desc="byxpath">//div[@id='body']/div[3]/table/tbody/tr[6]/td</check2>
+		<value>Space04</value>
+		<value2>公开</value2>
+
+		<delete_link desc="byxpath">space/delete</delete_link>
+		<delete_yes desc="byxpath">.//*[@id='body']/div[3]/form/input[3]</delete_yes>
+
+	</space>
+
+</TestData>	
