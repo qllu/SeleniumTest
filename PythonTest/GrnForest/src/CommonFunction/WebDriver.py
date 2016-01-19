@@ -12,6 +12,7 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
+
 # from selenium.webdriver.common.action_chains import ActionChains
 # from selenium.webdriver.common.keys import Keys
 global G_WEBDRIVER, G_BROWSERTYTPE,driver
@@ -74,11 +75,24 @@ class WebDriver(object):
             sys_common = "/g/system/common_list.csp?"
             sys_app = "/g/system/application_list.csp?"
             person_set = "/g/personal/common_list.csp?"
-            jljin = "http://jljin.cybozu-dev.com"
+            temp = "http://jljin.cybozu-dev.com"
             qatest01 = "https://qatest01.cybozu.cn"
 
-            if(url == "jljin"):
-                self.driver.get(jljin)
+            if(url == "temp"):
+                if type == "slash":
+                    self.driver.get(temp)
+                elif type == "g":
+                    garoon_url = temp + garoon
+                    self.driver.get(garoon_url)
+                elif type == "sys_common":
+                    sys_common_url = temp + sys_common
+                    self.driver.get(sys_common_url)
+                elif type == "sys_app":
+                    sys_app_url = temp + sys_app
+                    self.driver.get(sys_app_url)
+                elif type == "person_set":
+                    person_set_url = temp + person_set
+                    self.driver.get(person_set_url)
 
             elif(url == "qatest01"):
                 if type == "slash":
@@ -153,7 +167,7 @@ class WebDriver(object):
             elif(findby == 'bycss'):
                 self.driver.find_element_by_css_selector(elmethod)
         except NoSuchElementException as msg:
-            print msg
+            # print msg
             return False
         return True
 

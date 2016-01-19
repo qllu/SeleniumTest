@@ -12,5 +12,14 @@
 		<username>u2</username>
 		<password>cybozu1</password>
 	</u2>
+	<u3>
+		<username>u3</username>
+		<password>cybozu1</password>
+	</u3>
+
+	<admin>
+		<username>cybozu</username>
+		<password>cybozu</password>
+	</admin>
 
 </TestData>	

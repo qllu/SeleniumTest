@@ -1,11 +1,10 @@
 # coding=utf-8
 """
 Created on 2015年12月23日
-1.変更/削除の許可を設定したメッセージが送信されること
-2.宛先の詳細画面で変更/削除の許可欄にチェックが入っていること
+1.宛先が変更されること
+2.宛先から外されたユーザーはメッセージが削除されていること
 @author: QLLU
 """
-# 导入需要的公共函数类
 import time, unittest, sys, os
 from selenium.common.exceptions import NoSuchElementException
 
@@ -32,25 +31,25 @@ class SendMessage(unittest.TestCase):
     def test1_send_message(self):
         global msg_detail_url, msg_name
         Operations().login(u1_name, u1_pwd)
-        # 发送站内信
+        # send message
         msg_name = "msg test2"
         driver.open(domain, "g")
         driver.click("byxpath", "//span[@id='appmenu-message']/a/div")
         driver.click("byxpath", "//div[@id='smart_main_menu_part']/span/span/a")
         driver.input("byname", "title", msg_name)
         driver.input("byid", "data_editor_id", "this is a message")
-        # 添加收件人
+        # add recipients
         driver.input("byname", "keyword_CGID", "u2")
         driver.click("byxpath", u"//input[@value='用户搜索']")
         time.sleep(1)
         driver.click("byid", "btn_add_CID[]")
-        # 设置更改/删除的许可
+        # set maintainer
         driver.click("byid", "operator-set2")
         driver.click("byid", "btn_add_CID_o[]")
         time.sleep(1)
-        # 提交
+        # submit
         driver.click("bycss", "input.margin")
-        # 进入详细
+        # go to detail page
         try:
             time.sleep(2)
             driver.click("bylink", msg_name)
@@ -67,7 +66,7 @@ class SendMessage(unittest.TestCase):
         driver.click("bylink", msg_name)
         driver.click("byxpath", "//small/div/span/a")
         time.sleep(1)
-        # 验证
+        # confirm
         if driver.is_element_present("bycss", ".lineone>td>img") is False:
             print "Maintainer is not checked."
             assert False
@@ -77,13 +76,13 @@ class SendMessage(unittest.TestCase):
 
     @classmethod
     def tearDownClass(self):
-        # 清除数据
+        # remove data
         try:
             Operations().login(u1_name, u1_pwd)
             driver.geturl(msg_detail_url)
             time.sleep(2)
             driver.click("byid", "lnk_delete")
-            # 同时从收件人的文件夹中删除
+            # remove message from recipients
             driver.click("byid", "checkbox_id")
             driver.click("byid", "msgbox_btn_yes")
         except Exception as msg:

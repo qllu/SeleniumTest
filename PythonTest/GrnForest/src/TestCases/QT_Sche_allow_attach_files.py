@@ -49,7 +49,7 @@ class AllowAttacheFiles(unittest.TestCase):
         driver.click("byid", "schedule_submit_button")
         time.sleep(2)
         if driver.is_element_present("bycss", "tt > a > img") is False:
-            print "上传失败"
+            print "Upload file failed."
             assert False
 
     def tearDown(self):
@@ -58,9 +58,7 @@ class AllowAttacheFiles(unittest.TestCase):
             driver.click("byxpath", "//span[2]/span/a")
             driver.click("bycss", "input.margin")
         except NoSuchElementException as msg:
-            print msg
-        else:
-            print "Data has not been removed."
+            print msg, "Appointment data has not been removed."
         finally:
             driver.close()
 

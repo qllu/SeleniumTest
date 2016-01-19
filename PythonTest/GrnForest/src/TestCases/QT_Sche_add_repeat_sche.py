@@ -30,7 +30,7 @@ class AddRepeatAppointments(unittest.TestCase):
         Operations().login(dataoper.readxml('u1', 0, 'username'),
                               dataoper.readxml('u1', 0, 'password'))
         lang = Operations().get_language()
-        print "lang:", lang
+        # print "lang:", lang
         # 添加整日预定
         sche_name = "repeat sche test"
         driver.open(domain, "g")

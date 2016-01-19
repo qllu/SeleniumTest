@@ -48,7 +48,7 @@ class AddAllDayAppointment(unittest.TestCase):
         time.sleep(2)
         sche_detail_url = driver.currenturl()
         sche_time = driver.gettext("bycss", "span.schedule_text_noticeable_grn")
-        print "output:", sche_time
+        # print "output:", sche_time
         self.assertTrue( u"00:00～23:59" in sche_time)
         # self.assertIn(u"00:00～23:59", sche_time)
         user = driver.gettext("bylink", "u2")
