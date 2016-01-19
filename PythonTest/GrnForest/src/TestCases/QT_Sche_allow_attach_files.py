@@ -26,11 +26,11 @@ class AllowAttacheFiles(unittest.TestCase):
         dataoper = DataReader('QT_Sche_add_facility_group.xml')
         Operations().login(dataoper.readxml('login', 0, 'username'),
                               dataoper.readxml('login', 0, 'password'))
-        time.sleep(2)
+        driver.wait(3)
 
         # 进入日程安排系统后台
         driver.open(domain, "sys_app")
-        time.sleep(1)
+        driver.wait(2)
         driver.click("byid", "schedule")
         driver.click("byid", "schedule/system/common_set")
 
@@ -43,11 +43,11 @@ class AllowAttacheFiles(unittest.TestCase):
         sche_url = driver.testurl("qatest01") + "/g/schedule/index.csp?"
         driver.geturl(sche_url)
         driver.click("bycss", "span.menu_item > a")
-        time.sleep(2)
+        driver.wait(3)
         upfile = os.path.abspath('../Attachement/cybozu.gif')
         driver.input("byid", "file_upload_", upfile)
         driver.click("byid", "schedule_submit_button")
-        time.sleep(2)
+        driver.wait(3)
         if driver.is_element_present("bycss", "tt > a > img") is False:
             print "Upload file failed."
             assert False

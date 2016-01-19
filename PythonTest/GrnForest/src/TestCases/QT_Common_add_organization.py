@@ -33,35 +33,35 @@ class AddOrganization(unittest.TestCase):
         #
         # #登录用户
         # Operations().login(dataoper.readxml('login', 0, 'username'),dataoper.readxml('login', 0, 'password'))
-        # time.sleep(2)
+        # driver.wait(3)
         #
         # #点击进入共通管理
         # admin_url = driver.testurl("qatest01") + "/admin/"
         # driver.geturl(admin_url)
-        # time.sleep(2)
+        # driver.wait(3)
         #
         # #点击进入组织
         # driver.click('byxpath', dataoper.readxml('org', 0, 'org_link'))
-        # time.sleep(2)
+        # driver.wait(3)
         #
         # #点击添加组织按钮
         # driver.click('byid', dataoper.readxml('org', 0, 'add_botton'))
         #
         # #输入组织名
         # driver.input('byid', dataoper.readxml('org', 0, 'org_name'), dataoper.readxml('org', 0, 'name'))
-        # time.sleep(1)
+        # driver.wait(2)
         #
         # # #输入组织代码
         # # driver.input('byid', dataoper.readxml('org', 0, 'org_code'), dataoper.readxml('org', 0, 'code'))
-        # # time.sleep(1)
+        # # driver.wait(2)
         #
         # #输入组织说明
         # driver.input('byid', dataoper.readxml('org', 0, 'org_comment'), dataoper.readxml('org', 0, 'comment'))
-        # time.sleep(1)
+        # driver.wait(2)
         #
         # #保存
         # driver.click('byid', dataoper.readxml('org', 0, 'save'))
-        # time.sleep(2)
+        # driver.wait(3)
         #
         # #验证(云版未验证)
         # # checkpoint1 = driver.gettext('bycss',dataoper.readxml('login', 0,'checkpoint'))
@@ -70,7 +70,7 @@ class AddOrganization(unittest.TestCase):
         #
         # #退出
         # Operations().logout()
-        # time.sleep(3)
+        # driver.wait(5)
 
         
     def tearDown(self):

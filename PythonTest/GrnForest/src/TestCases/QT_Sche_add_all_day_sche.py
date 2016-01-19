@@ -38,14 +38,14 @@ class AddAllDayAppointment(unittest.TestCase):
         driver.click("bycss", "span.tab_text_noimage > a")
         driver.input("byname", "title", sche_name)
         # 检索用户并添加
-        time.sleep(1)
+        driver.wait(2)
         driver.input("byname", "keyword_CGID", "u2")
-        time.sleep(1)
+        driver.wait(2)
         driver.click("byid", "searchbox-submit-users")
-        time.sleep(1)
+        driver.wait(2)
         driver.click("bycss", "span.aButtonText-grn")
         driver.click("byid", "schedule_submit_button")
-        time.sleep(2)
+        driver.wait(3)
         sche_detail_url = driver.currenturl()
         sche_time = driver.gettext("bycss", "span.schedule_text_noticeable_grn")
         # print "output:", sche_time
@@ -64,7 +64,7 @@ class AddAllDayAppointment(unittest.TestCase):
             Operations().login(dataoper.readxml('u1', 0, 'username'),
                               dataoper.readxml('u1', 0, 'password'))
             driver.geturl(sche_detail_url)
-            time.sleep(2)
+            driver.wait(3)
             driver.click("byxpath", "//span[2]/span/a")
             # 删除全部参加者
             driver.click("byid", "1")

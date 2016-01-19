@@ -45,7 +45,7 @@ class CreateCategory(unittest.TestCase):
         driver.click("byid", "bulletin_category_detail")
         category_detail_url = driver.currenturl()
         # confirm
-        time.sleep(2)
+        driver.wait(3)
         title = driver.gettext("byid", "bulletin_category_title")
         self.assertEqual(cat_name, title)
 
@@ -55,21 +55,21 @@ class CreateCategory(unittest.TestCase):
         # driver.geturl(category_detail_url)
         driver.open(domain, "sys_app")
         driver.click("byid", "bulletin")
-        time.sleep(1)
+        driver.wait(2)
         driver.click("byid", "bulletin/system/notify_index")
         driver.click("bylink", cat_name)
         driver.click("bycss", "span.menu_item > span.nowrap-grn > a")
         driver.click("bycss", "span.m_small > span.nowrap-grn > a")
         # add role
         driver.click("byid", "activate-right-tab")
-        time.sleep(2)
+        driver.wait(3)
         driver.select("byname", "aid[]", "Everyone")
         driver.click("byname", "add")
         driver.click("byxpath", ".//*[@class='margin'][@type='button']")
         # confirm
         driver.open(domain, "g")
         driver.click("bycss", "div.icon-appMenu-bulletin.appmenu-item-icon")
-        time.sleep(2)
+        driver.wait(3)
         if driver.is_element_present("byclass", "icon_mark_subscribe_grn") is False:
             print "Notification icon is not display."
             assert False
@@ -83,7 +83,7 @@ class CreateCategory(unittest.TestCase):
         try:
             Operations().login(admin_name, admin_pwd)
             driver.geturl(category_detail_url)
-            time.sleep(2)
+            driver.wait(3)
             driver.click("byxpath", "//div[@id='main_menu_part']/span[3]/span/a")
             driver.click("bycss", "input.margin")
 

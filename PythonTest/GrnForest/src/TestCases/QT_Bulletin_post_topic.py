@@ -55,16 +55,16 @@ class PostTopic(unittest.TestCase):
         driver.open(domain, "g")
         driver.click("bycss", "div.icon-appMenu-bulletin.appmenu-item-icon")
         driver.click("bylink", cat_name)
-        time.sleep(1)
+        driver.wait(2)
         driver.click("byid", "bulletin_send")
-        time.sleep(1)
+        driver.wait(2)
         driver.input("byname", "title", topic_name)
         driver.input("byid", "data_editor_id", "this is content")
         driver.input("byid", "file_upload_", upfile)
-        time.sleep(2)
+        driver.wait(3)
         driver.click("bycss", "input.margin")
         # go to detail page
-        time.sleep(1)
+        driver.wait(2)
         driver.click("bylink", topic_name)
         topic_detail_url = driver.currenturl()
         # confirm
@@ -77,15 +77,15 @@ class PostTopic(unittest.TestCase):
         Operations().login(u1_name, u1_pwd)
         driver.open(domain, "g")
         driver.click("bycss", "div.icon-appMenu-bulletin.appmenu-item-icon")
-        time.sleep(2)
+        driver.wait(3)
         driver.click("bylink", cat_name)
         driver.click("byid", "bulletin_set_subscribe")
-        time.sleep(2)
+        driver.wait(3)
         driver.click("byxpath", ".//*[@name='candidate_categories[]']/option[1]")
         driver.click("byname", "add")
         driver.click("byid", "bulletin_set_subscribe_submit")
         # go to notification page
-        time.sleep(2)
+        driver.wait(3)
         driver.click("bycss", "div.icon-appMenu-notification.appmenu-item-icon")
         driver.click("bycss", "div.tree_item > span.nowrap-grn > a")
         # confirm
@@ -99,14 +99,14 @@ class PostTopic(unittest.TestCase):
         Operations().login(u1_name, u1_pwd)
         driver.open(domain, "g")
         driver.click("bycss", "div.icon-appMenu-bulletin.appmenu-item-icon")
-        time.sleep(2)
+        driver.wait(3)
         driver.click("bylink", cat_name)
-        time.sleep(2)
+        driver.wait(3)
         driver.click("bylink", topic_name)
-        time.sleep(1)
+        driver.wait(2)
         driver.input("byid", "data_editor_id", "comment1")
         driver.input("byid", "file_upload_article_comment", upfile)
-        time.sleep(2)
+        driver.wait(3)
         driver.click("byclass", "button_min_width2_grn")
         # confirm
         if driver.is_element_present("bylink", "test3.xls") is False:
@@ -117,7 +117,7 @@ class PostTopic(unittest.TestCase):
         # delete topic
         Operations().login(admin_name, admin_pwd)
         driver.geturl(topic_detail_url)
-        time.sleep(2)
+        driver.wait(3)
         try:
             driver.click("byid", "lnk_delete")
             driver.click("byid", "msgbox_btn_yes")
@@ -134,7 +134,7 @@ class PostTopic(unittest.TestCase):
         try:
             Operations().login(admin_name, admin_pwd)
             driver.geturl(category_detail_url)
-            time.sleep(2)
+            driver.wait(3)
             driver.click("byxpath", "//div[@id='main_menu_part']/span[3]/span/a")
             driver.click("bycss", "input.margin")
         except Exception as msg:

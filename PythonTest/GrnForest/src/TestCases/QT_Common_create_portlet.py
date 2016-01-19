@@ -32,19 +32,19 @@ class CreatePortlet(unittest.TestCase):
         dataoper = DataReader('USER_INFO.xml')
         Operations().login(dataoper.readxml('admin', 0, 'username'),
                               dataoper.readxml('admin', 0, 'password'))
-        time.sleep(2)
+        driver.wait(3)
         # 进入追加HTML组件页面
         html_portlet_name = "html portlet test"
         driver.open(domain, "sys_app")
         driver.click("byid", "portal")
         portal_url = driver.currenturl()
-        time.sleep(2)
+        driver.wait(3)
         driver.click("byid", "portal/system/html_portlet_list")
         driver.click("byxpath", "//div[@id='main_menu_part']/span/span/a")
         driver.input("byid", "portletName-label-line-value-def", html_portlet_name)
         content = "<table class='top_title'> <tr><td><strong>cybozu</strong></td></tr>"
         driver.input("byid", "data_editor_id", content)
-        time.sleep(2)
+        driver.wait(3)
         driver.click("bycss", "input.margin")
         driver.click("bylink", html_portlet_name)
         detail_url = driver.currenturl()
@@ -57,24 +57,24 @@ class CreatePortlet(unittest.TestCase):
         # 添加门户
         portal_name = "portal test"
         driver.geturl(portal_url)
-        time.sleep(2)
+        driver.wait(3)
         driver.click("byid", "portal/system/list")
         driver.click("byxpath", "//div[@id='main_menu_part']/span/span/a")
         driver.input("byid", "portalName-label-line-value-def", portal_name)
-        time.sleep(1)
+        driver.wait(2)
         driver.click("bycss", "input.margin")
         driver.click("bylink", portal_name)
         # 打开门户详细画面，设置为公开
         portal_detail_url = driver.currenturl()
-        time.sleep(2)
+        driver.wait(3)
         driver.click("byxpath", "//span[@id='open_button_portal']/div/a")
-        time.sleep(2)
+        driver.wait(3)
         driver.click("byid", "msgbox_btn_yes")
         # 首页确认是否显示
         driver.open(domain, "g")
         driver.click("byxpath", "//span[@id='appmenu-portal']/a/div")
         driver.click("bylink", portal_name)
-        time.sleep(1)
+        driver.wait(2)
         get_portal_name = driver.gettext("bylink", portal_name)
         new_portal_url = driver.currenturl()
         self.assertEqual(get_portal_name, portal_name)
@@ -82,16 +82,16 @@ class CreatePortlet(unittest.TestCase):
     def test3_drag_and_drop_portlet(self):
         # 拖拽添加组件
         driver.geturl(portal_detail_url)
-        time.sleep(2)
+        driver.wait(3)
         # driver.max_window()
         driver.drag_and_drop("#draggable_portlet_parts_p8>span", "#top")
-        time.sleep(3)
+        driver.wait(5)
         driver.is_element_present("byxpath", ".//*[@id='top']/div/li/div")
-        time.sleep(2)
+        driver.wait(3)
         driver.click("byxpath", "//*[@id='top']/div/li/div/table/tbody/tr[1]/td[2]/span/div/a")
-        time.sleep(2)
+        driver.wait(3)
         driver.geturl(new_portal_url)
-        time.sleep(2)
+        driver.wait(3)
         driver.is_element_present("bycss", ".portlet_title_grn>a")
 
     @classmethod

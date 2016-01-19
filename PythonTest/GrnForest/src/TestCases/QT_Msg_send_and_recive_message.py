@@ -40,16 +40,16 @@ class SendAndReciveMessage(unittest.TestCase):
         # 添加收件人
         driver.input("byname", "keyword_CGID", "u2")
         driver.click("byxpath", u"//input[@value='用户搜索']")
-        time.sleep(1)
+        driver.wait(2)
         driver.click("byid", "btn_add_CID[]")
-        time.sleep(1)
+        driver.wait(2)
         # 上传附件
         upfile = os.path.abspath('../Attachement/test3.xls')
         driver.input("byid", "file_upload_", upfile)
-        time.sleep(2)
+        driver.wait(3)
         driver.click("bycss", "input.margin")
         # 进入详细
-        time.sleep(2)
+        driver.wait(3)
         driver.click("bylink", msg_name)
         msg_detail_url = driver.currenturl()
         # 验证
@@ -63,7 +63,7 @@ class SendAndReciveMessage(unittest.TestCase):
         upfile = os.path.abspath('../Attachement/cybozu.gif')
         driver.input("byid", "file_upload_message_comment", upfile)
         driver.click("byclass", "button_min_width2_grn")
-        time.sleep(2)
+        driver.wait(3)
         # 验证
         if driver.is_element_present("bycss", ".vAlignTop-grn>tt>a>img") is True:
             comment = driver.gettext("byxpath", "//pre[text()='comment1']")
@@ -76,7 +76,7 @@ class SendAndReciveMessage(unittest.TestCase):
         driver.open(domain, "g")
         driver.click("byxpath", "//span[@id='appmenu-notification']/a")
         driver.click("byxpath", "//td[@id='tree_part']/div[2]/span/a")
-        time.sleep(2)
+        driver.wait(3)
         if driver.is_element_present("bylink", msg_name) is True:
             driver.click("bylink", msg_name)
             filename = driver.gettext("bylink", "test3.xls")
@@ -93,7 +93,7 @@ class SendAndReciveMessage(unittest.TestCase):
         try:
             Operations().login(u1_name, u1_pwd)
             driver.geturl(msg_detail_url)
-            time.sleep(2)
+            driver.wait(3)
             driver.click("byid", "lnk_delete")
             # 同时从收件人的文件夹中删除
             driver.click("byid", "checkbox_id")

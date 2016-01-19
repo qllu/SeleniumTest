@@ -112,6 +112,7 @@ class WebDriver(object):
             else:
                 print '路径错误！'
             self.driver.implicitly_wait(1)
+
         except NoSuchElementException:
             print '您选择的测试地址出错！！'
 
@@ -124,6 +125,7 @@ class WebDriver(object):
             return "http://qllu.cybozu-dev.com"
         else:
             print "url错误"
+
 
     def geturl(self,url):
         '''
@@ -144,6 +146,8 @@ class WebDriver(object):
         '''       
         self.driver.close()
 
+    def wait(self, sec):
+        self.driver.implicitly_wait(sec)
 
     def refresh(self):
         '''

@@ -46,27 +46,27 @@ class AddAppointment(unittest.TestCase):
                               dataoper.readxml('sche', 0, 'password'))
         garoon_url = driver.testurl("qatest01") + "/g/schedule/index.csp?"
         driver.geturl(garoon_url)
-        time.sleep(2)
+        driver.wait(3)
         driver.click("byxpath", ".//*[@id='smart_main_menu_part']/span[1]/a")
-        time.sleep(2)
+        driver.wait(3)
         # 选择结束时间
         driver.click('byid', "time_selector")
         driver.click("byid", "time16")
         # 输入标题
         driver.input('byname', "title", "sche01")
         # 检索用户并添加
-        time.sleep(1)
+        driver.wait(2)
         driver.input("byname", "keyword_CGID", "u2")
-        time.sleep(1)
+        driver.wait(2)
         driver.click("byid", "searchbox-submit-users")
-        time.sleep(1)
+        driver.wait(2)
         driver.click("bycss", "span.aButtonText-grn")
         # 检索设备并添加
-        time.sleep(1)
+        driver.wait(2)
         driver.input("byid", "facility_search_text", "fac1")
-        time.sleep(1)
+        driver.wait(2)
         driver.click("byid", "searchbox-submit-facilities")
-        time.sleep(1)
+        driver.wait(2)
         if lang == "CH":
             driver.click("byxpath", "//span[text()='添加']")
         else:
@@ -75,16 +75,16 @@ class AddAppointment(unittest.TestCase):
         # 添加附件
         upfile = os.path.abspath('../Attachement/cybozu.gif')
         driver.input("byid", "file_upload_", upfile)
-        time.sleep(1)
+        driver.wait(2)
         try:
             driver.click("byid", "schedule_submit_button")
-            time.sleep(3)
+            driver.wait(5)
             driver.screenshot("../ScreenShot/add_sche_with_users_facility.png")
         except:
             print "不能添加预定，可能与其他预定重合"
 
         sche_url = driver.currenturl()
-        time.sleep(3)
+        driver.wait(5)
         # 验证用户、设备是否添加
         check1 = driver.gettext("bylink", "u2")
         self.assertEqual(check1, "u2")
@@ -98,7 +98,7 @@ class AddAppointment(unittest.TestCase):
                               dataoper.readxml('confirm', 0, 'password'))
         notifacation_url = driver.testurl("qatest01") + "/g/notification/pending_list.csp?module_id="
         driver.geturl(notifacation_url)
-        time.sleep(2)
+        driver.wait(3)
         check = driver.gettext("bylink", "16:00 sche01")
         self.assertEqual(check, "16:00 sche01")
 
@@ -107,9 +107,9 @@ class AddAppointment(unittest.TestCase):
         Operations().login(dataoper.readxml('sche', 0, 'username'),
                               dataoper.readxml('sche', 0, 'password'))
         driver.geturl(sche_url)
-        time.sleep(2)
+        driver.wait(3)
         driver.click("byxpath", ".//*[@id='main_menu_part']/div[1]/span[1]/span/a")
-        time.sleep(2)
+        driver.wait(3)
         # 选择结束时间
         driver.click('byid', "time_selector")
         driver.click("byid", "time17")
@@ -117,23 +117,23 @@ class AddAppointment(unittest.TestCase):
         driver.clear("byname", "title")
         driver.input("byname", "title", "sche01 change")
         # 检索用户并添加
-        time.sleep(1)
+        driver.wait(2)
         driver.input("byname", "keyword_CGID", "u3")
-        time.sleep(1)
+        driver.wait(2)
         driver.click("byid", "searchbox-submit-users")
-        time.sleep(1)
+        driver.wait(2)
         driver.click("bycss", "span.aButtonText-grn")
         # 去除设备
-        time.sleep(1)
+        driver.wait(2)
         driver.click("byxpath", "//tr[4]/td/table/tbody/tr/td[2]/div/div[2]/span/a/span[2]")
         # 更换附件
         driver.click("byname", "fids[]")
         upfile = os.path.abspath('../Attachement/test3.xls')
         driver.input("byid", "file_upload_", upfile)
-        time.sleep(1)
+        driver.wait(2)
         driver.input("byid", "textarea_id", "this is a comment")
         driver.click("bycss", "#schedule_submit_button > span")
-        time.sleep(3)
+        driver.wait(5)
         # 验证标题、时间、用户、设备、附件、备注是否修改
 
         title = driver.gettext("byclass", "schedule")
@@ -155,7 +155,7 @@ class AddAppointment(unittest.TestCase):
         Operations().login(dataoper.readxml('sche', 0, 'username'),
                               dataoper.readxml('sche', 0, 'password'))
         driver.geturl(sche_url)
-        time.sleep(2)
+        driver.wait(3)
         driver.click("byxpath", "//span[2]/span/a")
         # 删除全部参加者
         driver.click("byid", "1")

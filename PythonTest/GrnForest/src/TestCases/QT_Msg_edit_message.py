@@ -42,23 +42,23 @@ class EditMessage(unittest.TestCase):
         # add recipients
         driver.input("byname", "keyword_CGID", "u2")
         driver.click("byxpath", u"//input[@value='用户搜索']")
-        time.sleep(1)
+        driver.wait(2)
         driver.click("byid", "btn_add_CID[]")
         # submit
         driver.click("bycss", "input.margin")
         # go to detail page
-        time.sleep(2)
+        driver.wait(3)
         driver.click("bylink", msg_name)
         msg_detail_url = driver.currenturl()
         # edit
         driver.click("byxpath", "//div[@id='main_menu_part']/span[2]/span/a")
         driver.select("byid", "selectbox_selected_users_sUID[]", "u2")
         driver.click("byid", "btn_rmv_CID[]")
-        time.sleep(1)
+        driver.wait(2)
         # add recipients
         driver.input("byname", "keyword_CGID", "u3")
         driver.click("byxpath", u"//input[@value='用户搜索']")
-        time.sleep(1)
+        driver.wait(2)
         driver.click("byid", "btn_add_CID[]")
         # change
         driver.click("bycss", "input.margin")
@@ -71,7 +71,7 @@ class EditMessage(unittest.TestCase):
         Operations().login(u2_name, u2_pwd)
         driver.open(domain, "g")
         driver.click("byxpath", "//span[@id='appmenu-message']/a/div")
-        time.sleep(2)
+        driver.wait(3)
         # confirm message is not exist
         if driver.is_element_present("bylink", msg_name) is True:
             print "Message cannot be deleted."
@@ -80,13 +80,13 @@ class EditMessage(unittest.TestCase):
     def test3_change_message(self):
         Operations().login(u1_name, u1_pwd)
         driver.geturl(msg_detail_url)
-        time.sleep(1)
+        driver.wait(2)
         driver.click("byxpath", "//div[@id='main_menu_part']/span/span/a")
         driver.clear("byid", "data_editor_id")
         driver.input("byid", "data_editor_id", "new content")
         # change
         driver.click("bycss", "input.margin")
-        time.sleep(1)
+        driver.wait(2)
         # confirm
         content = driver.gettext("byclass", "format_contents")
         self.assertEqual(content, "new content")
@@ -94,7 +94,7 @@ class EditMessage(unittest.TestCase):
     def test4_delete_message(self):
         Operations().login(u1_name, u1_pwd)
         driver.geturl(msg_detail_url)
-        time.sleep(2)
+        driver.wait(3)
         driver.click("byid", "lnk_delete")
         # delete message from recipients
         driver.click("byid", "checkbox_id")
@@ -109,7 +109,7 @@ class EditMessage(unittest.TestCase):
         # try:
         #     Operations().login(u1_name, u1_pwd)
         #     driver.geturl(msg_detail_url)
-        #     time.sleep(2)
+        #     driver.wait(3)
         #     driver.click("byid", "lnk_delete")
         #     # 同时从收件人的文件夹中删除
         #     driver.click("byid", "checkbox_id")

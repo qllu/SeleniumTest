@@ -37,13 +37,13 @@ class Cabinet(unittest.TestCase):
         driver.open(domain, "sys_app")
         driver.click("byid", "cabinet")
         driver.click("byid", "cabinet/system/folder_list")
-        time.sleep(2)
+        driver.wait(3)
         driver.click("bycss", "span.nowrap-grn > a")
-        time.sleep(1)
+        driver.wait(2)
         driver.input("byid", "folderName-label-line-value-def", folder_name)
         driver.click("byid", "enable_copy_access")
         driver.click("byid", "enable_copy_notification")
-        time.sleep(2)
+        driver.wait(3)
         # save
         driver.click("bycss", "input.margin")
         # go to detail page
@@ -58,11 +58,11 @@ class Cabinet(unittest.TestCase):
         driver.open(domain, "g")
         driver.click("bycss", "div.icon-appMenu-cabinet.appmenu-item-icon")
         driver.click("bylink", folder_name)
-        time.sleep(1)
+        driver.wait(2)
         driver.click("bycss", "span.menu_item > span.nowrap-grn > a")
         driver.input("byid", "file_upload_", upfile)
         driver.input("byxpath", ".//*[@id='fileTable']/tbody/tr[2]/td[6]/input", "upfile")
-        time.sleep(3)
+        driver.wait(5)
         driver.click("bycss", "input.margin")
         # confirm
 
@@ -80,7 +80,7 @@ class Cabinet(unittest.TestCase):
         try:
             Operations().login(admin_name, admin_pwd)
             driver.geturl(folder_detail_url)
-            time.sleep(1)
+            driver.wait(2)
             driver.click("byxpath", "//div[@id='main_menu_part']/span[3]/span/a")
             driver.click("bycss", "input.margin")
 

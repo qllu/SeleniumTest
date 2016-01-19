@@ -31,52 +31,52 @@ class ChangeLanguages(unittest.TestCase):
         dataoper = DataReader('USER_INFO.xml')
         Operations().login(dataoper.readxml('u1', 0, 'username'),
                               dataoper.readxml('u1', 0, 'password'))
-        time.sleep(2)
+        driver.wait(2)
         # 进入语言修改页面
         lang_url = driver.testurl(domain) + "/settings/account"
         driver.geturl(lang_url)
-        time.sleep(2)
+        driver.wait(2)
         default_lang = Operations().get_language()
         driver.click("byid", ":1")
 
-        time.sleep(1)
+        driver.wait(2)
         # :3 日语，:4 英语，:5 中文
         driver.click("byid", ":3")
-        time.sleep(1)
+        driver.wait(2)
         driver.click("byid", "form-submit-button-slash")
         driver.open(domain, "g")
         driver.refresh()
-        time.sleep(2)
+        driver.wait(2)
         name = driver.gettext("bycss", "#appmenu-portal>a>div>nobr")
         self.assertEqual(name, u"ポータル"), "语言不能修改为日语"
 
     def test2_change_to_english(self):
         driver.geturl(lang_url)
-        time.sleep(2)
+        driver.wait(2)
         driver.click("byid", ":1")
-        time.sleep(1)
+        driver.wait(2)
         # :3 日语，:4 英语，:5 中文
         driver.click("byid", ":4")
-        time.sleep(1)
+        driver.wait(2)
         driver.click("byid", "form-submit-button-slash")
         driver.open(domain, "g")
         driver.refresh()
-        time.sleep(2)
+        driver.wait(2)
         name = driver.gettext("bycss", "#appmenu-portal>a>div>nobr")
         self.assertEqual(name, "Portal"), "语言不能修改为英语"
 
     def test3_change_to_chinese(self):
         driver.geturl(lang_url)
-        time.sleep(2)
+        driver.wait(2)
         driver.click("byid", ":1")
-        time.sleep(1)
+        driver.wait(2)
         # :3 日语，:4 英语，:5 中文
         driver.click("byid", ":5")
-        time.sleep(1)
+        driver.wait(2)
         driver.click("byid", "form-submit-button-slash")
         driver.open(domain, "g")
         driver.refresh()
-        time.sleep(2)
+        driver.wait(2)
         name = driver.gettext("bycss", "#appmenu-portal>a>div>nobr")
         self.assertEqual(name, u"门户"), "语言不能修改为中文"
 

@@ -22,11 +22,11 @@ def add_facility_group():
     # 进入日程安排系统后台，添加设备组
     garoon_url = WebDriver().testurl("qatest01") + "/g/system/application_list.csp?app_id="
     WebDriver().geturl(garoon_url)
-    time.sleep(1)
+    driver.wait(2)
     WebDriver().click("byid", "schedule")
     WebDriver().click("byid", "schedule/system/facility_group")
     WebDriver().click("byid", "schedule/system/facility_group_add")
-    time.sleep(1)
+    driver.wait(2)
     WebDriver().input("byname", "facilitygroupName-def", "fac_group1")
     WebDriver().input("byname", "memo", "this is a facility group")
     WebDriver().click("byid", "facility_group_add_submit")
@@ -34,13 +34,13 @@ def add_facility_group():
     group_url = WebDriver().currenturl()
     # 点击设备组进入详情
     WebDriver().click("byxpath", "//div[2]/span/a")
-    time.sleep(1)
+    driver.wait(2)
     group_detail_url = WebDriver().currenturl()
 
 def add_facility():
     global fac_detail_url
     WebDriver().geturl(group_url)
-    time.sleep(2)
+    driver.wait(3)
     WebDriver().click("byid", "schedule/system/facility_add")
     WebDriver().input("byname", "facilityName-def", "fac1")
     WebDriver().input("byname", "facility_code", "fac1_code")
@@ -52,12 +52,12 @@ def add_facility():
 
 def del_fac():
     WebDriver().geturl(fac_detail_url)
-    time.sleep(2)
+    driver.wait(3)
     WebDriver().click("byxpath", "//span[2]/span[2]/span/a")
     WebDriver().click("bycss", "input.margin")
     # 删除设备组
     WebDriver().geturl(group_detail_url)
-    time.sleep(2)
+    driver.wait(3)
     WebDriver().click("byxpath", "//span[2]/span[2]/span/a")
     WebDriver().click("bycss", "input.margin")
 
@@ -75,7 +75,7 @@ class AddFacilityGroup(unittest.TestCase):
         dataoper = DataReader('QT_Sche_add_facility_group.xml')
         Operations().login(dataoper.readxml('login', 0, 'username'),
                               dataoper.readxml('login', 0, 'password'))
-        time.sleep(2)
+        driver.wait(3)
         add_facility_group()
         check1 = driver.gettext("bycss", "td")
         check2 = driver.gettext("byxpath", "//tr[4]/td")

@@ -35,12 +35,12 @@ class AddMyGroup(unittest.TestCase):
         dataoper = DataReader('USER_INFO.xml')
         Operations().login(dataoper.readxml('u1', 0, 'username'),
                               dataoper.readxml('u1', 0, 'password'))
-        time.sleep(2)
+        driver.wait(2)
         # language = "CH"
         # Operations().select_language(language)
         # 进入我的组的设置
         driver.open(domain, "person_set")
-        time.sleep(2)
+        driver.wait(2)
         driver.click("byid", "user")
         driver.click("byid", "personal/user/mygroup_list")
         driver.click("byid", "personal_mygroup_add")
@@ -50,7 +50,7 @@ class AddMyGroup(unittest.TestCase):
         group_url = driver.currenturl()
         # 进入详情页面
         driver.click("byxpath", "//td[@id='view_part']/span/span/a")
-        time.sleep(2)
+        driver.wait(2)
         detail_url = driver.currenturl()
         name = driver.gettext("byxpath", "//div[3]/table/tbody/tr/td")
         comment = driver.gettext("bycss", "pre.format_contents")
@@ -65,7 +65,7 @@ class AddMyGroup(unittest.TestCase):
         driver.select("byname", "aid[]", "u2")
         driver.click("byname", "add")
         driver.click("byid", "user_select_submit")
-        time.sleep(2)
+        driver.wait(2)
         driver.geturl(detail_url)
         user = driver.gettext("bylink", "u2")
         self.assertEqual(user, "u2")
