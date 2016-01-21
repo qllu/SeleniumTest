@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestData>
+	<login>
+		<username>Administrator</username>
+		<password>qatest01</password>
+	</login>
+	
+	<space name="创建空间类别">
+		<space_link>space</space_link>
+		<cate_set>space/system/category_list</cate_set>
+		<cate_set2>.//*[@id='space/system/category_list']</cate_set2>
+		<add_link>添加</add_link>
+		<cate_name>name-label-line-value-def</cate_name>
+		<name>test06</name>
+		<e_comment>memo</e_comment>
+		<comment>this is a test</comment>
+		<save>input.margin</save>
+		<cate_detail>详情</cate_detail>
+		<check>//div[@id='body']/div[2]/table/tbody/tr[2]/td/span</check>
+		<check2>//div[@id='body']/div[2]/table/tbody/tr[4]/td/span</check2>
+		<value>test06</value>
+		<value2>this is a test</value2>
+		<delete_link>.//*[@id='main_menu_part']/span[3]/span/a</delete_link>
+		<delete>.//*[@id='body']/div[2]/form/p[2]/input[1]</delete>
+	</space>
+
+</TestData>	

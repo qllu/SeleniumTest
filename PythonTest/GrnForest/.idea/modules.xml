@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../AppiumPython/.idea/AppiumPython.iml" filepath="$PROJECT_DIR$/../../AppiumPython/.idea/AppiumPython.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../AppiumTest/.idea/AppiumTest.iml" filepath="$PROJECT_DIR$/../../../AppiumTest/.idea/AppiumTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PythonTest.iml" filepath="$PROJECT_DIR$/.idea/PythonTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PythonTraining/.idea/PythonTraining.iml" filepath="$PROJECT_DIR$/../PythonTraining/.idea/PythonTraining.iml" />
+    </modules>
+  </component>
+</project>

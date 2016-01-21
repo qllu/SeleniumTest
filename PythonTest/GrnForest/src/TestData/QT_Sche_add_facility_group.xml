@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestData>
+	<login>
+		<username>Administrator</username>
+		<password>qatest01</password>	
+	</login>
+	
+	<sche name="登录测试数据">
+
+	</sche>
+
+</TestData>	
