@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestData>
+	<login>
+		<username>u1</username>
+		<password>cybozu1</password>
+	</login>
+	
+	<space name="创建公开的空间">
+		<space_icon desc="bycss">div.icon-appMenu-space.appmenu-item-icon</space_icon>
+		<creat_link desc="bylink">创建空间</creat_link>
+		<space_title desc="byid">name-label-line-value-def</space_title>
+		<title>Space_todo_test</title>
+		<e_keyword>keyword_CGID</e_keyword>
+		<keyword>u2</keyword>
+		<search>//input[@value='用户搜索']</search>
+		<add_user>btn_add_CID[]</add_user>
+
+		<save desc="byid">buttonSubmit</save>
+		<droplist desc="byid">space-operation</droplist>
+		<detail desc="bylink">空间的详情</detail>
+		<delete_link desc="byxpath">space/delete</delete_link>
+		<delete_yes desc="byxpath">.//*[@id='body']/div[3]/form/input[3]</delete_yes>
+	</space>
+
+	<todo name="space成员添加todo">
+		<username>u2</username>
+		<password>cybozu1</password>
+		<todo_add desc="bycss">#all_todo > div.space-addToDoBtn-grn > a.icon-add-grn > span</todo_add>
+		<todo_name_input desc="byid">space-todo-addDialog-name</todo_name_input>
+		<todo_name>todo01</todo_name>
+		<todo_name2>todo02</todo_name2>
+		<select_member desc="byid">select_todo_CID[]</select_member>
+		<member1>u1</member1>
+		<member2>u2</member2>
+		<add_member desc="byid">btn_add_todo_CID[]</add_member>
+		<save desc="byid">todo_add_submit</save>
+
+		<todo_link desc="byxpath">.//*[@id='all_todo']/ul/li[1]/a</todo_link>
+		<make_complete desc="bycss">input[type="submit"]</make_complete>
+		<shar_todo_link desc="byxpath">.//*[@id='body']/div[2]/span[7]/a</shar_todo_link>
+		<complete_link desc="byxpath">//div[2]/div[2]/span/a</complete_link>
+		<todo_check desc="bylink">todo02</todo_check>
+		<value>todo02</value>
+
+	</todo>
+
+	<delete name="删除discussion">
+
+	</delete>
+
+</TestData>	

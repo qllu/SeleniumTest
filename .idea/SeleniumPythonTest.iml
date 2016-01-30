@@ -7,7 +7,7 @@
       <excludeFolder url="file://$MODULE_DIR$/GrnOnpre" />
       <excludeFolder url="file://$MODULE_DIR$/PythonDemo" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 2.7.11 (F:\Python27\python.exe)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="PythonTest" />
   </component>
