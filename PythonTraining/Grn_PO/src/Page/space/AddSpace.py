@@ -8,8 +8,9 @@ from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import  By
 from CommonFunction import WebDriver
+from CommonFunction import PageObject
 
-class AddSpace(WebDriver):
+class AddSpace(WebDriver.WebDriver, PageObject.PageObject):
     space_name_loc = (By.ID, "name-label-line-value-def")
     keyword_input_loc = (By.NAME, "keyword_CGID")
     search_loc = (By.XPATH, "//*[@name='keyword_CGID']/following-sibling::input")
@@ -19,7 +20,7 @@ class AddSpace(WebDriver):
     save_loc = (By.ID, "buttonSubmit")
 
     def test_add_space(self):
-        self
+        self.find_element(*self.space_name_loc)
 
 
 

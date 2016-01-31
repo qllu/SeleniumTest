@@ -7,7 +7,7 @@ class BaseTestCase(unittest.TestCase):
 	def setUp(self):
 		self.driver=webdriver.Firefox()
 		self.driver.maximize_window()
-		self.driver.get('http://www.baidu.com')
+		self.driver.get('http://cn.bing.com')
 		self.driver.implicitly_wait(30)
 
 	def tearDown(self):
