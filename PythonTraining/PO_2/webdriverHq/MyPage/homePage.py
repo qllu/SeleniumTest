@@ -8,5 +8,5 @@ class HomePage(Page):
 	niCheng_loc=(By.CSS_SELECTOR,'.user-name')
 
 	def getNiCheng(self):
-		self.wait
+		self.wait()
 		return self.find_element(*self.niCheng_loc).text

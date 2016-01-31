@@ -17,6 +17,12 @@ class PageObject(object):
 		except (NoSuchElementException, KeyError, ValueError, Exception), e:
 			print 'Error details:%s'%(e.args[0])
 
+	def find_elements(self, *loc):
+		try:
+			return  self.driver.find_elements(*loc)
+		except (NoSuchElementException, KeyError, ValueError, Exception), e:
+			print 'Error details:%s'%(e.args[0])
+
 	# @property
 	# def wait(self):
 	# 	t.sleep(2)

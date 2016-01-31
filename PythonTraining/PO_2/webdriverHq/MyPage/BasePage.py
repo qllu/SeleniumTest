@@ -17,8 +17,9 @@ class Page(object):
 		except (NoSuchElementException,KeyError,ValueError,Exception),e:
 			print 'Error details:%s'%(e.args[0])
 
-	@property
-	def wait(self):
+	@staticmethod
+	# @property
+	def wait():
 		t.sleep(2)
 
 
