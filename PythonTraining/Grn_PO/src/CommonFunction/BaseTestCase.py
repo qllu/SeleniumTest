@@ -42,8 +42,9 @@ class BaseTestCase(unittest.TestCase):
 	def open_grn(self):
 		self.driver.get(self.domain + "/g/")
 
-	def test(self):
-		print self.admin_name
+
+
+
 
 
 

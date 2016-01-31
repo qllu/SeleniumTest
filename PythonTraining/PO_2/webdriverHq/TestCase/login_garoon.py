@@ -1,9 +1,9 @@
 #coding:utf-8
-import sys
 import os
+import sys
+
 sys.path.append("..")
 sys.path.append(os.getcwd() + "/src/")
-import time
 
 # from MyPage.basetestcase import BaseTestCase
 # from MyPage.baidu import  BingPage
@@ -11,20 +11,14 @@ import time
 # from model import Model
 # from ddt import  ddt,data,unpack
 import  unittest
-from MyPage.basetestcase import BaseTestCase
-from MyPage.BasePage import Page
-from MyPage.Garoon import  Garoon
+from MyCommon.basetestcase import BaseTestCase
+from MyPage.Garoon import Garoon
 
-class LoginGaroon(BaseTestCase):
+
+class LoginGaroon(BaseTestCase, Garoon):
 
 	def test_login(self):
-
-
-		self.dologin("u1", "cybozu")
-		# Bing.search("a")
-		# self.dologin("u1", "cybozu1")
-		# time.sleep(3)
-
+		self.dologin("u1", "cybozu1")
 
 if __name__=='__main__':
 	unittest.main(verbosity=2)

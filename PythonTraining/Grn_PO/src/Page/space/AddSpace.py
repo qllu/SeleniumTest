@@ -16,8 +16,9 @@ class AddSpace(PageObject):
     not_public_loc = (By.ID, "isPublic2")
     save_loc = (By.ID, "buttonSubmit")
 
-    def test_add_space(self):
-        self.find_element(*self.space_name_loc)
+    def add_space(self, spacename):
+        self.find_element(*self.space_name_loc).send_keys(spacename)
+
 
 
 

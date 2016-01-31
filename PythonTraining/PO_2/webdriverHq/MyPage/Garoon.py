@@ -1,17 +1,23 @@
 #coding:utf-8
-import sys
 import os
+import sys
+
 sys.path.append("..")
 sys.path.append(os.getcwd() + "/src/")
-from selenium import webdriver
 from selenium.webdriver.common.by import  By
-from BasePage import  Page
-import time
+from MyCommon.BasePage import  BasePage
 
-class Garoon(Page):
+
+class Garoon(BasePage):
 	uname_loc = (By.NAME, "username")
 	pwd_loc = (By.NAME, "password")
 	login_loc = (By.CLASS_NAME, "login-button")
+
+	def dologin(self, uname, pwd):
+		self.find_element(*self.uname_loc).send_keys(uname)
+		self.find_element(*self.pwd_loc).send_keys(pwd)
+		self.find_element(*self.login_loc).click()
+
 
 
 	"""
@@ -31,13 +37,6 @@ class Garoon(Page):
 		self.clickLogin()
 		time.sleep(5)
 	"""
-
-	def dologin(self, uname, pwd):
-		self.find_element(*self.uname_loc).send_keys(uname)
-		self.find_element(*self.pwd_loc).send_keys(pwd)
-		self.find_element(*self.login_loc).click()
-
-
 
 	# def click(self):
 	# 	self.wait()
