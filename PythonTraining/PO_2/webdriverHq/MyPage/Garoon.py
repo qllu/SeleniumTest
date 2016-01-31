@@ -1,26 +1,42 @@
 #coding:utf-8
-
+import sys
+import os
+sys.path.append("..")
+sys.path.append(os.getcwd() + "/src/")
 from selenium import webdriver
 from selenium.webdriver.common.by import  By
 from BasePage import  Page
-from homePage import  HomePage
 import time
 
+class Garoon(Page):
+	uname_loc = (By.NAME, "username")
+	pwd_loc = (By.NAME, "password")
+	login_loc = (By.CLASS_NAME, "login-button")
 
-class BingPage(Page):
-	# click_loc=(By.XPATH,".//*[@id='u1']/a[7]")
-	# userName_loc=(By.ID,'TANGRAM__PSP_8__userName')
-	# password_loc=(By.ID,'TANGRAM__PSP_8__password')
-	# clickButton_loc=(By.ID,'TANGRAM__PSP_8__submit')
-	# error_loc=(By.XPATH,".//*[@id='TANGRAM__PSP_8__error']")
-	search_textbox_loc = (By.ID, "sb_form_q")
-	search_botton_loc = (By.ID, "sb_form_go")
 
-	def search(self, keyword):
-		self.wait()
-		self.find_element(*self.search_textbox_loc).send_keys(keyword)
-		self.find_element(*self.search_botton_loc).click()
+	"""
+	def inputUsername(self, uname):
+		self.find_element(*self.uname_loc).send_keys(uname)
+
+	def inputPassword(self, pwd):
+		self.find_element(*self.pwd_loc).send_keys(pwd)
+
+	def clickLogin(self):
+		self.find_element(*self.pwd_loc).click()
+
+	def dologin(self, uname, pwd):
+		time.sleep(2)
+		self.inputUsername(uname)
+		self.inputPassword(pwd)
+		self.clickLogin()
 		time.sleep(5)
+	"""
+
+	def dologin(self, uname, pwd):
+		self.find_element(*self.uname_loc).send_keys(uname)
+		self.find_element(*self.pwd_loc).send_keys(pwd)
+		self.find_element(*self.login_loc).click()
+
 
 
 	# def click(self):

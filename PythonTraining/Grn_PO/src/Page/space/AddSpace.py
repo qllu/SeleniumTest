@@ -2,14 +2,12 @@
 import sys
 import os
 
-sys.path.append("..")
-sys.path.append(os.getcwd() + "/src/")
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import  By
-from CommonFunction import PageObject
+from CommonFunction.PageObject import PageObject
 
-class AddSpace(WebDriver.WebDriver, PageObject.PageObject):
+class AddSpace(PageObject):
     space_name_loc = (By.ID, "name-label-line-value-def")
     keyword_input_loc = (By.NAME, "keyword_CGID")
     search_loc = (By.XPATH, "//*[@name='keyword_CGID']/following-sibling::input")

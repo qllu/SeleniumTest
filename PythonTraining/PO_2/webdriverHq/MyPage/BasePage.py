@@ -8,19 +8,19 @@ import  time as t
 
 
 class Page(object):
-	def __init__(self,driver):
-		self.driver=driver
+	def __init__(self, driver):
+		self.driver = driver
 
-	def find_element(self,*loc):
+	def find_element(self, *loc):
 		try:
 			return  self.driver.find_element(*loc)
 		except (NoSuchElementException,KeyError,ValueError,Exception),e:
 			print 'Error details:%s'%(e.args[0])
 
-	@staticmethod
+	# @staticmethod
 	# @property
-	def wait():
-		t.sleep(2)
+	# def wait():
+	# 	t.sleep(2)
 
 
 

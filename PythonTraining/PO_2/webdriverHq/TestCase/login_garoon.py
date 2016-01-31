@@ -1,24 +1,44 @@
 #coding:utf-8
-
+import sys
+import os
+sys.path.append("..")
+sys.path.append(os.getcwd() + "/src/")
+import time
 
 # from MyPage.basetestcase import BaseTestCase
-# from MyPage.baidu import  BaiduPage
+# from MyPage.baidu import  BingPage
 # from MyPage.homePage import  HomePage
 # from model import Model
 # from ddt import  ddt,data,unpack
 import  unittest
 from MyPage.basetestcase import BaseTestCase
-from MyPage.baidu import  BingPage
-from MyPage.homePage import  HomePage
-# from model import Model
-# from ddt import  ddt,data,unpack
+from MyPage.BasePage import Page
+from MyPage.Garoon import  Garoon
+
+class LoginGaroon(BaseTestCase):
+
+	def test_login(self):
 
 
-# @ddt
-class baiduPage(BaseTestCase, BingPage, HomePage):
+		self.dologin("u1", "cybozu")
+		# Bing.search("a")
+		# self.dologin("u1", "cybozu1")
+		# time.sleep(3)
 
-	def test_search(self):
-		self.search("hello")
+
+if __name__=='__main__':
+	unittest.main(verbosity=2)
+	# unittest.main()
+
+
+
+
+
+
+
+
+
+
 
 	# @data(*Model.DataHelper().readExcels())
 	# @unpack
@@ -34,5 +54,4 @@ class baiduPage(BaseTestCase, BingPage, HomePage):
 	# 	self.login("", "")
 	# 	self.assertEqual(db.getXmlUser('login','niCheng'),self.getNiCheng())
 
-if __name__=='__main__':
-	unittest.main(verbosity=2)
+

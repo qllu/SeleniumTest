@@ -7,6 +7,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Python 2.7.11 (F:\Python27\python.exe)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="PythonTest" />
   </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="Nosetests" />

@@ -12,5 +12,9 @@
 		<username>u2</username>
 		<password>cybozu1</password>
 	</u2>
+	<url>
+		<domain>https://qatst01.cybozu.cn</domain>
+		<domain>https://jljin.cybozu.com</domain>
+	</url>
 
 </TestData>	
