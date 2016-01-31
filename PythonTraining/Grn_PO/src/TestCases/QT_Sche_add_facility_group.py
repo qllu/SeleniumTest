@@ -13,9 +13,9 @@ import os
 
 sys.path.append("..")
 sys.path.append(os.getcwd() + "/src/")
-from Grn_PO.src.CommonFunction.DataReader import DataReader
-from Grn_PO.src.CommonFunction.Operations import Operations
-from Grn_PO.src.CommonFunction.WebDriver import WebDriver
+from CommonFunction.DataReader import DataReader
+from CommonFunction.Operations import Operations
+from CommonFunction.WebDriver import WebDriver
 
 def add_facility_group():
     global group_url, group_detail_url
