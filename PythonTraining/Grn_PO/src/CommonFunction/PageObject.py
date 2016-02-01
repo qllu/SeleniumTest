@@ -25,3 +25,5 @@ class PageObject(object):
 		except (NoSuchElementException, KeyError, ValueError, Exception), e:
 			print 'Error details:%s'%(e.args[0])
 
+	def wait(self, sec):
+		self.driver.implicitly_wait(sec)

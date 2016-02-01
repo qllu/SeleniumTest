@@ -9,14 +9,24 @@ from selenium.webdriver.common.by import  By
 from CommonFunction.PageObject import PageObject
 
 class Index(PageObject):
+    # ******  system application list location   ***********
+    sys_space_loc = (By.ID, "space")
+
+    # ******  space location   ***********
     space_icon_loc = (By.CSS_SELECTOR, "div.icon-appMenu-space.appmenu-item-icon")
     creat_link_loc = (By.CSS_SELECTOR, ".icon-add-grn")
 
+    """ ******  system application list action  ******  """
+    def open_sys_space(self):
+        self.wait(5)
+        self.find_element(*self.sys_space_loc).click()
+
+    """ ******   space action   ******* """
     def open_space(self):
-        sleep(2)
+        self.wait(5)
         self.find_element(*self.space_icon_loc).click()
 
     def create_space(self):
-        sleep(2)
+        self.wait(5)
         self.find_element(*self.creat_link_loc).click()
 

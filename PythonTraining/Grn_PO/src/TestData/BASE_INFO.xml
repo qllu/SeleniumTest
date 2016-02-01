@@ -13,8 +13,8 @@
 		<password>cybozu1</password>
 	</u2>
 	<url>
-		<domain>https://qatst01.cybozu.cn</domain>
-		<domain>https://jljin.cybozu.com</domain>
+		<qatest01>https://qatest01.cybozu.cn</qatest01>
+		<jljin>https://jljin.cybozu.com</jljin>
 	</url>
 
 </TestData>	

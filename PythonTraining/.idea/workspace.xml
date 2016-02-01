@@ -21,49 +21,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="basetestcase.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PO_2/webdriverHq/MyCommon/basetestcase.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-              <folding>
-                <element signature="e#15#30#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Garoon.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PO_2/webdriverHq/MyPage/Garoon.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-              <folding>
-                <element signature="e#14#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PageObject.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Grn_PO/src/CommonFunction/PageObject.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+            <state vertical-scroll-proportion="-18.964285">
+              <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
               <folding>
                 <element signature="e#15#46#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login_garoon.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PO_2/webdriverHq/TestCase/login_garoon.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-              <folding>
-                <element signature="e#14#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,11 +36,26 @@
       <file leaf-file-name="BaseTestCase.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Grn_PO/src/CommonFunction/BaseTestCase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44630873">
-              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+<<<<<<< HEAD
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+=======
+            <state vertical-scroll-proportion="0.51141554">
+              <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+>>>>>>> 071ce33836b68bc4ab16680e871fa4f65fa9191b
               <folding>
-                <marker date="1454256662565" expanded="false" signature="15:31" placeholder="import ..." />
+                <element signature="e#15#30#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BASE_INFO.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Grn_PO/src/TestData/BASE_INFO.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.6">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,19 +64,64 @@
         <entry file="file://$PROJECT_DIR$/Grn_PO/src/Page/space/Index.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpaceTest.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Grn_PO/src/TestCases/SpaceTest.py">
+      <file leaf-file-name="QT_SpaceTest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Grn_PO/src/TestCases/QT_SpaceTest.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+<<<<<<< HEAD
+              <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+=======
+              <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+>>>>>>> 071ce33836b68bc4ab16680e871fa4f65fa9191b
               <folding>
                 <element signature="e#14#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddCategory.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Grn_PO/src/Page/space/AddCategory.py">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state vertical-scroll-proportion="0.44630873">
+              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+=======
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="62" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
+>>>>>>> 071ce33836b68bc4ab16680e871fa4f65fa9191b
+              <folding>
+                <element signature="e#14#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SystemCommon.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Grn_PO/src/Page/common/SystemCommon.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding>
+                <element signature="e#14#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SystemApplication.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Grn_PO/src/Page/common/SystemApplication.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding>
+                <element signature="e#14#24#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -107,7 +131,7 @@
         <entry file="file://$PROJECT_DIR$/Grn_PO/src/Page/space/AddSpace.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+              <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
               <folding>
                 <element signature="e#14#24#0" expanded="true" />
               </folding>
@@ -139,9 +163,7 @@
       <list>
         <option value="$PROJECT_DIR$/Grn_PO/src/CommonFunction/Webdriver.py" />
         <option value="$PROJECT_DIR$/Grn_PO/src/CommonFunction/WebDriver.py" />
-        <option value="$PROJECT_DIR$/Grn_PO/src/TestData/BASE_INFO.xml" />
         <option value="$PROJECT_DIR$/Grn_PO/src/CommonFunction/DataReader.py" />
-        <option value="$PROJECT_DIR$/Grn_PO/src/CommonFunction/PageObject.py" />
         <option value="$PROJECT_DIR$/Grn_PO/src/Page/space/Common.py" />
         <option value="$PROJECT_DIR$/Grn_PO/src/Page/space/SpaceCommon.py" />
         <option value="$PROJECT_DIR$/PO_2/webdriverHq/MyPage/baidu.py" />
@@ -152,20 +174,25 @@
         <option value="$PROJECT_DIR$/PO_2/webdriverHq/MyPage/basetestcase.py" />
         <option value="$PROJECT_DIR$/PO_2/webdriverHq/MyPage/BasePage.py" />
         <option value="$PROJECT_DIR$/PO_2/webdriverHq/MyPage/Garoon.py" />
-        <option value="$PROJECT_DIR$/Grn_PO/src/Page/space/Index.py" />
-        <option value="$PROJECT_DIR$/Grn_PO/src/CommonFunction/BaseTestCase.py" />
-        <option value="$PROJECT_DIR$/Grn_PO/src/Page/space/AddSpace.py" />
         <option value="$PROJECT_DIR$/PO_2/webdriverHq/TestCase/login_garoon.py" />
         <option value="$PROJECT_DIR$/Grn_PO/src/CommonFunction/Factory.py" />
         <option value="$PROJECT_DIR$/Grn_PO/src/TestCases/SpaceTest.py" />
+        <option value="$PROJECT_DIR$/Grn_PO/src/TestData/BASE_INFO.xml" />
+        <option value="$PROJECT_DIR$/Grn_PO/src/Page/space/AddSpace.py" />
+        <option value="$PROJECT_DIR$/Grn_PO/src/Page/common/SystemCommon.py" />
+        <option value="$PROJECT_DIR$/Grn_PO/src/Page/common/SystemApplication.py" />
+        <option value="$PROJECT_DIR$/Grn_PO/src/CommonFunction/PageObject.py" />
+        <option value="$PROJECT_DIR$/Grn_PO/src/Page/space/Index.py" />
+        <option value="$PROJECT_DIR$/Grn_PO/src/Page/space/AddCategory.py" />
+        <option value="$PROJECT_DIR$/Grn_PO/src/CommonFunction/BaseTestCase.py" />
+        <option value="$PROJECT_DIR$/Grn_PO/src/TestCases/QT_SpaceTest.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1358" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="390" />
+    <option name="width" value="1529" />
+    <option name="height" value="1144" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -218,228 +245,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PO_2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PO_2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webdriverHq" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PO_2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webdriverHq" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestCase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PO_2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webdriverHq" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyPage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Grn_PO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Grn_PO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Grn_PO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestData" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Grn_PO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestCases" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Grn_PO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Page" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Grn_PO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Page" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="space" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PythonTraining" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Grn_PO" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CommonFunction" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -456,44 +261,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Python tests.Nosetests in SpaceTest">
-    <configuration default="false" name="Nosetests in LoginGaroon" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PO_2/webdriverHq/TestCase" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PythonTraining" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PO_2/webdriverHq/TestCase/login_garoon.py" />
-      <option name="CLASS_NAME" value="LoginGaroon" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_CLASS" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="login_garoon" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PO_2/webdriverHq/TestCase" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="PythonTraining" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PO_2/webdriverHq/TestCase/login_garoon.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="Nosetests in SpaceTest" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -504,7 +271,28 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="PythonTraining" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Grn_PO/src/TestCases/SpaceTest.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Grn_PO/src/TestCases/QT_SpaceTest.py" />
+      <option name="CLASS_NAME" value="SpaceTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_CLASS" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Nosetests in QT_SpaceTest (1)" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Grn_PO/src/TestCases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PythonTraining" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Grn_PO/src/TestCases/QT_SpaceTest.py" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="FOLDER_NAME" value="" />
@@ -525,7 +313,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="PythonTraining" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Grn_PO/src/TestCases/SpaceTest.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Grn_PO/src/TestCases/QT_SpaceTest.py" />
       <option name="CLASS_NAME" value="SpaceTest" />
       <option name="METHOD_NAME" value="" />
       <option name="FOLDER_NAME" value="" />
@@ -536,18 +324,39 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Nosetests in BaseTestCase" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Nosetests in SpaceTest (2)" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Grn_PO/src/CommonFunction" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Grn_PO/src/TestCases" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="PythonTraining" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Grn_PO/src/CommonFunction/BaseTestCase.py" />
-      <option name="CLASS_NAME" value="BaseTestCase" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Grn_PO/src/TestCases/QT_SpaceTest.py" />
+      <option name="CLASS_NAME" value="SpaceTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_CLASS" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Nosetests in SpaceTest (3)" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Grn_PO/src/TestCases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PythonTraining" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Grn_PO/src/TestCases/QT_SpaceTest.py" />
+      <option name="CLASS_NAME" value="SpaceTest" />
       <option name="METHOD_NAME" value="" />
       <option name="FOLDER_NAME" value="" />
       <option name="TEST_TYPE" value="TEST_CLASS" />
@@ -683,19 +492,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python tests.Nosetests in LoginGaroon" />
-      <item index="1" class="java.lang.String" itemvalue="Python.login_garoon" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests in SpaceTest" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests in SpaceTest (1)" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests in BaseTestCase" />
+      <item index="0" class="java.lang.String" itemvalue="Python tests.Nosetests in SpaceTest" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests in QT_SpaceTest (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests in SpaceTest (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests in SpaceTest (2)" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests in SpaceTest (3)" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python tests.Nosetests in SpaceTest" />
-        <item index="1" class="java.lang.String" itemvalue="Python.login_garoon" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests in BaseTestCase" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests in SpaceTest (3)" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests in SpaceTest (2)" />
         <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests in SpaceTest (1)" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests in LoginGaroon" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests in QT_SpaceTest (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -713,46 +522,54 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Nosetests_in_SpaceTest - 2016.01.31 at 23h 58m 57s.xml">
+    <history-entry file="Nosetests_in_QT_SpaceTest_(1) - 2016.02.01 at 16h 21m 59s.xml">
+      <configuration name="Nosetests in QT_SpaceTest (1)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_QT_SpaceTest_(1) - 2016.02.01 at 16h 23m 09s.xml">
+      <configuration name="Nosetests in QT_SpaceTest (1)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_QT_SpaceTest_(1) - 2016.02.01 at 16h 24m 39s.xml">
+      <configuration name="Nosetests in QT_SpaceTest (1)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_QT_SpaceTest_(1) - 2016.02.01 at 18h 07m 30s.xml">
+      <configuration name="Nosetests in QT_SpaceTest (1)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_SpaceTest - 2016.02.01 at 18h 13m 38s.xml">
       <configuration name="Nosetests in SpaceTest" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_in_SpaceTest - 2016.02.01 at 00h 00m 57s.xml">
+    <history-entry file="Nosetests_in_SpaceTest - 2016.02.01 at 18h 19m 21s.xml">
       <configuration name="Nosetests in SpaceTest" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_in_SpaceTest - 2016.02.01 at 00h 01m 43s.xml">
+    <history-entry file="Nosetests_in_SpaceTest - 2016.02.01 at 18h 21m 31s.xml">
       <configuration name="Nosetests in SpaceTest" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_in_SpaceTest - 2016.02.01 at 00h 02m 11s.xml">
-      <configuration name="Nosetests in SpaceTest" configurationId="tests" />
+    <history-entry file="Nosetests_in_SpaceTest_(1) - 2016.02.01 at 18h 14m 16s.xml">
+      <configuration name="Nosetests in SpaceTest (1)" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_in_SpaceTest - 2016.02.01 at 00h 17m 27s.xml">
-      <configuration name="Nosetests in SpaceTest" configurationId="tests" />
+    <history-entry file="Nosetests_in_SpaceTest_(2) - 2016.02.01 at 18h 16m 02s.xml">
+      <configuration name="Nosetests in SpaceTest (2)" configurationId="tests" />
     </history-entry>
-    <history-entry file="Nosetests_in_SpaceTest - 2016.02.01 at 00h 18m 13s.xml">
-      <configuration name="Nosetests in SpaceTest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_in_SpaceTest - 2016.02.01 at 00h 19m 20s.xml">
-      <configuration name="Nosetests in SpaceTest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_in_SpaceTest - 2016.02.01 at 00h 20m 29s.xml">
-      <configuration name="Nosetests in SpaceTest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_in_SpaceTest - 2016.02.01 at 00h 27m 11s.xml">
-      <configuration name="Nosetests in SpaceTest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_in_SpaceTest - 2016.02.01 at 00h 28m 57s.xml">
-      <configuration name="Nosetests in SpaceTest" configurationId="tests" />
+    <history-entry file="Nosetests_in_SpaceTest_(3) - 2016.02.01 at 18h 18m 54s.xml">
+      <configuration name="Nosetests in SpaceTest (3)" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="390" y="0" width="1529" height="1144" extended-state="0" />
     <editor active="false" />
     <layout>
+<<<<<<< HEAD
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16859852" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1683434" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+>>>>>>> 071ce33836b68bc4ab16680e871fa4f65fa9191b
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+=======
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29376855" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> 071ce33836b68bc4ab16680e871fa4f65fa9191b
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -790,7 +607,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#15#30#0" expanded="true" />
+=======
+            <element signature="e#15#30#0" expanded="false" />
+>>>>>>> 071ce33836b68bc4ab16680e871fa4f65fa9191b
           </folding>
         </state>
       </provider>
@@ -798,9 +619,16 @@
     <entry file="file://$PROJECT_DIR$/PO_2/webdriverHq/MyPage/Garoon.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
           <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
           <folding>
             <element signature="e#14#23#0" expanded="true" />
+=======
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <marker date="1454306018023" expanded="false" signature="14:21" placeholder="import ..." />
+            <marker date="1454306018023" expanded="true" signature="890:1706" placeholder="..." />
+>>>>>>> 071ce33836b68bc4ab16680e871fa4f65fa9191b
           </folding>
         </state>
       </provider>
@@ -820,12 +648,65 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#14#23#0" expanded="true" />
+=======
+            <marker date="1454306018023" expanded="false" signature="14:21" placeholder="import ..." />
+>>>>>>> 071ce33836b68bc4ab16680e871fa4f65fa9191b
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Grn_PO/src/CommonFunction/BaseTestCase.py">
+<<<<<<< HEAD
+=======
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#15#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grn_PO/src/Page/space/Index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grn_PO/src/TestCases/QT_SpaceTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+          <folding>
+            <element signature="e#14#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grn_PO/src/Page/space/AddSpace.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding>
+            <element signature="e#14#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grn_PO/src/CommonFunction/DataReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PO_1/testcase/caseSearchBaiduAction.py">
+>>>>>>> 071ce33836b68bc4ab16680e871fa4f65fa9191b
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -890,7 +771,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
           <folding>
-            <element signature="e#15#30#0" expanded="true" />
+            <element signature="e#15#30#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -900,7 +781,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
           <folding>
-            <element signature="e#14#23#0" expanded="true" />
+            <marker date="1454306018023" expanded="false" signature="14:21" placeholder="import ..." />
+            <marker date="1454306018023" expanded="true" signature="890:1706" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -917,7 +799,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#14#23#0" expanded="true" />
+            <marker date="1454306018023" expanded="false" signature="14:21" placeholder="import ..." />
           </folding>
         </state>
       </provider>
@@ -936,6 +818,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+<<<<<<< HEAD
+=======
+          <folding>
+            <element signature="e#15#46#0" expanded="false" />
+          </folding>
+>>>>>>> 071ce33836b68bc4ab16680e871fa4f65fa9191b
         </state>
       </provider>
     </entry>
@@ -944,7 +832,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
           <folding>
-            <marker date="1454256662565" expanded="false" signature="15:31" placeholder="import ..." />
+            <element signature="e#15#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -953,14 +841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Grn_PO/src/TestData/BASE_INFO.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.87931">
-          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -976,13 +856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Grn_PO/src/TestSuites/TestSuite_2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -1081,6 +954,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+<<<<<<< HEAD
+=======
+          <folding>
+            <element signature="e#15#46#0" expanded="false" />
+          </folding>
+>>>>>>> 071ce33836b68bc4ab16680e871fa4f65fa9191b
         </state>
       </provider>
     </entry>
@@ -1089,8 +968,45 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
           <folding>
-            <element signature="e#15#30#0" expanded="true" />
+            <element signature="e#15#30#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PO_2/webdriverHq/MyPage/Garoon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <marker date="1454306018023" expanded="false" signature="14:21" placeholder="import ..." />
+            <marker date="1454306018023" expanded="true" signature="890:1706" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PO_2/webdriverHq/TestCase/login_garoon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+          <folding>
+            <marker date="1454306018023" expanded="false" signature="14:21" placeholder="import ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grn_PO/src/TestSuites/TestSuite_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grn_PO/src/TestData/BASE_INFO.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.6">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,70 +1018,94 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Grn_PO/src/Page/space/Index.py">
+    <entry file="file://$PROJECT_DIR$/Grn_PO/src/Page/common/SystemCommon.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Grn_PO/src/Page/space/AddSpace.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <element signature="e#14#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PO_2/webdriverHq/MyPage/Garoon.py">
+    <entry file="file://$PROJECT_DIR$/Grn_PO/src/Page/common/SystemApplication.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
-            <element signature="e#14#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PO_2/webdriverHq/TestCase/login_garoon.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-          <folding>
-            <element signature="e#14#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Grn_PO/src/TestCases/SpaceTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-          <folding>
-            <element signature="e#14#25#0" expanded="true" />
+            <element signature="e#14#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Grn_PO/src/CommonFunction/PageObject.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+=======
+        <state vertical-scroll-proportion="-18.964285">
+          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+>>>>>>> 071ce33836b68bc4ab16680e871fa4f65fa9191b
           <folding>
             <element signature="e#15#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Grn_PO/src/Page/space/AddSpace.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
+          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+=======
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+>>>>>>> 071ce33836b68bc4ab16680e871fa4f65fa9191b
+          <folding>
+            <element signature="e#14#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grn_PO/src/Page/space/Index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grn_PO/src/TestCases/QT_SpaceTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding>
+            <element signature="e#14#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grn_PO/src/Page/space/AddCategory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="62" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
+          <folding>
+            <element signature="e#14#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Grn_PO/src/CommonFunction/BaseTestCase.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.44630873">
           <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+=======
+        <state vertical-scroll-proportion="0.51141554">
+          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+>>>>>>> 071ce33836b68bc4ab16680e871fa4f65fa9191b
           <folding>
-            <marker date="1454256662565" expanded="false" signature="15:31" placeholder="import ..." />
+            <element signature="e#15#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
