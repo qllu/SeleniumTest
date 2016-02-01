@@ -15,17 +15,22 @@ class BaseTestCase(unittest.TestCase):
 	u1_pwd = dataoper.readxml('u1', 0, 'password')
 	u2_name = dataoper.readxml('u2', 0, 'username')
 	u2_pwd = dataoper.readxml('u2', 0, 'password')
-	domain = dataoper.readxml('url', 0, 'domain')
+	domain = dataoper.readxml('url', 0, 'qatest01')
 
-	def setUp(self):
-		self.driver = webdriver.Firefox()
-		# self.driver.maximize_window()
-		# self.driver.get(self.domain)
-		self.driver.get("https://qatest01.cybozu.cn/g/")
-		self.driver.implicitly_wait(30)
+	@classmethod
+	def setUpClass(cls):
+		global driver
 
-	def tearDown(self):
-		self.driver.quit()
+		cls.driver = webdriver.Firefox()
+		# cls.driver.maximize_window()
+		cls.driver.get(cls.domain)
+		cls.driver.implicitly_wait(30)
+
+		driver = cls.driver
+
+	@classmethod
+	def tearDownClass(cls):
+		driver.quit()
 
 	def login(self, uname, pwd):
 		self.driver.implicitly_wait(10)
@@ -41,6 +46,19 @@ class BaseTestCase(unittest.TestCase):
 
 	def open_grn(self):
 		self.driver.get(self.domain + "/g/")
+
+	def open_sys_common(self):
+		self.driver.get(self.domain + "/g/system/common_list.csp?")
+
+	def open_sys_app(self):
+		self.driver.get(self.domain + "/g/system/application_list.csp?app_id=")
+
+
+
+
+
+
+
 
 
 
