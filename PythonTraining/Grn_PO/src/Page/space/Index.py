@@ -16,17 +16,17 @@ class Index(PageObject):
     space_icon_loc = (By.CSS_SELECTOR, "div.icon-appMenu-space.appmenu-item-icon")
     creat_link_loc = (By.CSS_SELECTOR, ".icon-add-grn")
 
-    """ ******  system application list action  ******  """
-    def open_sys_space(self):
+    # ******  system application list action  ******
+    def click_sys_space_link(self):
         self.wait(5)
         self.find_element(*self.sys_space_loc).click()
 
-    """ ******   space action   ******* """
-    def open_space(self):
+    # ******   space action   *******
+    def click_space_icon(self):
         self.wait(5)
         self.find_element(*self.space_icon_loc).click()
 
-    def create_space(self):
+    def click_create_space_link(self):
         self.wait(5)
         self.find_element(*self.creat_link_loc).click()
 

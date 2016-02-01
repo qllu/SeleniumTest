@@ -9,6 +9,7 @@ import  time
 
 class PageObject(object):
 	def __init__(self, driver):
+		# self.driver = driver
 		self.driver = driver
 
 	# find element by different type
@@ -27,3 +28,9 @@ class PageObject(object):
 
 	def wait(self, sec):
 		self.driver.implicitly_wait(sec)
+
+	def get_current_url(self):
+		return self.driver.current_url
+
+	def refresh(self):
+		self.driver.refresh()

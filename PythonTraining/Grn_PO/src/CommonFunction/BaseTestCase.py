@@ -2,6 +2,7 @@
 
 import unittest
 import time
+import os
 from selenium import webdriver
 from CommonFunction.DataReader import DataReader
 
@@ -9,13 +10,16 @@ from CommonFunction.DataReader import DataReader
 class BaseTestCase(unittest.TestCase):
 
 	dataoper = DataReader('BASE_INFO.xml')
+	DOMAIN = dataoper.readxml('url', 0, 'qatest01')
 	admin_name = dataoper.readxml('admin', 0, 'username')
 	admin_pwd = dataoper.readxml('admin', 0, 'password')
 	u1_name = dataoper.readxml('u1', 0, 'username')
 	u1_pwd = dataoper.readxml('u1', 0, 'password')
 	u2_name = dataoper.readxml('u2', 0, 'username')
 	u2_pwd = dataoper.readxml('u2', 0, 'password')
-	domain = dataoper.readxml('url', 0, 'qatest01')
+
+	upfile1 = os.path.abspath('../Attachement/cybozu.gif')
+	upfile2 = os.path.abspath('../Attachement/test3.xls')
 
 	@classmethod
 	def setUpClass(cls):
@@ -23,9 +27,8 @@ class BaseTestCase(unittest.TestCase):
 
 		cls.driver = webdriver.Firefox()
 		# cls.driver.maximize_window()
-		cls.driver.get(cls.domain)
+		cls.driver.get(cls.DOMAIN)
 		cls.driver.implicitly_wait(30)
-
 		driver = cls.driver
 
 	@classmethod
@@ -42,16 +45,18 @@ class BaseTestCase(unittest.TestCase):
 		time.sleep(3)
 
 	def logout(self):
-		self.driver.get(self.domain + "/logout")
+		self.driver.get(self.DOMAIN + "/logout")
 
 	def open_grn(self):
-		self.driver.get(self.domain + "/g/")
+		self.driver.get(self.DOMAIN + "/g/")
 
 	def open_sys_common(self):
-		self.driver.get(self.domain + "/g/system/common_list.csp?")
+		self.driver.get(self.DOMAIN + "/g/system/common_list.csp?")
 
 	def open_sys_app(self):
-		self.driver.get(self.domain + "/g/system/application_list.csp?app_id=")
+		self.driver.get(self.DOMAIN + "/g/system/application_list.csp?app_id=")
+
+
 
 
 
