@@ -5,9 +5,10 @@ import os
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import  By
-from CommonFunction.PageObject import PageObject
+from CommonFunction.BasePage import BasePage
+from selenium.webdriver.support.expected_conditions import NoSuchElementException
 
-class ConfigSpace(PageObject):
+class ConfigSpace(BasePage):
     # ******************************
     space_name_loc = (By.ID, "name-label-line-value-def")
     keyword_input_loc = (By.NAME, "keyword_CGID")
@@ -35,13 +36,18 @@ class ConfigSpace(PageObject):
         self.find_element(*self.save_loc).click()
 
     def action_open_space_detail(self):
-        self.find_element(*self.space_menu_loc).click()
-        self.find_element(*self.space_detail_loc).click()
+        try:
+            self.find_element(*self.space_menu_loc).click()
+            self.find_element(*self.space_detail_loc).click()
+        except (Exception, NoSuchElementException) as e:
+            print e
 
-    def action_delete_space(self, space_name):
-        self.find_element(*self.delete_space_loc).click()
-        self.find_element(*self.delete_yes_loc).click()
-
+    def action_delete_space(self):
+        try:
+            self.find_element(*self.delete_space_loc).click()
+            self.find_element(*self.delete_yes_loc).click()
+        except (Exception, NoSuchElementException) as e:
+            print e
 
 
 

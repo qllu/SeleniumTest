@@ -7,17 +7,15 @@ from selenium.webdriver.common.by import  By
 import  time
 
 
-class PageObject(object):
+class BasePage(object):
 	def __init__(self, driver):
-		# self.driver = driver
+
 		self.driver = driver
 
 	# find element by different type
-	def find_element(self, *loc):
-		try:
-			return  self.driver.find_element(*loc)
-		except (NoSuchElementException, KeyError, ValueError, Exception), e:
-			print 'Error details:%s'%(e.args[0])
+	def find_element(self, *loc):		
+		return self.driver.find_element(*loc)
+		
 
 	# find elements by different type
 	def find_elements(self, *loc):

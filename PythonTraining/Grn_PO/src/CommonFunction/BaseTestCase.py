@@ -35,6 +35,10 @@ class BaseTestCase(unittest.TestCase):
 	def tearDownClass(cls):
 		driver.quit()
 
+	def tearDown(self):
+		self.logout()
+
+
 	def login(self, uname, pwd):
 		self.driver.implicitly_wait(10)
 		self.driver.find_element_by_name("username").clear()

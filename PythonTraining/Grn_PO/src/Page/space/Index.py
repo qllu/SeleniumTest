@@ -6,9 +6,9 @@ sys.path.append(os.getcwd() + "/src/")
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import  By
-from CommonFunction.PageObject import PageObject
+from CommonFunction.BasePage import BasePage
 
-class Index(PageObject):
+class Index(BasePage):
     # ******  system application list location   ***********
     sys_space_loc = (By.ID, "space")
 
@@ -22,7 +22,7 @@ class Index(PageObject):
         self.find_element(*self.sys_space_loc).click()
 
     # ******   space action   *******
-    def click_space_icon(self):
+    def open_space(self):
         self.wait(5)
         self.find_element(*self.space_icon_loc).click()
 
@@ -30,3 +30,12 @@ class Index(PageObject):
         self.wait(5)
         self.find_element(*self.creat_link_loc).click()
 
+    def select_space(self, space_name):
+        try:
+            s = self.find_element(By.LINK_TEXT, space_name)
+            if s.is_displayed() is True:
+                s.click()
+            else:
+                return False
+        except Exception as e:
+            print e, "space is not exist"
